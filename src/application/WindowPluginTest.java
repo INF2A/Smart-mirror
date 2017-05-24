@@ -48,17 +48,19 @@ public class WindowPluginTest extends AbstractApplication {
         focusComponents.add(exitButton);
 
 
-       // SYSTEM_FocusManager.addFocusableComponent(field);
+        // SYSTEM_FocusManager.addFocusableComponent(field);
 
     }
 
     @Override
     public void onButtonPressed() {
+        super.onButtonPressed();
         label.setText("Plugin press test");
     }
 
     @Override
     public void onButtonReleased() {
+        super.onButtonReleased();
         label.setText("Other ubtton");
     }
 

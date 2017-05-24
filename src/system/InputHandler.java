@@ -1,9 +1,10 @@
 package system;
 
+import system.input.Keyboard.Keyboard;
 import system.view.AbstractWindow;
 import system.input.Keyboard.KeyboardController;
-
 import javax.swing.*;
+
 
 /**
  * Created by Erwin on 5/16/2017.
@@ -80,6 +81,10 @@ public class InputHandler extends AbstractInputHandler {
             kbc.onMenuButton();
             JTextField b = (JTextField) window.INTERNAL_currentFocusedObject;
             b.setText(kbc.text);
+            if(kbc.getKeyCodeCurrentKey().equals(Keyboard.KEYCODE.ENTER)) {
+                window.onRightButton();
+                window.focusComponents.get(window.currentComponent).requestFocus();
+            }
         }
         else window.onMenuButton();
     }

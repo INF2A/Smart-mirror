@@ -12,7 +12,6 @@ public class Keyboardview extends JPanel {
 
     List<Keyboard.Key> keys;
     Keyboard.Key currentKey;
-    private boolean shifted;
 
     public Keyboardview()
     {
@@ -27,15 +26,6 @@ public class Keyboardview extends JPanel {
     {
         this.currentKey = key;
     }
-    public void setShifted(boolean shifted)
-    {
-        this.shifted = shifted;
-    }
-    public boolean isShifted()
-    {
-        return shifted;
-    }
-
 
     /**
      * Override the default JPanel paint settings to draw our keyboard
@@ -46,7 +36,6 @@ public class Keyboardview extends JPanel {
     {
         super.paintComponent(g);
         this.setBackground(Color.WHITE);
-        g.drawString("tesksfkmdkfskdfmsdkmfktstring", 50, 50);
 
         for ( Keyboard.Key key : keys )
         {
@@ -61,17 +50,7 @@ public class Keyboardview extends JPanel {
             }
 
             g.setColor(Color.BLACK);
-            g.drawString(key.text, key.x + key.width / 2, key.y + key.height / 2);
+            g.drawString(key.label, key.x + key.width / 2, key.y + key.height / 2);
         }
     }
-
-    /**
-     * Override the default JPanel size setting to set the WindowPluginTest to the desired size
-     * @return The Dimension with our desired size
-     */
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(super.getWidth(), 200);
-    }
-
 }

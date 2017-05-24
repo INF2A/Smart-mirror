@@ -19,6 +19,11 @@ import java.util.*;
  * this gives the ability to define what action to take when an input
  * is registered.
  *
+ * Everything marked as 'SYSTEM' can be safely called in a deriving class.
+ * This is supposed to give extra functionality.
+ *
+ * Everything marked as 'INTERNAL' is not to be called by a deriving class
+ *
  */
 public abstract class AbstractWindow extends AbstractInputHandler implements FocusListener {
 
@@ -28,17 +33,12 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
     public int previousComponent = 0;
     public Object INTERNAL_currentFocusedObject;
 
-
     boolean INTERNAL_keyboardActive = false;
     JButton INTERNAL_KeyboardRequestHandle = new JButton(); // The handle used by the system for opening the keyboard
     JButton INTERNAL_KeyboardCloseHandle = new JButton();   // The handle used by the system for closing the keyboard
 
-
-    JButton INTERNAL_ExitHandle = new JButton(); // The handle used by the system for closing the application
-
     public JPanel SYSTEM_Screen = new JPanel();  // The container that holds the application'
 
-    public JPanel SYSTEM_Widget = new JPanel();  // The container that holds a widget of the application
 
     public AbstractWindow() {
         focusComponents.add(SYSTEM_Screen);
@@ -52,10 +52,6 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
         }
     }
 
-    public void SYSTEM_addFocusComponent(JComponent c) {
-        c.addFocusListener(this);
-    }
-
     /**
      *  This method updates the screen when input is detected
      */
@@ -63,18 +59,6 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
         SYSTEM_Screen.repaint();
         SYSTEM_Screen.revalidate();
     }
-
-    /**
-     * This Method may be called to exit the application.
-     *
-     * It calls an internal JButton which is connected
-     * with the system through an ActionListener
-     */
-    public void SYSTEM_closeScreen()
-    {
-        INTERNAL_ExitHandle.doClick();
-    }
-
 
     /**
      * This Method may be called to request an onscreen keyboard
@@ -109,20 +93,6 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
     public JPanel INTERNAL_getScreen()
     {
         return SYSTEM_Screen;
-    }
-
-    /**
-     * This is an INTERNAL method used by the system to check
-     * if the SYSTEM_closeScreen method is called.
-     *
-     * It will add a listener to the jbutton INTERNAL_ExitHandle
-     * by the system to know when to close the application.
-     *
-     * @param al The ActionListener for the exitHandle
-     */
-    public void INTERNAL_addExitActionListener(ActionListener al)
-    {
-        INTERNAL_ExitHandle.addActionListener(al);
     }
 
     /**
@@ -213,7 +183,6 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
         if (INTERNAL_isKeyboardActive()) {
             if (e.getSource().equals(INTERNAL_currentFocusedObject)) {
                 INTERNAL_closeKeyboard();
-                SYSTEM_Screen.requestFocus();
             }
         }
     }
