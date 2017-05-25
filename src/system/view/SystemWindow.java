@@ -15,31 +15,13 @@ import java.util.Map;
  */
 public class SystemWindow extends AbstractSystemWindow {
 
-    Map<String, AbstractApplication> apps;
-    public AbstractApplication selectedApp;
-    Map<String, Widget> widgets;
-
     private JLabel label;
-
 
     public SystemWindow()
     {
-        apps = new HashMap<>();
         label = new JLabel("System window - view widgets and open apps from here");
 
         SYSTEM_Screen.add(label);
-    }
-
-    private JButton INTERNAL_WindowChangeHandle = new JButton();
-    public void INTERNAL_addWindowChangeListener(ActionListener al)
-    {
-        INTERNAL_WindowChangeHandle.addActionListener(al);
-    }
-
-    public void INTERNAL_closeKeyboard()
-    {
-        INTERNAL_keyboardActive = false;
-        INTERNAL_KeyboardCloseHandle.doClick();
     }
 
     public void addApplication(String appName, AbstractApplication app){
@@ -55,34 +37,27 @@ public class SystemWindow extends AbstractSystemWindow {
 
     @Override
     public void onButtonPressed() {
+        super.onButtonPressed();
         label.setText("press button");
     }
 
     @Override
     public void onButtonReleased() {
+        super.onButtonReleased();
         label.setText("release button");
     }
 
     @Override
     public void onMenuButton(){
+        super.onMenuButton();
         if(SYSTEM_Screen.hasFocus()) {
             //open menu
-        } else {
-            if(focusComponents.get(currentComponent) instanceof JPanel) {
-                if((focusComponents.get(currentComponent)).getName().equals("test1")) {
-                    selectedApp = apps.get("test1");
-                    INTERNAL_WindowChangeHandle.doClick();
-                }
-                if((focusComponents.get(currentComponent)).getName().equals("test2")) {
-                    selectedApp = apps.get("test2");
-                    INTERNAL_WindowChangeHandle.doClick();
-                }
-            }
         }
     }
 
     @Override
     public void onBackButton(){
+        super.onBackButton();
     }
 
 

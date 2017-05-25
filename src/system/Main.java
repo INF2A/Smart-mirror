@@ -1,5 +1,6 @@
 package system;
 
+import application.Clock;
 import com.pi4j.platform.PlatformAlreadyAssignedException;
 import application.WindowPluginTest;
 import system.view.AbstractWindow;
@@ -46,7 +47,7 @@ public class Main{
 
     final KeyboardController kbc = new KeyboardController();
     final InputHandler inputHandler = new InputHandler();
- //   final GpioListener gpio = new GpioListener(inputHandler);
+    //   final GpioListener gpio = new GpioListener(inputHandler);
 
     Map<String, AbstractApplication> apps;
 
@@ -60,23 +61,29 @@ public class Main{
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         container = new JPanel();
         container.setLayout(new BorderLayout());
-      //  container.setSize(screenSize);
+        //  container.setSize(screenSize);
         frame.add(container, BorderLayout.CENTER);
         frame.setVisible(true);
 
-        kbc.setKeyboard(new Keyboard());
-        kbc.setKeyboardview(new Keyboardview());
+        System.out.println(frame.getWidth() + " " + frame.getHeight());
+        kbc.setKeyBoardDimensions(frame.getWidth(), frame.getHeight());
         inputHandler.attachKeyboardController(kbc);
 
         systemWindow = new SystemWindow();
+
+
+        AbstractApplication clock = new Clock();
         AbstractApplication a = new WindowPluginTest("app1 test1");
         AbstractApplication b = new WindowPluginTest("This is app 2, test2");
         apps.put("test1", a);
         apps.put("test2", b);
+        apps.put("clock", clock);
         systemWindow.addApplication("test1", a);
         systemWindow.addApplication("test2", b);
-        startSystemWindow();
+        systemWindow.addApplication("clock", clock);
 
+
+        startSystemWindow();
         test_AttachButtonSimulator();
     }
 
@@ -133,7 +140,10 @@ public class Main{
         currentWindow = window;
         inputHandler.attachWindow(window);
 
-        window.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
+        if(window instanceof AbstractApplication)
+        {
+            ((AbstractApplication)window).INTERNAL_addExitActionListener(e -> changeToSystemWindow());
+        }
         window.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
         window.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
 
@@ -144,6 +154,7 @@ public class Main{
     }
 
     private void openKeyboard() {
+        //kbc.setKeyBoardDimensions(frame.getWidth(), frame.getHeight());
         container.add(inputHandler.kbc.getKeyboardview(), BorderLayout.SOUTH);
         update();
     }
@@ -203,10 +214,10 @@ public class Main{
         URLClassLoader ClassLoader = URLClassLoader.newInstance(new URL[] {url});
 
         Class<?> clazz = Class.forName("byv.PluginA", true, ClassLoader);
-       // plugins.put("clock", clazz);
+        // plugins.put("clock", clazz);
 
-     //   AbstractWindow window = (AbstractWindow) plugins.get("clock").newInstance();
-      //  setCurrentWindow(window);
+        //   AbstractWindow window = (AbstractWindow) plugins.get("clock").newInstance();
+        //  setCurrentWindow(window);
     }
 
 
