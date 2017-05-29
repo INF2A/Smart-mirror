@@ -11,8 +11,9 @@ import java.awt.event.ActionListener;
  * Created by basva on 25-5-2017.
  */
 public class Weather extends AbstractApplication{
-    public Weather()
-    {
+
+    @Override
+    public void init() {
         SYSTEM_Screen.setBackground(Color.black);
 
         JLabel weatherLbl = new JLabel("Weather options");
@@ -37,5 +38,10 @@ public class Weather extends AbstractApplication{
 
         focusComponents.add(weatherLocationField);
         focusComponents.add(exitButton);
+    }
+
+    public Weather()
+    {
+
     }
 }

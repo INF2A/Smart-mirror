@@ -3,70 +3,65 @@ package application;
 import com.smartmirror.core.view.AbstractApplication;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Created by Erwin on 5/16/2017.
  */
-public class WindowPluginTest extends AbstractApplication {
+public class WindowPluginTest extends AbstractApplication implements Runnable {
 
     private JLabel label;
-    private JButton exitButton;
+    private int n;
+    private boolean running = false;
 
-    public WindowPluginTest(String name)
-    {
-        JTextField field = new JTextField();
-        field.setPreferredSize(new Dimension(200, 20));
-        JTextField field2 = new JTextField();
-        field2.setPreferredSize(new Dimension(200, 20));
-        JTextField field3 = new JTextField();
-        field3.setPreferredSize(new Dimension(200, 20));
-        label = new JLabel(name);
+    Thread gameLogicThread;
 
-        exitButton = new JButton("exit app");
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SYSTEM_closeScreen();
-            }
-        });
+    /**
+     * Starts a new thread to run our game logic in.
+     * This is to make sure we are not in the EDT that is responsible
+     * for repainting the JFrame and JPanels.
+     * This way our close button will remain responsive.
+     */
+    public synchronized void start() {
+        if (running) return;
+        running = true;
+        gameLogicThread = new Thread(this);
+        gameLogicThread.setName("Game Thread");
+        System.out.println(Thread.currentThread().getName() + " - Start -  Alive: " + Thread.currentThread().isAlive());
+        gameLogicThread.start();
+    }
 
+    @Override
+    public void init() {
+        n = 0;
+        label = new JLabel("amount: ");
         SYSTEM_Screen.add(label);
-
-        SYSTEM_Screen.add(field);
-        SYSTEM_Screen.add(field2);
-        SYSTEM_Screen.add(field3);
-
-        SYSTEM_Screen.add(exitButton);
-
-        focusComponents.add(field);
-        focusComponents.add(field2);
-        focusComponents.add(field3);
-        focusComponents.add(exitButton);
-
-
-        // SYSTEM_FocusManager.addFocusableComponent(field);
-
-        SYSTEM_Widget.setPreferredSize(new Dimension(50,50));
-        JLabel test = new JLabel("TEST");
-        SYSTEM_Widget.add(test);
-
-        SYSTEM_Widget_Location = location.CENTER;
-
-        SYSTEM_Widget.setPreferredSize(new Dimension(50,50));
+        start();
     }
 
     @Override
-    public void onButtonPressed() {
-        super.onButtonPressed();
-        label.setText("Plugin press test");
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " - Run - Alive: " + Thread.currentThread().isAlive());
+        while (running) {
+            try {
+                gameLogicThread.sleep(17);
+                label.setText("Amount: " + n++);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
+
     @Override
-    public void onButtonReleased() {
-        super.onButtonReleased();
-        label.setText("Other button");
+    public void onBackButton() {
+        super.onBackButton();
+        try {
+            running = false;
+            gameLogicThread.join();
+            System.out.println(Thread.currentThread().getName() + " - Join - Alive: " + Thread.currentThread().isAlive());
+            SYSTEM_closeScreen();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

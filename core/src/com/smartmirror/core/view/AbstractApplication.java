@@ -20,6 +20,7 @@ public abstract class AbstractApplication extends AbstractWindow {
 
     public location SYSTEM_Widget_Location;
 
+
     JButton INTERNAL_ExitHandle = new JButton(); // The handle used by the system for closing the application
 
     /**
@@ -44,6 +45,7 @@ public abstract class AbstractApplication extends AbstractWindow {
      */
     public void SYSTEM_closeScreen()
     {
+        SYSTEM_Screen.removeAll();
         INTERNAL_ExitHandle.doClick();
     }
 }

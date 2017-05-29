@@ -22,27 +22,38 @@ import java.util.Map;
  * Created by basva on 25-5-2017.
  */
 public class Settings extends AbstractApplication{
-    public Settings(Map<String, AbstractApplication> apps)
-    {
-        getWidget();
+
+    private Map<String, AbstractApplication> apps;
+
+    @Override
+    public void init() {
 
         getPanel(apps);
+      //  getWidget();
+    }
+
+    public Settings(Map<String, AbstractApplication> apps)
+    {
+        this.apps = new HashMap<>();
+        SYSTEM_Widget.setBackground(Color.BLACK);
+        this.apps = apps;
     }
 
     private void getWidget()
     {
         SYSTEM_Widget.setOpaque(false);
         SYSTEM_Widget.setPreferredSize(new Dimension(25,25));
-        BufferedImage icon = null;
+        BufferedImage icon;
+        JLabel img = new JLabel();
         try
         {
-            icon = ImageIO.read(new File("D:\\Gebruikers\\basva\\OneDrive\\STENDEN\\Leerjaar2\\Periode 4\\PROJECT\\SlimPiV2\\resources\\img\\settings.png"));
+            icon = ImageIO.read(getClass().getResource("img/settings.png"));
+            img.setIcon(new ImageIcon(icon));
         }
         catch (IOException e)
         {
 
         }
-        JLabel img = new JLabel(new ImageIcon(icon));
         SYSTEM_Widget.add(img);
         SYSTEM_Widget_Location = location.TOP;
     }

@@ -23,14 +23,7 @@ public class SystemWindow extends AbstractSystemWindow {
     public SystemWindow()
     {
         // = new JLabel("System window - view widgets and open apps from here");
-
-        init();
-
         //enter.add(label);
-    }
-
-    public void init()
-    {
         SYSTEM_Screen.setPreferredSize(new Dimension(screenSize));
 
         SYSTEM_Screen.setLayout(new BorderLayout());
@@ -46,6 +39,12 @@ public class SystemWindow extends AbstractSystemWindow {
         bottom = new JPanel();
         bottom.setBackground(Color.BLUE);
         SYSTEM_Screen.add(bottom, BorderLayout.SOUTH);
+    }
+
+    @Override
+    public void init()
+    {
+
     }
 
     public void addApplicationToWindow(String appName, AbstractApplication app){

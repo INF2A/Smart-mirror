@@ -22,25 +22,11 @@ public abstract class AbstractSystemWindow extends AbstractWindow {
     @Override
     public void onMenuButton(){
         if(focusComponents.get(currentComponent) instanceof JPanel) {
-            if((focusComponents.get(currentComponent)).getName().equals("test1")) {
-                selectedApp = apps.get("test1");
-                INTERNAL_WindowChangeHandle.doClick();
-            }
-            if((focusComponents.get(currentComponent)).getName().equals("test2")) {
-                selectedApp = apps.get("test2");
-                INTERNAL_WindowChangeHandle.doClick();
-            }
-            if((focusComponents.get(currentComponent)).getName().equals("clock")) {
-                selectedApp = apps.get("clock");
-                INTERNAL_WindowChangeHandle.doClick();
-            }
-            if((focusComponents.get(currentComponent)).getName().equals("settings")) {
-                selectedApp = apps.get("settings");
-                INTERNAL_WindowChangeHandle.doClick();
-            }
-            if((focusComponents.get(currentComponent)).getName().equals("weather")) {
-                selectedApp = apps.get("weather");
-                INTERNAL_WindowChangeHandle.doClick();
+            for (String s : apps.keySet()){
+                if((focusComponents.get(currentComponent)).getName().equals(s)) {
+                    selectedApp = apps.get(s);
+                    INTERNAL_WindowChangeHandle.doClick();
+                }
             }
         }
     }

@@ -26,18 +26,10 @@ public class Main{
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new Main();
-                } catch (PlatformAlreadyAssignedException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        // SwingUtilities.invokeLater(() -> { new Main().buildGui(); });
+        new Main();
     }
+
 
     JFrame frame;
     JPanel container;
@@ -51,9 +43,24 @@ public class Main{
 
     Map<String, AbstractApplication> apps;
 
-    public Main() throws PlatformAlreadyAssignedException, InterruptedException {
-        apps = new HashMap<>();
+    public Main() {
+        buildGui();
 
+        System.out.println(frame.getWidth() + " " + frame.getHeight());
+        kbc.setKeyBoardDimensions(frame.getWidth(), frame.getHeight());
+        inputHandler.attachKeyboardController(kbc);
+
+        systemWindow = new SystemWindow();
+        systemWindow.INTERNAL_addWindowChangeListener(e -> setCurrentWindow(systemWindow.selectedApp));
+
+        apps = new HashMap<>();
+        loadPlugins();
+
+        startSystemWindow();
+        test_AttachButtonSimulator();
+    }
+
+    public void buildGui() {
         frame = new JFrame();
         frame.setLayout(new BorderLayout());
         //frame.setUndecorated(true);
@@ -63,18 +70,6 @@ public class Main{
         //  container.setSize(screenSize);
         frame.add(container, BorderLayout.CENTER);
         frame.setVisible(true);
-
-        System.out.println(frame.getWidth() + " " + frame.getHeight());
-        kbc.setKeyBoardDimensions(frame.getWidth(), frame.getHeight());
-        inputHandler.attachKeyboardController(kbc);
-
-        systemWindow = new SystemWindow();
-
-        loadPlugins();
-
-
-        startSystemWindow();
-        test_AttachButtonSimulator();
     }
 
     /// TEMPORARY
@@ -124,27 +119,24 @@ public class Main{
         });
     }
 
-
-    private void setCurrentWindow(AbstractWindow window)
+    private void setCurrentWindow(AbstractApplication window)
     {
+        System.out.println(
+                Thread.currentThread().getName() + " - setCurrentW - Alive: " +
+                        Thread.currentThread().isAlive());
         currentWindow = window;
         inputHandler.attachWindow(window);
-
-        if(window instanceof AbstractApplication)
-        {
-            ((AbstractApplication)window).INTERNAL_addExitActionListener(e -> changeToSystemWindow());
-        }
-        window.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
-        window.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
 
         container.removeAll();
         container.add(window.INTERNAL_getScreen(), BorderLayout.CENTER);
         window.INTERNAL_init();
+        window.init();
+
         update();
+
     }
 
     private void openKeyboard() {
-        //kbc.setKeyBoardDimensions(frame.getWidth(), frame.getHeight());
         container.add(inputHandler.kbc.getKeyboardview(), BorderLayout.SOUTH);
         update();
     }
@@ -154,18 +146,22 @@ public class Main{
         update();
     }
 
-
     private void startSystemWindow() {
+        System.out.println(
+                Thread.currentThread().getName() + " - startSiyW - Alive: " +
+                        Thread.currentThread().isAlive());
         currentWindow = systemWindow;
-
-        systemWindow.INTERNAL_addWindowChangeListener(e -> setCurrentWindow(systemWindow.selectedApp));
-
         container.add(systemWindow.INTERNAL_getScreen(), BorderLayout.CENTER);
         inputHandler.attachWindow(systemWindow);
         update();
+
     }
+
     private void changeToSystemWindow()
     {
+        System.out.println(
+                Thread.currentThread().getName() + " - Change2SysW - Alive: " +
+                        Thread.currentThread().isAlive());
         container.remove(currentWindow.INTERNAL_getScreen());
         startSystemWindow();
     }
@@ -173,31 +169,14 @@ public class Main{
     // refreshes the screen
     private void update()
     {
+        System.out.println(
+                Thread.currentThread().getName() + " - Main update - Alive: " +
+                        Thread.currentThread().isAlive());
         container.revalidate();
         container.repaint();
     }
 
 
-
-//
-//    http://stackoverflow.com/questions/10698049/how-to-dynamically-load-a-jar-with-common-abstract-class
-//
-//    //PluginA.java
-//package byv;
-//
-//import byv.BasicPlugin;
-//
-//    public class PluginA extends BasicPlugin {
-//        @Override
-//        public int test(int a) {
-//            return a + a;
-//        }
-//    }
-
-
-//    // Avoid Class.newInstance, for it is evil.
-//    Constructor<? extends Runnable> ctor = runClass.getConstructor();
-//    Runnable doRun = ctor.newInstance();
 
     private void loadTest() throws Exception {
         URL url = new File("plugins\\clock.jar").toURI().toURL();
@@ -206,34 +185,45 @@ public class Main{
         Class<?> module = Class.forName("com.smartmirror.clock.Application", true, ClassLoader);
 
         AbstractApplication window = (AbstractApplication) module.newInstance();
+        window.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
+        window.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
+        window.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
+
         apps.put("clock", window);
         systemWindow.addApplicationToWindow("clock", window);
     }
 
     private void loadPlugins() {
 
-        AbstractApplication a = new WindowPluginTest("app1 test1");
-        AbstractApplication b = new WindowPluginTest("This is app 2, test2");
+        AbstractApplication a = new WindowPluginTest();
+        a.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
+        a.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
+        a.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
+
         AbstractApplication weather = new Weather();
+        weather.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
+        weather.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
+        weather.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
 
-        apps.put("test1", a);
-        apps.put("test2", b);
         apps.put("weather", weather);
-
-        systemWindow.addApplicationToWindow("test1", a);
-        systemWindow.addApplicationToWindow("test2", b);
         systemWindow.addApplicationToWindow("weather", weather);
-
-
-        AbstractApplication settings = new Settings(apps);
-        apps.put("settings", settings);
-        systemWindow.addApplicationToWindow("settings", settings);
 
         try {
             loadTest();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+        AbstractApplication settings = new Settings(apps);
+        settings.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
+        settings.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
+        settings.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
+
+        apps.put("settings", settings);
+        systemWindow.addApplicationToWindow("settings", settings);
+        apps.put("test1", a);
+        systemWindow.addApplicationToWindow("test1", a);
     }
 
 
