@@ -49,6 +49,13 @@ public class WindowPluginTest extends AbstractApplication {
 
         // SYSTEM_FocusManager.addFocusableComponent(field);
 
+        SYSTEM_Widget.setPreferredSize(new Dimension(50,50));
+        JLabel test = new JLabel("TEST");
+        SYSTEM_Widget.add(test);
+
+        SYSTEM_Widget_Location = location.CENTER;
+
+        SYSTEM_Widget.setPreferredSize(new Dimension(50,50));
     }
 
     @Override
@@ -60,7 +67,6 @@ public class WindowPluginTest extends AbstractApplication {
     @Override
     public void onButtonReleased() {
         super.onButtonReleased();
-        label.setText("Other ubtton");
+        label.setText("Other button");
     }
-
 }

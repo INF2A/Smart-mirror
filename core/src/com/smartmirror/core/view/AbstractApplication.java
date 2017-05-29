@@ -1,6 +1,7 @@
 package com.smartmirror.core.view;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
@@ -9,6 +10,15 @@ import java.awt.event.ActionListener;
 public abstract class AbstractApplication extends AbstractWindow {
 
     public JPanel SYSTEM_Widget = new JPanel();  // The container that holds a widget of the application
+
+    public enum location
+    {
+        TOP,
+        CENTER,
+        BOTTOM
+    }
+
+    public location SYSTEM_Widget_Location;
 
     JButton INTERNAL_ExitHandle = new JButton(); // The handle used by the system for closing the application
 
@@ -36,5 +46,4 @@ public abstract class AbstractApplication extends AbstractWindow {
     {
         INTERNAL_ExitHandle.doClick();
     }
-
 }

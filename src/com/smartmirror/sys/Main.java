@@ -1,5 +1,7 @@
 package com.smartmirror.sys;
 
+import application.Settings;
+import application.Weather;
 import com.pi4j.platform.PlatformAlreadyAssignedException;
 import application.WindowPluginTest;
 
@@ -68,7 +70,7 @@ public class Main{
 
         systemWindow = new SystemWindow();
 
-        loadplugins();
+        loadPlugins();
 
 
         startSystemWindow();
@@ -205,16 +207,27 @@ public class Main{
 
         AbstractApplication window = (AbstractApplication) module.newInstance();
         apps.put("clock", window);
-        systemWindow.addApplication("clock", window);
+        systemWindow.addApplicationToWindow("clock", window);
     }
 
-    private void loadplugins() {
+    private void loadPlugins() {
+
         AbstractApplication a = new WindowPluginTest("app1 test1");
         AbstractApplication b = new WindowPluginTest("This is app 2, test2");
+        AbstractApplication weather = new Weather();
+
         apps.put("test1", a);
         apps.put("test2", b);
-        systemWindow.addApplication("test1", a);
-        systemWindow.addApplication("test2", b);
+        apps.put("weather", weather);
+
+        systemWindow.addApplicationToWindow("test1", a);
+        systemWindow.addApplicationToWindow("test2", b);
+        systemWindow.addApplicationToWindow("weather", weather);
+
+
+        AbstractApplication settings = new Settings(apps);
+        apps.put("settings", settings);
+        systemWindow.addApplicationToWindow("settings", settings);
 
         try {
             loadTest();

@@ -34,6 +34,14 @@ public abstract class AbstractSystemWindow extends AbstractWindow {
                 selectedApp = apps.get("clock");
                 INTERNAL_WindowChangeHandle.doClick();
             }
+            if((focusComponents.get(currentComponent)).getName().equals("settings")) {
+                selectedApp = apps.get("settings");
+                INTERNAL_WindowChangeHandle.doClick();
+            }
+            if((focusComponents.get(currentComponent)).getName().equals("weather")) {
+                selectedApp = apps.get("weather");
+                INTERNAL_WindowChangeHandle.doClick();
+            }
         }
     }
 }
