@@ -2,71 +2,38 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="simulator:jar" />
+      <artifact name="core:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b54c7177-0dca-4e45-8744-befd86f17815" name="Default" comment="Code merging">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.idata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rdata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.reloc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rsrc/0/RCDATA/11111" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rsrc/0/string.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rsrc/1033/GROUP_ICON/MAINICON" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rsrc/1043/ICON/1.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rsrc/1043/ICON/2.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rsrc/1043/ICON/3.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rsrc/1043/ICON/4.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rsrc/2052/MANIFEST/1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.rsrc/2052/version.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/.tls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/BSS" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/CERTIFICATE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/CODE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/DATA" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/img/IPCWebComponents/[0]" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.idata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rdata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.reloc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rsrc/0/RCDATA/11111" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rsrc/0/string.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rsrc/1033/GROUP_ICON/MAINICON" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rsrc/1043/ICON/1.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rsrc/1043/ICON/2.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rsrc/1043/ICON/3.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rsrc/1043/ICON/4.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rsrc/2052/MANIFEST/1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.rsrc/2052/version.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/.tls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/BSS" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/CERTIFICATE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/CODE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/DATA" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/img/IPCWebComponents/[0]" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Settings$1.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/application/Settings$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Settings$2.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/application/Settings$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Settings.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/application/Settings.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Weather$1.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/application/Weather$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Weather.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/application/Weather.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/WindowPluginTest.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/application/WindowPluginTest.class" />
+    <list default="true" id="b54c7177-0dca-4e45-8744-befd86f17815" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/applications/system/clock.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemApplication.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractUserApplication.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/ApplicationParser.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Settings$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Settings$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Settings.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Weather$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Weather.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/Widget.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/application/WindowPluginTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractApplication$location.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractApplication.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/clock.jar" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/application/Settings.java" afterPath="$PROJECT_DIR$/src/applications/Settings.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/application/Weather.java" afterPath="$PROJECT_DIR$/src/applications/Weather.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/application/Widget.java" afterPath="$PROJECT_DIR$/src/applications/Widget.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/application/WindowPluginTest.java" afterPath="$PROJECT_DIR$/src/applications/WindowPluginTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/core_jar/core.jar" afterPath="$PROJECT_DIR$/out/artifacts/core_jar/core.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main$1.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main$2.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main$3.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main$4.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/SystemWindow.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/SystemWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractApplication.class" afterPath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractSystemWindow.class" afterPath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractSystemWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractWindow.class" afterPath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractWindow.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java" afterPath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemWindow.java" afterPath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java" afterPath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/Settings.java" afterPath="$PROJECT_DIR$/src/application/Settings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/Weather.java" afterPath="$PROJECT_DIR$/src/application/Weather.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/WindowPluginTest.java" afterPath="$PROJECT_DIR$/src/application/WindowPluginTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/Main.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java" />
     </list>
@@ -101,8 +68,8 @@
       <file leaf-file-name="AbstractWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+            <state relative-caret-position="-179">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,15 +78,62 @@
       <file leaf-file-name="SystemWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="697">
+              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/applications/Settings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="203" column="5" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#test_AttachButtonSimulator#0;class#Main#0" expanded="false" />
+                <element signature="e#7134#7135#0" expanded="true" />
+                <element signature="e#7174#7175#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractUserApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractUserApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Weather.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/applications/Weather.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-221">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Widget.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/Widget.java">
+        <entry file="file://$PROJECT_DIR$/src/applications/Widget.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
@@ -128,83 +142,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/Settings.java">
+      <file leaf-file-name="ApplicationParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/ApplicationParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="153">
+              <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1020#1021#0" expanded="true" />
+                <element signature="e#1073#1074#0" expanded="true" />
+                <element signature="method#findImplementingClasInJarFile#0;class#ApplicationParser#0" expanded="false" />
+                <element signature="e#5961#5969#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Weather.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/Weather.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
-              <folding>
-                <element signature="e#823#824#0" expanded="true" />
-                <element signature="e#875#876#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UnitTest/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WindowPluginTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/WindowPluginTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UnitTest/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#test_AttachButtonSimulator#0;class#Main#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractApplication.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AbstractApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="399">
+              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
               <folding>
-                <element signature="e#964#965#0" expanded="true" />
-                <element signature="e#1021#1022#0" expanded="true" />
+                <element signature="e#1295#1296#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractSystemApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -222,6 +193,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -231,11 +207,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/system/view/Keyboard/AbstractKeyboardController.java" />
-        <option value="$PROJECT_DIR$/src/system/view/Keyboard/KeyboardController.java" />
-        <option value="$PROJECT_DIR$/src/system/view/AbstractWindowInputHandler.java" />
-        <option value="$PROJECT_DIR$/src/system/view/AbstractApplicationWindow.java" />
-        <option value="$PROJECT_DIR$/src/system/AbstractInputHandler.java" />
         <option value="$PROJECT_DIR$/src/system/input/focus/IFocus.java" />
         <option value="$PROJECT_DIR$/src/system/input/focus/FocusComponent.java" />
         <option value="$PROJECT_DIR$/src/system/input/focus/Focusable.java" />
@@ -276,12 +247,17 @@
         <option value="$PROJECT_DIR$/simulator/src/com.smartmirror.simulator/Simulator.java" />
         <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemWindow.java" />
         <option value="$PROJECT_DIR$/src/application/WindowPluginTest.java" />
-        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java" />
         <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java" />
-        <option value="$PROJECT_DIR$/src/application/Settings.java" />
+        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemApplication.java" />
         <option value="$PROJECT_DIR$/src/application/Weather.java" />
+        <option value="$PROJECT_DIR$/src/application/Settings.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/ApplicationLoader.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/Main.java" />
+        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractUserApplication.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/ApplicationParser.java" />
+        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java" />
+        <option value="$PROJECT_DIR$/src/applications/Settings.java" />
       </list>
     </option>
   </component>
@@ -393,7 +369,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
+              <option name="myItemId" value="applications" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -477,6 +453,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Smart-mirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Smart-mirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="applications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Smart-mirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Smart-mirror" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="applications" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -495,10 +507,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\simulator\src" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="system.view" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="src" />
+      <recent name="com.smartmirror.sys" />
       <recent name="com.smartmirror.core" />
       <recent name="" />
     </key>
@@ -512,8 +526,10 @@
       <recent name="application" />
       <recent name="plugin" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="system.view" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\applications" />
+      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\applications\system" />
+      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\simulator\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -814,17 +830,17 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3371522" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31423897" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31423897" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24810892" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24810892" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -881,7 +897,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="34" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -890,9 +906,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/system/view/focus/WindowFocusListener.java" />
-    <entry file="file://$PROJECT_DIR$/src/system/input/Keyboard/KeyboardManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/system/view/focus/FocusManager.java" />
     <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/input/gpio/GpioListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1042,26 +1055,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/InputHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-941">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../backup/src/application/WindowPluginTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="71" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1103,7 +1100,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/Widget.java">
+    <entry file="file://$PROJECT_DIR$/src/applications/WindowPluginTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="65" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/InputHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-826">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractUserApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/applications/Widget.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
@@ -1111,69 +1148,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/WindowPluginTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/ApplicationParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="153">
+          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1073#1074#0" expanded="true" />
+            <element signature="method#findImplementingClasInJarFile#0;class#ApplicationParser#0" expanded="false" />
+            <element signature="e#5961#5969#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="697">
+          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/applications/Weather.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+        <state relative-caret-position="-179">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/Settings.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="399">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1295#1296#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/Weather.java">
+    <entry file="file://$PROJECT_DIR$/src/applications/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+        <state relative-caret-position="170">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        <state relative-caret-position="229">
+          <caret line="203" column="5" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#test_AttachButtonSimulator#0;class#Main#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#964#965#0" expanded="true" />
-            <element signature="e#1021#1022#0" expanded="true" />
+            <element signature="e#7134#7135#0" expanded="true" />
+            <element signature="e#7174#7175#0" expanded="true" />
           </folding>
         </state>
       </provider>

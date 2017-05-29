@@ -1,6 +1,5 @@
 package com.smartmirror.sys;
 
-import application.Settings;
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.core.view.AbstractSystemWindow;
 

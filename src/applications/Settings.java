@@ -1,42 +1,37 @@
-package application;
+package applications;
 
-import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.core.view.AbstractSystemApplication;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
  * Created by basva on 25-5-2017.
  */
-public class Settings extends AbstractApplication{
+public class Settings extends AbstractSystemApplication{
 
-    private Map<String, AbstractApplication> apps;
+    private Map<String, AbstractSystemApplication> apps;
 
     @Override
     public void init() {
-
-        getPanel(apps);
-      //  getWidget();
     }
 
-    public Settings(Map<String, AbstractApplication> apps)
+    public Settings(Map<String, AbstractSystemApplication> apps)
     {
         this.apps = new HashMap<>();
         SYSTEM_Widget.setBackground(Color.BLACK);
         this.apps = apps;
+        SYSTEM_Screen.setLayout(new BorderLayout());
+
+        getPanel(apps);
+        //  getWidget();
     }
 
     private void getWidget()
@@ -58,10 +53,8 @@ public class Settings extends AbstractApplication{
         SYSTEM_Widget_Location = location.TOP;
     }
 
-    private void getPanel(Map<String, AbstractApplication> apps)
+    private void getPanel(Map<String, AbstractSystemApplication> apps)
     {
-        SYSTEM_Screen.setLayout(new BorderLayout());
-
         JPanel bottom = new JPanel();
         bottom.setLayout(new FlowLayout());
 
@@ -87,7 +80,7 @@ public class Settings extends AbstractApplication{
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(0,1));
 
-        for(Map.Entry<String, AbstractApplication> entry : apps.entrySet())
+        for(Map.Entry<String, AbstractSystemApplication> entry : apps.entrySet())
         {
             if(!entry.getKey().equals("settings"))
             {

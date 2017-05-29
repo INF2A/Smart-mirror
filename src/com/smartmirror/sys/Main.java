@@ -1,11 +1,11 @@
 package com.smartmirror.sys;
 
-import application.Settings;
-import application.Weather;
-import com.pi4j.platform.PlatformAlreadyAssignedException;
-import application.WindowPluginTest;
+import applications.Settings;
+import applications.Weather;
+import applications.WindowPluginTest;
 
 import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.core.view.AbstractSystemApplication;
 import com.smartmirror.core.view.AbstractWindow;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
 
@@ -13,10 +13,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 /**
  * Created by Erwin on 5/15/2017.
@@ -41,19 +46,23 @@ public class Main{
     final InputHandler inputHandler = new InputHandler();
     //   final GpioListener gpio = new GpioListener(inputHandler);
 
-    Map<String, AbstractApplication> apps;
+    Map<String, AbstractApplication> userApps;
+    Map<String, AbstractSystemApplication> systemApps;
+    ApplicationParser appParser;
 
     public Main() {
         buildGui();
 
-        System.out.println(frame.getWidth() + " " + frame.getHeight());
         kbc.setKeyBoardDimensions(frame.getWidth(), frame.getHeight());
         inputHandler.attachKeyboardController(kbc);
 
         systemWindow = new SystemWindow();
         systemWindow.INTERNAL_addWindowChangeListener(e -> setCurrentWindow(systemWindow.selectedApp));
 
-        apps = new HashMap<>();
+        appParser = new ApplicationParser();
+      //  userApps = appParser.getUserApplications();
+        systemApps = appParser.getSystemApplications();
+
         loadPlugins();
 
         startSystemWindow();
@@ -178,53 +187,24 @@ public class Main{
 
 
 
-    private void loadTest() throws Exception {
-        URL url = new File("plugins\\clock.jar").toURI().toURL();
-        URLClassLoader ClassLoader = URLClassLoader.newInstance(new URL[] {url});
+    // testing purposes - use this to load an app
+    private void loadSystemApplications() {
+        AbstractSystemApplication weather = new Weather();
+        systemApps.put("weather", weather);
 
-        Class<?> module = Class.forName("com.smartmirror.clock.Application", true, ClassLoader);
+        AbstractSystemApplication settings = new Settings(systemApps);
+        systemApps.put("settings", settings);
 
-        AbstractApplication window = (AbstractApplication) module.newInstance();
-        window.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
-        window.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
-        window.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
-
-        apps.put("clock", window);
-        systemWindow.addApplicationToWindow("clock", window);
+        for(Map.Entry<String, AbstractSystemApplication> entry : systemApps.entrySet()) {
+            entry.getValue().INTERNAL_addExitActionListener(e -> changeToSystemWindow());
+            entry.getValue().INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
+            entry.getValue().INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
+            systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue());
+        }
     }
 
     private void loadPlugins() {
-
-        AbstractApplication a = new WindowPluginTest();
-        a.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
-        a.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
-        a.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
-
-        AbstractApplication weather = new Weather();
-        weather.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
-        weather.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
-        weather.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
-
-        apps.put("weather", weather);
-        systemWindow.addApplicationToWindow("weather", weather);
-
-        try {
-            loadTest();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-        AbstractApplication settings = new Settings(apps);
-        settings.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
-        settings.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
-        settings.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
-
-        apps.put("settings", settings);
-        systemWindow.addApplicationToWindow("settings", settings);
-        apps.put("test1", a);
-        systemWindow.addApplicationToWindow("test1", a);
+        loadSystemApplications();
     }
-
 
 }

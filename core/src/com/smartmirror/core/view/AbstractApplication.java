@@ -45,7 +45,6 @@ public abstract class AbstractApplication extends AbstractWindow {
      */
     public void SYSTEM_closeScreen()
     {
-        SYSTEM_Screen.removeAll();
         INTERNAL_ExitHandle.doClick();
     }
 }

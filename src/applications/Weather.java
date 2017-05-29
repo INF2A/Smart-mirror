@@ -1,6 +1,6 @@
-package application;
+package applications;
 
-import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.core.view.AbstractSystemApplication;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by basva on 25-5-2017.
  */
-public class Weather extends AbstractApplication{
+public class Weather extends AbstractSystemApplication{
 
     @Override
     public void init() {
