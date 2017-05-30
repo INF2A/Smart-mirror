@@ -6,22 +6,15 @@ import applications.WindowPluginTest;
 
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.core.view.AbstractSystemApplication;
+import com.smartmirror.core.view.AbstractUserApplication;
 import com.smartmirror.core.view.AbstractWindow;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 /**
  * Created by Erwin on 5/15/2017.
@@ -60,7 +53,7 @@ public class Main{
         systemWindow.INTERNAL_addWindowChangeListener(e -> setCurrentWindow(systemWindow.selectedApp));
 
         appParser = new ApplicationParser();
-      //  userApps = appParser.getUserApplications();
+        userApps = new HashMap<>();
         systemApps = appParser.getSystemApplications();
 
         loadPlugins();
@@ -185,23 +178,67 @@ public class Main{
         container.repaint();
     }
 
+    private void destroyApplication() {
+        Class<? extends AbstractWindow> c = currentWindow.getClass();
+        String name = getApplicationName(currentWindow);
+        try {
+            AbstractApplication t = (AbstractApplication) c.newInstance();
+            userApps.put(name, t);
+            t.INTERNAL_addDestroyActionListener(e -> destroyApplication());
+            t.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
+            t.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
+            t.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
+            systemWindow.apps.put(name, t);
+
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(
+                Thread.currentThread().getName() + " - Destroy app - Alive: " +
+                        Thread.currentThread().isAlive());
+        changeToSystemWindow();
+    }
 
 
+    private String getApplicationName(AbstractWindow app) {
+        for(Map.Entry<String, AbstractApplication> entry : userApps.entrySet()) {
+            if (entry.getValue().equals(app)){
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
     // testing purposes - use this to load an app
     private void loadSystemApplications() {
         AbstractSystemApplication weather = new Weather();
+        weather.setup();
         systemApps.put("weather", weather);
 
         AbstractSystemApplication settings = new Settings(systemApps);
+        settings.setup();
         systemApps.put("settings", settings);
 
         for(Map.Entry<String, AbstractSystemApplication> entry : systemApps.entrySet()) {
+            entry.getValue().INTERNAL_addDestroyActionListener(e -> destroyApplication());
             entry.getValue().INTERNAL_addExitActionListener(e -> changeToSystemWindow());
             entry.getValue().INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
             entry.getValue().INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
             systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue());
         }
+
+        AbstractUserApplication test = new WindowPluginTest();
+        test.setup();
+        userApps.put("test", test);
+        systemWindow.addApplicationToWindow("test", test);
+        test.INTERNAL_addDestroyActionListener(e -> destroyApplication());
+        test.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
+        test.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
+        test.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
     }
+
 
     private void loadPlugins() {
         loadSystemApplications();

@@ -38,8 +38,6 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
 
     public JPanel SYSTEM_Screen = new JPanel();  // The container that holds the application'
 
-    public abstract void init();
-
     public AbstractWindow() {
         focusComponents.add(SYSTEM_Screen);
     }

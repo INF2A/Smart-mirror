@@ -28,6 +28,9 @@ public class ApplicationParser {
     private Map<String, File> systemApplicationJars = new HashMap<>();
     private Map<String, File> userApplicationJars = new HashMap<>();
 
+
+    private Map<String, String> applicationClassNames = new HashMap<>();
+
     private Map<String, AbstractSystemApplication> instantiatedSystemApplications = new HashMap<>();
 
     public Map<String, AbstractSystemApplication> getSystemApplications() {
@@ -47,6 +50,7 @@ public class ApplicationParser {
                 e.printStackTrace();
             }
         }
+        System.out.println(applicationClassNames.keySet());
     }
 
     private void loadApplicationJars(final File folder) {
@@ -83,6 +87,7 @@ public class ApplicationParser {
             else implementingClas = findImplementingClasInJarFile(file, AbstractApplication.class, loader);
 
             if (implementingClas != null) {
+                applicationClassNames.put(implementingClas.getName(), name);
                 if (type.equals("system")) {
                     AbstractSystemApplication instance = (AbstractSystemApplication) implementingClas.newInstance();
                     instantiatedSystemApplications.put(name, instance);

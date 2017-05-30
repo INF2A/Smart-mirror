@@ -19,6 +19,7 @@ public abstract class AbstractSystemWindow extends AbstractWindow {
         INTERNAL_WindowChangeHandle.addActionListener(al);
     }
 
+
     @Override
     public void onMenuButton(){
         if(focusComponents.get(currentComponent) instanceof JPanel) {

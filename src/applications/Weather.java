@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 public class Weather extends AbstractSystemApplication{
 
     @Override
-    public void init() {
+    public void setup() {
         SYSTEM_Screen.setBackground(Color.black);
 
         JLabel weatherLbl = new JLabel("Weather options");
@@ -40,8 +40,8 @@ public class Weather extends AbstractSystemApplication{
         focusComponents.add(exitButton);
     }
 
-    public Weather()
-    {
+    @Override
+    public void init() {
 
     }
 }

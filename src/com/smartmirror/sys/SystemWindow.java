@@ -40,12 +40,6 @@ public class SystemWindow extends AbstractSystemWindow {
         SYSTEM_Screen.add(bottom, BorderLayout.SOUTH);
     }
 
-    @Override
-    public void init()
-    {
-
-    }
-
     public void addApplicationToWindow(String appName, AbstractApplication app){
         apps.put(appName, app);
         app.SYSTEM_Widget.setName(appName);

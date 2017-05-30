@@ -1,17 +1,18 @@
 package applications;
 
-import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.core.view.AbstractUserApplication;
 
 import javax.swing.*;
 
 /**
  * Created by Erwin on 5/16/2017.
  */
-public class WindowPluginTest extends AbstractApplication implements Runnable {
+public class WindowPluginTest extends AbstractUserApplication implements Runnable {
 
     private JLabel label;
     private int n;
-    private boolean running = false;
+
+    private volatile boolean running = false;
 
     Thread gameLogicThread;
 
@@ -30,11 +31,20 @@ public class WindowPluginTest extends AbstractApplication implements Runnable {
         gameLogicThread.start();
     }
 
+    /**
+     * Will be called everytime when the app starts
+     */
     @Override
     public void init() {
         n = 0;
         label = new JLabel("amount: ");
+        System.out.println("new okug");
+        JButton killApplication = new JButton("destroy me");
+        killApplication.addActionListener(e -> SYSTEM_destroy());
+
         SYSTEM_Screen.add(label);
+        SYSTEM_Screen.add(killApplication);
+        focusComponents.add(killApplication);
         start();
     }
 
@@ -57,9 +67,9 @@ public class WindowPluginTest extends AbstractApplication implements Runnable {
         super.onBackButton();
         try {
             running = false;
-            gameLogicThread.join();
             System.out.println(Thread.currentThread().getName() + " - Join - Alive: " + Thread.currentThread().isAlive());
-            SYSTEM_closeScreen();
+            SYSTEM_destroy();
+            gameLogicThread.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

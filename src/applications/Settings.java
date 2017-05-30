@@ -19,19 +19,29 @@ public class Settings extends AbstractSystemApplication{
 
     private Map<String, AbstractSystemApplication> apps;
 
+    //
+//    /**
+//     * Will be called only once.
+//     * Call will be made when the application starts
+//     *
     @Override
-    public void init() {
-    }
-
-    public Settings(Map<String, AbstractSystemApplication> apps)
-    {
+    public void setup() {
         this.apps = new HashMap<>();
         SYSTEM_Widget.setBackground(Color.BLACK);
         this.apps = apps;
         SYSTEM_Screen.setLayout(new BorderLayout());
 
         getPanel(apps);
-        //  getWidget();
+    }
+
+    @Override
+    public void init() {
+
+    }
+
+    public Settings(Map<String, AbstractSystemApplication> apps)
+    {
+        this.apps = apps;
     }
 
     private void getWidget()
