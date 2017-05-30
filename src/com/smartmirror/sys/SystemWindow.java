@@ -43,6 +43,7 @@ public class SystemWindow extends AbstractSystemWindow {
     public void addApplicationToWindow(String appName, AbstractApplication app){
         apps.put(appName, app);
         app.SYSTEM_Widget.setName(appName);
+        app.SYSTEM_Widget.setPreferredSize(new Dimension(50, 50));
 //        JPanel t = new JPanel();
 //        t.setOpaque(false);
 //        t.setName(appName);

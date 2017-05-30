@@ -17,8 +17,6 @@ import java.util.Map;
  */
 public class Settings extends AbstractSystemApplication{
 
-    private Map<String, AbstractSystemApplication> apps;
-
     //
 //    /**
 //     * Will be called only once.
@@ -26,22 +24,16 @@ public class Settings extends AbstractSystemApplication{
 //     *
     @Override
     public void setup() {
-        this.apps = new HashMap<>();
         SYSTEM_Widget.setBackground(Color.BLACK);
-        this.apps = apps;
         SYSTEM_Screen.setLayout(new BorderLayout());
-
-        getPanel(apps);
     }
 
     @Override
     public void init() {
-
-    }
-
-    public Settings(Map<String, AbstractSystemApplication> apps)
-    {
-        this.apps = apps;
+        SYSTEM_Screen.removeAll();
+        focusComponents.removeAll(focusComponents);
+        INTERNAL_requestSystemApplications();
+        getPanel(systemApplications);
     }
 
     private void getWidget()

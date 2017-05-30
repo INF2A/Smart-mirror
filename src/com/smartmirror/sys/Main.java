@@ -131,7 +131,6 @@ public class Main{
 
         container.removeAll();
         container.add(window.INTERNAL_getScreen(), BorderLayout.CENTER);
-        window.INTERNAL_init();
         window.init();
 
         update();
@@ -217,11 +216,12 @@ public class Main{
         weather.setup();
         systemApps.put("weather", weather);
 
-        AbstractSystemApplication settings = new Settings(systemApps);
+        AbstractSystemApplication settings = new Settings();
         settings.setup();
         systemApps.put("settings", settings);
 
         for(Map.Entry<String, AbstractSystemApplication> entry : systemApps.entrySet()) {
+            entry.getValue().INTERNAL_addRequestSystemApplicationListActionListener(e -> entry.getValue().INTERNAL_setSystemApplicationList(systemApps));
             entry.getValue().INTERNAL_addDestroyActionListener(e -> destroyApplication());
             entry.getValue().INTERNAL_addExitActionListener(e -> changeToSystemWindow());
             entry.getValue().INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());

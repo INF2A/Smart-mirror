@@ -26,6 +26,7 @@ public abstract class AbstractApplication extends AbstractWindow {
      */
     public void setup() {
         INTERNAL_setupRun = true;
+        INTERNAL_init();
     }
 
     /**

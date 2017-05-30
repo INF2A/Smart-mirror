@@ -42,6 +42,7 @@ public class WindowPluginTest extends AbstractUserApplication implements Runnabl
         JButton killApplication = new JButton("destroy me");
         killApplication.addActionListener(e -> SYSTEM_destroy());
 
+        SYSTEM_Widget.add(label);
         SYSTEM_Screen.add(label);
         SYSTEM_Screen.add(killApplication);
         focusComponents.add(killApplication);
