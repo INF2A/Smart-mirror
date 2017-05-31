@@ -32,6 +32,7 @@ public class Settings extends AbstractSystemApplication{
     public void init() {
         SYSTEM_Screen.removeAll();
         focusComponents.removeAll(focusComponents);
+        focusComponents.add(SYSTEM_Screen);
         INTERNAL_requestSystemApplications();
         getPanel(systemApplications);
     }
