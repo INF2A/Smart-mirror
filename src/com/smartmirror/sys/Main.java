@@ -9,6 +9,7 @@ import com.smartmirror.core.view.AbstractSystemApplication;
 import com.smartmirror.core.view.AbstractUserApplication;
 import com.smartmirror.core.view.AbstractWindow;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
+import org.omg.CORBA.INTERNAL;
 
 import javax.swing.*;
 import java.awt.*;
@@ -131,6 +132,7 @@ public class Main{
 
         container.removeAll();
         container.add(window.INTERNAL_getScreen(), BorderLayout.CENTER);
+        window.INTERNAL_init();
         window.init();
 
         update();
@@ -238,7 +240,6 @@ public class Main{
         test.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
         test.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
     }
-
 
     private void loadPlugins() {
         loadSystemApplications();

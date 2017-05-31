@@ -1,6 +1,7 @@
 package applications;
 
 import com.smartmirror.core.view.AbstractSystemApplication;
+import com.sun.scenario.effect.impl.sw.java.JSWBlend_COLOR_BURNPeer;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -26,6 +27,7 @@ public class Settings extends AbstractSystemApplication{
     public void setup() {
         SYSTEM_Widget.setBackground(Color.BLACK);
         SYSTEM_Screen.setLayout(new BorderLayout());
+        setWidget();
     }
 
     @Override
@@ -36,21 +38,13 @@ public class Settings extends AbstractSystemApplication{
         getPanel(systemApplications);
     }
 
-    private void getWidget()
+    private void setWidget()
     {
         SYSTEM_Widget.setOpaque(false);
         SYSTEM_Widget.setPreferredSize(new Dimension(25,25));
-        BufferedImage icon;
-        JLabel img = new JLabel();
-        try
-        {
-            icon = ImageIO.read(getClass().getResource("img/settings.png"));
-            img.setIcon(new ImageIcon(icon));
-        }
-        catch (IOException e)
-        {
-
-        }
+        ClassLoader classLoader = getClass().getClassLoader();
+        ImageIcon image = new ImageIcon(classLoader.getResource("img/settings.png"));
+        JLabel img = new JLabel(image);
         SYSTEM_Widget.add(img);
         SYSTEM_Widget_Location = location.TOP;
     }
@@ -80,21 +74,27 @@ public class Settings extends AbstractSystemApplication{
         bottom.add(exitButton);
 
         JPanel center = new JPanel();
-        center.setLayout(new GridLayout(0,1));
+        center.setLayout(new FlowLayout());
+
+        SYSTEM_Screen.add(center, BorderLayout.CENTER);
+        SYSTEM_Screen.add(bottom, BorderLayout.SOUTH);
 
         for(Map.Entry<String, AbstractSystemApplication> entry : apps.entrySet())
         {
             if(!entry.getKey().equals("settings"))
             {
-                center.add(entry.getValue().SYSTEM_Screen, BorderLayout.CENTER);
-                focusComponents.addAll(entry.getValue().focusComponents);
+                if(entry.getKey().equals("weather"))
+                {
+                    JLabel icon = new JLabel(entry.getValue().SYSTEM_Icon);
+                    center.add(icon);
+                    focusComponents.add(icon);
+                }
             }
         }
 
-        //center.add(apps.get("weather").SYSTEM_Screen, BorderLayout.CENTER);
-
-        SYSTEM_Screen.add(center, BorderLayout.CENTER);
-        SYSTEM_Screen.add(bottom, BorderLayout.SOUTH);
+        JLabel icon = new JLabel(apps.get("weather").SYSTEM_Icon);
+        center.add(icon);
+        focusComponents.add(icon);
 
         focusComponents.add(saveButton);
         focusComponents.add(exitButton);

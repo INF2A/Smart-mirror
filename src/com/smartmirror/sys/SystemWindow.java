@@ -16,14 +16,14 @@ public class SystemWindow extends AbstractSystemWindow {
     private JPanel top;
     private JPanel center;
     private JPanel bottom;
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 
     public SystemWindow()
     {
         // = new JLabel("System window - view widgets and open apps from here");
         //enter.add(label);
-        SYSTEM_Screen.setPreferredSize(new Dimension(screenSize));
+        //SYSTEM_Screen.setPreferredSize(new Dimension(screenSize));
 
         SYSTEM_Screen.setLayout(new BorderLayout());
         top = new JPanel();

@@ -11,6 +11,8 @@ public abstract class AbstractApplication extends AbstractWindow {
 
     public boolean INTERNAL_setupRun = false;
     public JPanel SYSTEM_Widget = new JPanel();  // The container that holds a widget of the application
+    //public JLabel SYSTEM_Icon = new JLabel(); // Label that holds a icon of the application
+    public ImageIcon SYSTEM_Icon;
 
     public enum location
     {

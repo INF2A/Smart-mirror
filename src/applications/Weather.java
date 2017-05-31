@@ -38,8 +38,11 @@ public class Weather extends AbstractSystemApplication{
 
         focusComponents.add(weatherLocationField);
         focusComponents.add(exitButton);
+
         SYSTEM_Widget.add(new JLabel("weather"));
 
+        ClassLoader classLoader = getClass().getClassLoader();
+        SYSTEM_Icon = new ImageIcon(classLoader.getResource("img/weather-icon.png"));
     }
 
     @Override
