@@ -1,6 +1,6 @@
 package applications;
 
-import com.smartmirror.core.view.AbstractSystemApplication;
+import com.smartmirror.sys.view.AbstractSystemApplication;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,7 @@
-package com.smartmirror.core.view;
+package com.smartmirror.sys.view;
+
+import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.core.view.AbstractWindow;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;

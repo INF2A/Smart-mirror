@@ -1,6 +1,7 @@
 package applications;
 
-import com.smartmirror.core.view.AbstractSystemApplication;
+import com.smartmirror.sys.Shell;
+import com.smartmirror.sys.view.AbstractSystemApplication;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,6 +29,10 @@ public class Wifi extends AbstractSystemApplication {
 
     @Override
     public void setup() {
+        JButton t = new JButton("exit");
+        t.addActionListener(e -> SYSTEM_closeScreen());
+        SYSTEM_Screen.add(t);
+        focusComponents.add(t);
         start();
     }
 
@@ -50,7 +55,7 @@ public class Wifi extends AbstractSystemApplication {
 
         List<String> commands = new ArrayList<>();
         commands.add("/home/tc/listAP.sh");
-        List<String> output = runCommand(commands, false);
+        List<String> output = Shell.getInstance().runCommand(commands, false);
 
         String s = null;
         System.out.println("NR | MAC | ESSID | QUALITY | CHANNEL | ENC | TYPE");
@@ -118,38 +123,8 @@ public class Wifi extends AbstractSystemApplication {
             commands.add(ww);
             commands.add(channel);
             commands.add(enc);
-            List<String> output = runCommand(commands, true);
+            List<String> output = Shell.getInstance().runCommand(commands, true);
         });
         t.start();
-    }
-
-
-    private List<String> runCommand(List<String> commands, boolean showShellOutputBox)  {
-        // Store the shell output
-        List<String> returnValue = new ArrayList<>();
-
-        // call the script by creating a new process and starting it
-        ProcessBuilder pb2 = new ProcessBuilder(commands);
-        pb2.redirectError();
-
-        try {
-            Process shellScript = pb2.start();
-
-            // Create a reader for java to get the output of the script
-            BufferedReader stdInput = new BufferedReader(new InputStreamReader(shellScript.getInputStream()));
-            //        BufferedWriter stdOutput = new BufferedWriter(new OutputStreamWriter(wifiScript.getOutputStream()));
-            //        BufferedReader stdError = new BufferedReader(new InputStreamReader(wifiScript.getErrorStream()));
-
-            String s;
-            while ((s = stdInput.readLine()) != null) {
-                returnValue.add(s);
-            }
-
-            stdInput.close();
-        } catch (IOException e) {
-            System.out.println(e.toString());
-        }
-        return returnValue;
-
     }
 }

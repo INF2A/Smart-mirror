@@ -1,7 +1,7 @@
 package com.smartmirror.sys;
 
 import com.smartmirror.core.view.AbstractApplication;
-import com.smartmirror.core.view.AbstractSystemWindow;
+import com.smartmirror.sys.view.AbstractSystemWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,6 +44,7 @@ public class SystemWindow extends AbstractSystemWindow {
         apps.put(appName, app);
         app.SYSTEM_Widget.setName(appName);
         app.SYSTEM_Widget.setPreferredSize(new Dimension(50, 50));
+
 //        JPanel t = new JPanel();
 //        t.setOpaque(false);
 //        t.setName(appName);

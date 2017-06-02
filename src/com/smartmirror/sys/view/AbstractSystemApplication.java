@@ -1,6 +1,7 @@
-package com.smartmirror.core.view;
+package com.smartmirror.sys.view;
 
 import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.sys.MainSystemController;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -12,9 +13,14 @@ import java.util.Map;
  */
 public abstract class AbstractSystemApplication extends AbstractApplication {
 
+    public MainSystemController systemController;
     public Map<String, AbstractSystemApplication> systemApplications = new HashMap<>();
 
     public JButton INTERNAL_requestSystemApplicationListHandle = new JButton();
+
+    public void setSystemController(MainSystemController systemController) {
+        this.systemController = systemController;
+    }
 
     public void INTERNAL_setSystemApplicationList(Map<String, AbstractSystemApplication> map){
         systemApplications = map;

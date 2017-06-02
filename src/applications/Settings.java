@@ -1,6 +1,6 @@
 package applications;
 
-import com.smartmirror.core.view.AbstractSystemApplication;
+import com.smartmirror.sys.view.AbstractSystemApplication;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -35,6 +34,7 @@ public class Settings extends AbstractSystemApplication{
         focusComponents.add(SYSTEM_Screen);
         INTERNAL_requestSystemApplications();
         getPanel(systemApplications);
+        systemController.startApplication("weather");
     }
 
     private void getWidget()

@@ -88,7 +88,24 @@ public class GpioListener {
                     if (event.getState().isHigh()) {
                         pinHigh();
                     }
-                    else pinLow();
+                    else {
+                        pinLow();
+
+                        if(event.getSource().equals(buttonBack)) {
+                            keyHandler.onBackButton();
+                        }
+                        else if(event.getSource().equals(buttonMenu)) {
+                            keyHandler.onMenuButton();
+                        }
+
+                        else if(event.getSource().equals(buttonLeft)) {
+                            keyHandler.onLeftButton();
+                        }
+
+                        else if(event.getSource().equals(buttonRight)) {
+                            keyHandler.onRightButton();
+                        }
+                    }
                 }
             });
         }

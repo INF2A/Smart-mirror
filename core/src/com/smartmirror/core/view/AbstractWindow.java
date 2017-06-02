@@ -42,7 +42,7 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
         focusComponents.add(SYSTEM_Screen);
     }
 
-    public void INTERNAL_init()
+    protected void INTERNAL_init()
     {
         focusComponents.get(0).requestFocus();
         for (int i = 1; i < focusComponents.size(); i++) {

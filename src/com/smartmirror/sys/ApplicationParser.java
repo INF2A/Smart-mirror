@@ -1,7 +1,7 @@
 package com.smartmirror.sys;
 
 import com.smartmirror.core.view.AbstractApplication;
-import com.smartmirror.core.view.AbstractSystemApplication;
+import com.smartmirror.sys.view.AbstractSystemApplication;
 
 import java.io.File;
 import java.io.IOException;
