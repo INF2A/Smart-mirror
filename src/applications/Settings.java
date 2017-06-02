@@ -25,8 +25,9 @@ public class Settings extends AbstractSystemApplication{
 //     *
     @Override
     public void setup() {
-        SYSTEM_Widget.setBackground(Color.BLACK);
-        SYSTEM_Screen.setLayout(new BorderLayout());
+        SYSTEM_Widget = new Widget();
+
+        SYSTEM_Screen.setBackground(Color.BLACK);
         setWidget();
     }
 
@@ -34,13 +35,13 @@ public class Settings extends AbstractSystemApplication{
     public void init() {
         SYSTEM_Screen.removeAll();
         focusComponents.removeAll(focusComponents);
+        focusComponents.add(SYSTEM_Screen);
         INTERNAL_requestSystemApplications();
         getPanel(systemApplications);
     }
 
     private void setWidget()
     {
-        SYSTEM_Widget.setOpaque(false);
         SYSTEM_Widget.setPreferredSize(new Dimension(25,25));
         ClassLoader classLoader = getClass().getClassLoader();
         ImageIcon image = new ImageIcon(classLoader.getResource("img/settings.png"));
@@ -55,48 +56,34 @@ public class Settings extends AbstractSystemApplication{
         bottom.setLayout(new FlowLayout());
 
         JButton saveButton = new JButton("Save settings");
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SYSTEM_closeScreen();
-            }
-        });
+        saveButton.addActionListener(e -> SYSTEM_closeScreen());
 
         JButton exitButton = new JButton("Exit");
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SYSTEM_closeScreen();
-            }
-        });
+        exitButton.addActionListener(e -> SYSTEM_closeScreen());
 
-        bottom.add(saveButton);
-        bottom.add(exitButton);
-
-        JPanel center = new JPanel();
-        center.setLayout(new FlowLayout());
-
-        SYSTEM_Screen.add(center, BorderLayout.CENTER);
-        SYSTEM_Screen.add(bottom, BorderLayout.SOUTH);
 
         for(Map.Entry<String, AbstractSystemApplication> entry : apps.entrySet())
         {
             if(!entry.getKey().equals("settings"))
             {
-                if(entry.getKey().equals("weather"))
-                {
-                    JLabel icon = new JLabel(entry.getValue().SYSTEM_Icon);
-                    center.add(icon);
-                    focusComponents.add(icon);
-                }
+                JButton iconButton = new JButton(entry.getValue().SYSTEM_Icon);
+
+                //ADD ACTIONLISTENER SWITCH TO SELECTED APP.
+
+                iconButton.setBackground(Color.BLACK);
+                SYSTEM_Screen.add(iconButton);
+                focusComponents.add(iconButton);
             }
         }
-
-        JLabel icon = new JLabel(apps.get("weather").SYSTEM_Icon);
-        center.add(icon);
-        focusComponents.add(icon);
+        SYSTEM_Screen.add(saveButton);
+        SYSTEM_Screen.add(exitButton);
 
         focusComponents.add(saveButton);
         focusComponents.add(exitButton);
+    }
+
+    @Override
+    public void onBackButton() {
+        SYSTEM_closeScreen();
     }
 }

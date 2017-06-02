@@ -10,9 +10,11 @@ import java.awt.event.ActionListener;
 public abstract class AbstractApplication extends AbstractWindow {
 
     public boolean INTERNAL_setupRun = false;
-    public JPanel SYSTEM_Widget = new JPanel();  // The container that holds a widget of the application
-    //public JLabel SYSTEM_Icon = new JLabel(); // Label that holds a icon of the application
-    public ImageIcon SYSTEM_Icon;
+    //public JPanel SYSTEM_Widget = new JPanel();  // The container that holds a widget of the application
+    public AbstractWidget SYSTEM_Widget;
+    public location SYSTEM_Widget_Location; // Hold location of the widget according to BorderLayout (top, center, bottom)
+    public Dimension SYSTEM_Widget_Dimension;
+    public ImageIcon SYSTEM_Icon; // ImageIcon that holds a icon of the application
 
     public enum location
     {
@@ -21,7 +23,21 @@ public abstract class AbstractApplication extends AbstractWindow {
         BOTTOM
     }
 
-    public location SYSTEM_Widget_Location;
+    public AbstractApplication()
+    {
+        SYSTEM_Screen.setBackground(Color.BLACK);
+        //SYSTEM_Widget.setBackground(Color.BLACK);
+    }
+
+    public void setSYSTEM_Icon(String pathFromResources)
+    {
+        ClassLoader classLoader = getClass().getClassLoader();
+        SYSTEM_Icon = new ImageIcon(classLoader.getResource(pathFromResources));
+    }
+
+    public void setSYSTEM_Widget(){
+
+    }
 
     /**
      * Will be called only once when app starts
@@ -86,5 +102,4 @@ public abstract class AbstractApplication extends AbstractWindow {
     public void SYSTEM_destroy() {
         INTERNAL_DestroyHandle.doClick();
     }
-
 }

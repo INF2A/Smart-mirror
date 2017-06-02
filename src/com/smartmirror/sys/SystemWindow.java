@@ -1,10 +1,12 @@
 package com.smartmirror.sys;
 
+import applications.Widget;
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.core.view.AbstractSystemWindow;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Created by Erwin on 5/15/2017.
@@ -25,25 +27,39 @@ public class SystemWindow extends AbstractSystemWindow {
         //enter.add(label);
         //SYSTEM_Screen.setPreferredSize(new Dimension(screenSize));
 
+        SYSTEM_Screen.setBackground(Color.BLACK);
+
         SYSTEM_Screen.setLayout(new BorderLayout());
-        top = new JPanel();
+        top = new JPanel(new FlowLayout(FlowLayout.LEFT));
         top.setBackground(Color.BLACK);
         SYSTEM_Screen.add(top, BorderLayout.NORTH);
 
         center = new JPanel();
-        center.setBackground(Color.CYAN);
+        center.setBackground(Color.BLACK);
         center.setLayout(new GridBagLayout());
+
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+
+
         SYSTEM_Screen.add(center, BorderLayout.CENTER);
 
         bottom = new JPanel();
-        bottom.setBackground(Color.BLUE);
+        bottom.setBackground(Color.BLACK);
         SYSTEM_Screen.add(bottom, BorderLayout.SOUTH);
     }
 
-    public void addApplicationToWindow(String appName, AbstractApplication app){
+    public void addApplicationToWindow(String appName, AbstractApplication app, Dimension dimension){
         apps.put(appName, app);
+        //app.SYSTEM_Widget = new Widget();
+        if(app.SYSTEM_Widget == null)
+        {
+            app.SYSTEM_Widget = new Widget();
+        }
+
         app.SYSTEM_Widget.setName(appName);
-        app.SYSTEM_Widget.setPreferredSize(new Dimension(50, 50));
+        app.SYSTEM_Widget.setPreferredSize(dimension);
+
 //        JPanel t = new JPanel();
 //        t.setOpaque(false);
 //        t.setName(appName);

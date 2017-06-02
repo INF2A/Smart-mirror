@@ -1,5 +1,6 @@
 package com.smartmirror.sys;
 
+import applications.Clock;
 import applications.Settings;
 import applications.Weather;
 import applications.WindowPluginTest;
@@ -218,6 +219,10 @@ public class Main{
         weather.setup();
         systemApps.put("weather", weather);
 
+        AbstractSystemApplication clock = new Clock();
+        clock.setup();
+        systemApps.put("clock", clock);
+
         AbstractSystemApplication settings = new Settings();
         settings.setup();
         systemApps.put("settings", settings);
@@ -228,13 +233,13 @@ public class Main{
             entry.getValue().INTERNAL_addExitActionListener(e -> changeToSystemWindow());
             entry.getValue().INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
             entry.getValue().INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
-            systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue());
+            systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue(), entry.getValue().SYSTEM_Widget_Dimension);
         }
 
         AbstractUserApplication test = new WindowPluginTest();
         test.setup();
         userApps.put("test", test);
-        systemWindow.addApplicationToWindow("test", test);
+        systemWindow.addApplicationToWindow("test", test, new Dimension(100,100));
         test.INTERNAL_addDestroyActionListener(e -> destroyApplication());
         test.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
         test.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
