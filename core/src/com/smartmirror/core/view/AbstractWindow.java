@@ -24,13 +24,19 @@ import java.util.ArrayList;
  * Everything marked as 'INTERNAL' is not to be called by a deriving class
  *
  */
-public abstract class AbstractWindow extends AbstractInputHandler implements FocusListener {
+public abstract class AbstractWindow extends AbstractInputHandler {
 
-    // stays
+    public IFocusManager focusManager;
+
+    @Deprecated
     public ArrayList<JComponent> focusComponents = new ArrayList<>();
+    @Deprecated
     public int currentComponent = 0;
+    @Deprecated
     public int previousComponent = 0;
+    @Deprecated
     public Object INTERNAL_currentFocusedObject;
+
 
     boolean INTERNAL_keyboardActive = false;
     JButton INTERNAL_KeyboardRequestHandle = new JButton(); // The handle used by the system for opening the keyboard
@@ -38,22 +44,27 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
 
     public JPanel SYSTEM_Screen = new JPanel();  // The container that holds the application'
 
-    public AbstractWindow() {
-        focusComponents.add(SYSTEM_Screen);
+
+    public void setFocusManager(IFocusManager fm) {
+        if(focusManager == null) {
+            focusManager = fm;
+            focusManager.addComponent(SYSTEM_Screen);
+        }
     }
 
+    @Deprecated
     protected void INTERNAL_init()
     {
-        focusComponents.get(0).requestFocus();
-        for (int i = 1; i < focusComponents.size(); i++) {
-            focusComponents.get(i).addFocusListener(this);
-        }
+//        for (int i = 1; i < focusComponents.size(); i++) {
+//            focusComponents.get(i).addFocusListener(this);
+//        }
     }
 
     /**
      *  This method updates the screen when input is detected
      */
     public void update() {
+        if(INTERNAL_keyboardActive && focusManager.Selected() == null) INTERNAL_closeKeyboard();
         SYSTEM_Screen.repaint();
         SYSTEM_Screen.revalidate();
     }
@@ -66,8 +77,10 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
      */
     public void SYSTEM_requestKeyboard()
     {
-        INTERNAL_keyboardActive = true;
-        INTERNAL_KeyboardRequestHandle.doClick();
+        if(!INTERNAL_keyboardActive) {
+            INTERNAL_keyboardActive = true;
+            INTERNAL_KeyboardRequestHandle.doClick();
+        }
     }
 
     public boolean INTERNAL_isKeyboardActive()
@@ -124,64 +137,35 @@ public abstract class AbstractWindow extends AbstractInputHandler implements Foc
 
     @Override
     public void onLeftButton() {
-        if(currentComponent > 1) {
-            previousComponent = currentComponent;
-            currentComponent--;
-            handleCurrentFocus();
-        }
+        focusManager.Previous();
         this.update();
     }
 
     @Override
     public void onRightButton() {
-        if(currentComponent < focusComponents.size() - 1) {
-            previousComponent = currentComponent;
-            currentComponent++;
-            handleCurrentFocus();
-        }
+        focusManager.Next();
         this.update();
     }
 
     @Override
     public void onBackButton() {
+        focusManager.Start();
         this.update();
     }
 
     @Override
     public void onMenuButton() {
-        focusComponents.get(currentComponent).requestFocus();
-        if(focusComponents.get(currentComponent).hasFocus() &&
-                focusComponents.get(currentComponent).equals(INTERNAL_currentFocusedObject)) SYSTEM_requestKeyboard();
-        if(focusComponents.get(currentComponent) instanceof JButton) {
-            ((JButton) focusComponents.get(currentComponent)).doClick();
+        focusManager.Select();
+        switch(focusManager.getSelectedComponentType()){
+            case TEXT_INPUT:
+                SYSTEM_requestKeyboard();
+                break;
+            case BUTTON:
+                ((JButton)focusManager.Selected()).doClick();
+                break;
+            default:
+                break;
         }
         this.update();
-    }
-
-    private void handleCurrentFocus()
-    {
-        focusComponents.get(currentComponent).setBorder(BorderFactory.createLineBorder(Color.BLUE));
-        focusComponents.get(previousComponent).setBorder(null);
-        focusComponents.get(previousComponent).updateUI();
-    }
-
-    @Override
-    public void focusGained(FocusEvent e) {
-        System.out.println("Focus gained" + e);
-        if(!INTERNAL_isKeyboardActive()) {
-            if (e.getSource() instanceof JTextField) {
-                INTERNAL_currentFocusedObject = e.getSource();
-                SYSTEM_requestKeyboard();
-            }
-        }
-    }
-
-    @Override
-    public void focusLost(FocusEvent e) {
-        if (INTERNAL_isKeyboardActive()) {
-            if (e.getSource().equals(INTERNAL_currentFocusedObject)) {
-                INTERNAL_closeKeyboard();
-            }
-        }
     }
 }

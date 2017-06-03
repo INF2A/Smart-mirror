@@ -36,8 +36,9 @@ public class Weather extends AbstractSystemApplication{
         SYSTEM_Screen.add(weatherLocationField);
         SYSTEM_Screen.add(exitButton);
 
-        focusComponents.add(weatherLocationField);
-        focusComponents.add(exitButton);
+        focusManager.addComponent(weatherLocationField);
+        focusManager.addComponent(exitButton);
+
         SYSTEM_Widget.add(new JLabel("weather"));
 
     }

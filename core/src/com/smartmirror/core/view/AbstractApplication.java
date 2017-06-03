@@ -24,10 +24,16 @@ public abstract class AbstractApplication extends AbstractWindow {
     /**
      * Will be called only once when app starts
      */
-    public void setup() {
+    public void INTERNAL_setup() {
         INTERNAL_setupRun = true;
+        setup();
         INTERNAL_init();
     }
+
+    /**
+     * Will be called only once when app starts
+     */
+    protected abstract void setup();
 
     /**
      * Will be called everytime when an app opens
@@ -35,7 +41,10 @@ public abstract class AbstractApplication extends AbstractWindow {
     public abstract void init();
 
 
+    @Deprecated
     JButton INTERNAL_DestroyHandle = new JButton(); // The handle used by the system for destroying the application
+
+
     JButton INTERNAL_ExitHandle = new JButton(); // The handle used by the system for closing the application
 
     /**
@@ -61,6 +70,7 @@ public abstract class AbstractApplication extends AbstractWindow {
      *
      * @param al The ActionListener for the exitHandle
      */
+    @Deprecated
     public void INTERNAL_addDestroyActionListener(ActionListener al)
     {
         INTERNAL_DestroyHandle.addActionListener(al);
@@ -74,6 +84,7 @@ public abstract class AbstractApplication extends AbstractWindow {
      */
     public void SYSTEM_closeScreen()
     {
+        focusManager.Reset();
         INTERNAL_ExitHandle.doClick();
     }
 
@@ -81,6 +92,7 @@ public abstract class AbstractApplication extends AbstractWindow {
      * Can be called to destroy the current application
      * Once the user opens the app again, it will first run setup
      */
+    @Deprecated
     public void SYSTEM_destroy() {
         INTERNAL_DestroyHandle.doClick();
     }

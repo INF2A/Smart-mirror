@@ -1,4 +1,4 @@
-package com.smartmirror.sys.view;
+package com.smartmirror.sys.view.window;
 
 import com.smartmirror.core.view.AbstractWindow;
 
@@ -45,7 +45,6 @@ public class ProfileSelectionWindow extends AbstractWindow {
 
     private void setupScreen() {
         SYSTEM_Screen.setLayout(new BoxLayout(SYSTEM_Screen, BoxLayout.Y_AXIS));
-        INTERNAL_init();
 
         JLabel message = new JLabel("Select your profile");
         message.setAlignmentX(Component.CENTER_ALIGNMENT);

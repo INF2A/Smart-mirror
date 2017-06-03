@@ -32,7 +32,7 @@ public class Wifi extends AbstractSystemApplication {
         JButton t = new JButton("exit");
         t.addActionListener(e -> SYSTEM_closeScreen());
         SYSTEM_Screen.add(t);
-        focusComponents.add(t);
+        focusManager.addComponent(t);
         start();
     }
 

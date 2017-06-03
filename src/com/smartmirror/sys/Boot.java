@@ -1,7 +1,5 @@
 package com.smartmirror.sys;
 
-import com.smartmirror.sys.view.ProfileSelectionWindow;
-
 import java.util.ArrayList;
 
 /**
@@ -24,7 +22,7 @@ public class Boot {
         systemController = new MainSystemController(system);
 
         if(isFirstBoot()) {
-         //   system.setWindow(new ProfileSelectionWindow());
+       //    system.setWindow(new ProfileSelectionWindow());
 
             //system.startFirstBoot();
             // create account

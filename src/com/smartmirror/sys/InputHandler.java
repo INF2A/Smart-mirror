@@ -61,7 +61,7 @@ public class InputHandler extends AbstractInputHandler {
     {
         if(window.INTERNAL_isKeyboardActive()) kbc.onRightButton();
         else {
-            JTextField b = (JTextField)window.INTERNAL_currentFocusedObject;
+//            JTextField b = (JTextField)window.INTERNAL_currentFocusedObject;
 
             window.onRightButton();
         }
@@ -80,11 +80,12 @@ public class InputHandler extends AbstractInputHandler {
         if(window.INTERNAL_isKeyboardActive())
         {
             kbc.onMenuButton();
-            JTextField b = (JTextField) window.INTERNAL_currentFocusedObject;
+            JTextField b = (JTextField) window.focusManager.Selected();
             b.setText(kbc.text);
             if(kbc.getKeyCodeCurrentKey().equals(Keyboard.KEYCODE.ENTER)) {
-                window.onRightButton();
-                window.focusComponents.get(window.currentComponent).requestFocus();
+                window.INTERNAL_closeKeyboard();
+                window.focusManager.Next();
+                window.focusManager.Select();
             }
         }
         else window.onMenuButton();

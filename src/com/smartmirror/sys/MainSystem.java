@@ -10,6 +10,7 @@ import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.core.view.AbstractUserApplication;
 import com.smartmirror.core.view.AbstractWindow;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
+import com.smartmirror.sys.view.FocusManager;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,7 +19,6 @@ import javax.swing.KeyStroke;
 import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
-import java.awt.event.ActionListener;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -36,7 +36,10 @@ public class MainSystem {
     final InputHandler inputHandler = new InputHandler();
     //   final GpioListener gpio = new GpioListener(inputHandler);
 
+    @Deprecated
     Map<String, AbstractApplication> userApps;
+
+    @Deprecated
     Map<String, AbstractSystemApplication> systemApps;
 
     ApplicationParser appParser;
@@ -49,6 +52,7 @@ public class MainSystem {
         inputHandler.attachKeyboardController(kbc);
 
         systemWindow = new SystemWindow();
+
         systemWindow.INTERNAL_addWindowChangeListener(e -> {
             String name = getApplicationName(systemWindow.selectedApp);
             startApplication(name);
@@ -124,6 +128,7 @@ public class MainSystem {
         });
     }
 
+    @Deprecated // use startApplication(string name)
     private void setCurrentWindow(AbstractApplication window)
     {
         java.lang.System.out.println(
@@ -139,6 +144,7 @@ public class MainSystem {
         update();
 
     }
+
     private void startSystemWindow() {
         java.lang.System.out.println(
                 Thread.currentThread().getName() + " - startSiyW - Alive: " +
@@ -159,18 +165,19 @@ public class MainSystem {
         startSystemWindow();
     }
 
-
+    @Deprecated
     private void destroyApplication() {
-        Class<? extends AbstractWindow> c = currentWindow.getClass();
+       Class<? extends AbstractWindow> c = currentWindow.getClass();
 
         String name = getApplicationName((AbstractApplication)currentWindow);
+
         try {
             AbstractApplication t = (AbstractApplication) c.newInstance();
-            userApps.put(name, t);
             t.INTERNAL_addDestroyActionListener(e -> destroyApplication());
             t.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
             t.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
             t.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
+            applications.put(name, t);
             systemWindow.apps.put(name, t);
 
         } catch (InstantiationException e) {
@@ -179,7 +186,7 @@ public class MainSystem {
             e.printStackTrace();
         }
 
-        java.lang.System.out.println(
+        System.out.println(
                 Thread.currentThread().getName() + " - Destroy app - Alive: " +
                         Thread.currentThread().isAlive());
         changeToSystemWindow();
@@ -190,28 +197,27 @@ public class MainSystem {
         applications = new HashMap<>();
 
         AbstractSystemApplication weather = new Weather();
-        weather.setup();
+        setupApplication(weather);
         systemApps.put("weather", weather);
         applications.put("weather", weather);
 
         AbstractSystemApplication wifi = new Wifi();
-        wifi.setup();
+        setupApplication(wifi);
         systemApps.put("wifi", wifi);
         applications.put("wifi", wifi);
 
         AbstractSystemApplication settings = new Settings();
         settings.setSystemController(sc);
-        settings.setup();
+        setupApplication(settings);
         systemApps.put("settings", settings);
         applications.put("settings", settings);
 
-        for(Map.Entry<String, AbstractSystemApplication> entry : systemApps.entrySet()) {
+        for(Map.Entry<String, AbstractApplication> entry : applications.entrySet()) {
             systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue());
         }
 
         AbstractUserApplication test = new WindowPluginTest();
-        test.setup();
-        userApps.put("test", test);
+        //userApps.put("test", test);
         systemWindow.addApplicationToWindow("test", test);
         applications.put("test", test);
 
@@ -228,17 +234,17 @@ public class MainSystem {
    /////////////////////////////////////////////
 
     // A frame to hold our system
-    JFrame frame;
+    private JFrame frame;
 
     // The container that is held by the frame
-    JPanel container;
+    private JPanel container;
 
     // The window that is currently showing in the container.
-    AbstractWindow currentWindow;
-
+    private AbstractWindow currentWindow;
 
     // Holds all applications, system and user
     private Map<String, AbstractApplication> applications;
+
 
     /**
      * Returns a Map with the name and application
@@ -291,17 +297,16 @@ public class MainSystem {
     }
 
     /**
-     * Starts an application with the given name.
-     * The method switches the current window what the application
-     * window that corresponds with the given name
+     * Starts an application with the given name
+     * if it exists in our application Map.
      *
      * @param name The name of the application to start
      */
     public void startApplication(String name) {
         // Check if the application exists, return false otherwise
         if(applications.containsKey(name)) {
-            // Get the application by name
-            AbstractApplication app = getApplicationByName(name);
+            // Get the application
+            AbstractApplication app = applications.get(name);
 
             // setup the application
             setupApplication(app);
@@ -315,20 +320,28 @@ public class MainSystem {
     }
 
     /**
-     * Searches through the list of current applications
-     * and returns the application based on the given name
+     * This will set the displaying window of the system.
+     * The current display window will be removed and the
+     * given window will be shown.
      *
-     * @param name The name matching the application to find
-     * @return The found application based on the given name if found, otherwise null
+     * Input will be passed to the given window.
+     *
+     * Our container uses a BorderLayout and the given
+     * window will be added to BorderLayout.Center
+     *
+     * @param window The AbstractWindow to display
      */
-    private AbstractApplication getApplicationByName(String name) {
-        // Search for the application that matches name in the map of applications
-        for (Map.Entry<String, AbstractApplication> application : applications.entrySet() ) {
-            if(application.getKey().equals(name)) {
-                return application.getValue();
-            }
-        }
-        return null;
+    public void setWindow(AbstractWindow window) {
+        // remove the current window
+        container.remove(currentWindow.INTERNAL_getScreen());
+        // set the new window
+        container.add(window.INTERNAL_getScreen());
+        // set controls to pass though the new window
+        inputHandler.attachWindow(window);
+        // store the new window as the current window
+        currentWindow = window;
+        // update display
+        update();
     }
 
     /**
@@ -353,7 +366,7 @@ public class MainSystem {
      *
      * It will check if the setup has already run for the given
      * application. If it has not it will run the setup and add
-     * the action listeners for;
+     * a new focusManager and the action listeners for;
      *  - Opening the keyboard.
      *      This will call a JPanel and add it to our container field.
      *      The keyboard will be added to BorderLayout.SOUTH.
@@ -372,11 +385,11 @@ public class MainSystem {
         // Check if setup already started. If not started, it means first start of the application.
         // This wil run the internal setup of the application and add the action listeners
         if(!app.INTERNAL_setupRun) {
-            app.setup();
+            app.setFocusManager(new FocusManager());
+            app.INTERNAL_setup();
             app.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
             app.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
             app.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
-            app.INTERNAL_addDestroyActionListener(e -> destroyApplication());
         }
     }
 
@@ -411,33 +424,10 @@ public class MainSystem {
     }
 
     /**
-     * This will set the displaying window of the system.
-     * The current display window will be removed and the
-     * given window will be shown.
-     *
-     * Our container uses a BorderLayout and the given
-     * window will be added to BorderLayout.Center
-     *
-     * @param window The AbstractWindow to be shown
-     */
-    public void setWindow(AbstractWindow window) {
-        // remove the current window
-        container.remove(currentWindow.INTERNAL_getScreen());
-        // set the new window
-        container.add(window.INTERNAL_getScreen());
-        // set controls to pass though the new window
-        inputHandler.attachWindow(window);
-        // store the new window as the current window
-        currentWindow = window;
-        // update display
-        update();
-    }
-
-    /**
      * Updates the display with the latest visual changes.
      * Makes a call to the system container to update itself.
-     * This will draw any new window or changes to the current
-     * window to the display
+     * This will draw any new window, or changes to the current
+     * window, to the display
      */
     private void update()
     {

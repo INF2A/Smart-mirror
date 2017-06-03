@@ -22,7 +22,7 @@ public class WindowPluginTest extends AbstractUserApplication implements Runnabl
      * for repainting the JFrame and JPanels.
      * This way our close button will remain responsive.
      */
-    public synchronized void start() {
+    synchronized void start() {
         if (running) return;
         running = true;
         gameLogicThread = new Thread(this);
@@ -31,21 +31,43 @@ public class WindowPluginTest extends AbstractUserApplication implements Runnabl
         gameLogicThread.start();
     }
 
+    synchronized void stop() {
+        try {
+            running = false;
+            System.out.println(Thread.currentThread().getName() + " - Join - Alive: " + Thread.currentThread().isAlive());
+            gameLogicThread.join();
+            SYSTEM_closeScreen();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
-     * Will be called everytime when the app starts
+     * Will be called one time on start
+     * Use this to load all that is necessary,
+     * Do not start threads in this method
+     */
+    @Override
+    protected void setup() {
+        label = new JLabel("amount: ");
+        System.out.println("new okug");
+        JButton closeAppliction = new JButton("close");
+        closeAppliction.addActionListener(e -> stop());
+
+        SYSTEM_Widget.add(label);
+        SYSTEM_Screen.add(label);
+        SYSTEM_Screen.add(closeAppliction);
+        focusManager.addComponent(closeAppliction);
+    }
+
+    /**
+     * Will be called every time when the app openes
+     * The app will have the full focus once this
+     * is called. Use this to start threads.
      */
     @Override
     public void init() {
         n = 0;
-        label = new JLabel("amount: ");
-        System.out.println("new okug");
-        JButton killApplication = new JButton("destroy me");
-        killApplication.addActionListener(e -> SYSTEM_destroy());
-
-        SYSTEM_Widget.add(label);
-        SYSTEM_Screen.add(label);
-        SYSTEM_Screen.add(killApplication);
-        focusComponents.add(killApplication);
         start();
     }
 
@@ -54,7 +76,9 @@ public class WindowPluginTest extends AbstractUserApplication implements Runnabl
         System.out.println(Thread.currentThread().getName() + " - Run - Alive: " + Thread.currentThread().isAlive());
         while (running) {
             try {
-                gameLogicThread.sleep(17);
+                //17
+                gameLogicThread.sleep(600);
+                System.out.println(Thread.currentThread().getName() + " - Running,,, - Alive: " + Thread.currentThread().isAlive());
                 label.setText("Amount: " + n++);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -66,13 +90,6 @@ public class WindowPluginTest extends AbstractUserApplication implements Runnabl
     @Override
     public void onBackButton() {
         super.onBackButton();
-        try {
-            running = false;
-            System.out.println(Thread.currentThread().getName() + " - Join - Alive: " + Thread.currentThread().isAlive());
-            SYSTEM_destroy();
-            gameLogicThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        stop();
     }
 }

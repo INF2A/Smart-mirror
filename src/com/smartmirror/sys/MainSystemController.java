@@ -6,10 +6,10 @@ import java.util.List;
 /**
  * Created by Erwin on 5/31/2017.
  *
- * This is a controller that is used by the system applications
- * to talk wil the main system.
- * In actuality, this class is used as a give through window, it abstracts
- * from the main system and gives only the necessary methods.
+ * This is just a go-between-layer for applications and windows that need to communicate
+ * with the system.
+ *
+ * It abstracts from all that is the system and defines simple methods.
  */
 public class MainSystemController {
     public boolean TESTING = true;
@@ -20,13 +20,12 @@ public class MainSystemController {
         this.system = system;
     }
 
-
     /**
      * This method returns a list of user applications names
      * which are installed on the main system
      * @return A list of user application names or an empty list if there are no application names
      */
-    public List<String> requestUserApplicationNameList() {
+    public List<String> getUserApplicationNameList() {
         // create empty list to return
         List<String> returnList = new ArrayList<>();
 
@@ -42,7 +41,7 @@ public class MainSystemController {
      * which are installed on the main system
      * @return A list of system application names
      */
-    public List<String> requestSystemApplicationsNameList() {
+    public List<String> getSystemApplicationNameList() {
         // create empty list to return
         List<String> returnList = new ArrayList<>();
 
@@ -61,7 +60,5 @@ public class MainSystemController {
     {
         system.startApplication(name);
     }
-
-
 
 }

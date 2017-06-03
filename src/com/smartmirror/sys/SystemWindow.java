@@ -1,7 +1,8 @@
 package com.smartmirror.sys;
 
 import com.smartmirror.core.view.AbstractApplication;
-import com.smartmirror.sys.view.AbstractSystemWindow;
+import com.smartmirror.sys.view.*;
+import com.smartmirror.sys.view.FocusManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +22,7 @@ public class SystemWindow extends AbstractSystemWindow {
 
     public SystemWindow()
     {
+        focusManager = new FocusManager();
         // = new JLabel("System window - view widgets and open apps from here");
         //enter.add(label);
         SYSTEM_Screen.setPreferredSize(new Dimension(screenSize));
@@ -51,7 +53,8 @@ public class SystemWindow extends AbstractSystemWindow {
 //        t.setPreferredSize(app.SYSTEM_Widget.getPreferredSize());
 //        t.setBackground(Color.GREEN);
 //        t.add(app.SYSTEM_Widget);
-        focusComponents.add(app.SYSTEM_Widget);
+       // focusComponents.add(app.SYSTEM_Widget);
+        focusManager.addComponent(app.SYSTEM_Widget);
         if(app.SYSTEM_Widget_Location == AbstractApplication.location.TOP)
         {
             top.add(app.SYSTEM_Widget);

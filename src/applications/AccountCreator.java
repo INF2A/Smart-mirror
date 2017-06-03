@@ -9,7 +9,6 @@ public class AccountCreator extends AbstractSystemApplication {
 
     @Override
     public void setup() {
-        super.setup();
     }
 
 

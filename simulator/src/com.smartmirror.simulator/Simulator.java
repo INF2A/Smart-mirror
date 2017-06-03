@@ -63,7 +63,7 @@ public class Simulator {
         window.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
         window.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
         container.add(window.INTERNAL_getScreen(), BorderLayout.CENTER);
-        window.INTERNAL_init();
+        window.INTERNAL_setup();
         update();
     }
 
