@@ -1,5 +1,7 @@
 package com.smartmirror.sys;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -11,15 +13,12 @@ public class Boot {
         new Boot();
     }
 
-
-    MainSystem system;
-    MainSystemController systemController;
+    final MainSystem system = new MainSystem();
+    final MainSystemController systemController = new MainSystemController(system);
 
 
     public Boot() {
-
-        system = new MainSystem();
-        systemController = new MainSystemController(system);
+     //   setup();
 
         if(isFirstBoot()) {
        //    system.setWindow(new ProfileSelectionWindow());
@@ -32,6 +31,20 @@ public class Boot {
         }
     }
 
+    private void setup() {
+        JFrame frame = new JFrame();
+        frame.setLayout(new BorderLayout());
+        //frame.setUndecorated(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        JPanel container = new JPanel();
+        container.setLayout(new BorderLayout());
+        //  container.setSize(screenSize);
+        frame.add(container, BorderLayout.CENTER);
+        frame.setVisible(true);
+
+        system.windowManager.setMainContainer(container);
+        // loading stuff add here...
+    }
 
     /**
      * Calls a script to check if the file "FirstBoot" is present

@@ -1,5 +1,7 @@
 package com.smartmirror.sys;
 
+import com.smartmirror.sys.view.window.WindowManager;
+
 import java.util.ArrayList;
 import java.util.List;
 

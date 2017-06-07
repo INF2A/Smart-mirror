@@ -11,6 +11,7 @@ import com.smartmirror.core.view.AbstractUserApplication;
 import com.smartmirror.core.view.AbstractWindow;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
 import com.smartmirror.sys.view.FocusManager;
+import com.smartmirror.sys.view.window.WindowManager;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -238,6 +239,11 @@ public class MainSystem {
 
     // The container that is held by the frame
     private JPanel container;
+
+
+    public final WindowManager windowManager = new WindowManager();
+
+
 
     // The window that is currently showing in the container.
     private AbstractWindow currentWindow;

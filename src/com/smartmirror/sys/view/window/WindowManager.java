@@ -2,6 +2,7 @@ package com.smartmirror.sys.view.window;
 
 import com.smartmirror.core.view.AbstractWindow;
 
+import javax.swing.*;
 import java.util.List;
 
 /**
@@ -10,8 +11,13 @@ import java.util.List;
 public class WindowManager {
     List<AbstractWindow> windowList;
 
+    JPanel mainContainer;
 
     public void addWindow(AbstractWindow window) {
         windowList.add(window);
+    }
+
+    public void setMainContainer(JPanel mainContainer) {
+        this.mainContainer = mainContainer;
     }
 }
