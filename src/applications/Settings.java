@@ -1,6 +1,8 @@
 package applications;
 
-import com.smartmirror.sys.view.AbstractSystemApplication;
+import com.smartmirror.core.view.AbstractSystemApplication;
+import com.sun.scenario.effect.impl.sw.java.JSWBlend_COLOR_BURNPeer;
+import widgets.SettingsWidget;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -9,95 +11,79 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by basva on 25-5-2017.
+ * System application - Displays all system applications and settings to change
  */
 public class Settings extends AbstractSystemApplication{
 
-    //
-//    /**
-//     * Will be called only once.
-//     * Call will be made when the application starts
-//     *
+    /**
+     * Will only run ones when application is started
+     * Define application startup settings here
+     *
+     * SYSTEM_Screen functions as base JPanel for the application
+     */
     @Override
     public void setup() {
-        SYSTEM_Widget.setBackground(Color.BLACK);
-        SYSTEM_Screen.setLayout(new BorderLayout());
+        SYSTEM_Widget = new SettingsWidget(); // Instantiate corresponding widget
+
+        SYSTEM_Screen.setBackground(Color.BLACK);
     }
 
+    /**
+     * Will be called every time settings applications opens
+     */
     @Override
     public void init() {
         SYSTEM_Screen.removeAll();
         focusComponents.removeAll(focusComponents);
         focusComponents.add(SYSTEM_Screen);
         INTERNAL_requestSystemApplications();
-        getPanel(systemApplications);
-        systemController.startApplication("weather");
+        getSettingsPanel(systemApplications);
     }
 
-    private void getWidget()
-    {
-        SYSTEM_Widget.setOpaque(false);
-        SYSTEM_Widget.setPreferredSize(new Dimension(25,25));
-        BufferedImage icon;
-        JLabel img = new JLabel();
-        try
-        {
-            icon = ImageIO.read(getClass().getResource("img/settings.png"));
-            img.setIcon(new ImageIcon(icon));
-        }
-        catch (IOException e)
-        {
-
-        }
-        SYSTEM_Widget.add(img);
-        SYSTEM_Widget_Location = location.TOP;
-    }
-
-    private void getPanel(Map<String, AbstractSystemApplication> apps)
+    /**
+     * Define components settings panel
+     * Shows all system applications
+     *
+     * @param apps
+     */
+    private void getSettingsPanel(Map<String, AbstractSystemApplication> apps)
     {
         JPanel bottom = new JPanel();
         bottom.setLayout(new FlowLayout());
 
         JButton saveButton = new JButton("Save settings");
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SYSTEM_closeScreen();
-            }
-        });
+        saveButton.addActionListener(e -> SYSTEM_closeScreen());
 
         JButton exitButton = new JButton("Exit");
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SYSTEM_closeScreen();
-            }
-        });
+        exitButton.addActionListener(e -> SYSTEM_closeScreen());
 
-        bottom.add(saveButton);
-        bottom.add(exitButton);
-
-        JPanel center = new JPanel();
-        center.setLayout(new GridLayout(0,1));
 
         for(Map.Entry<String, AbstractSystemApplication> entry : apps.entrySet())
         {
             if(!entry.getKey().equals("settings"))
             {
-                center.add(entry.getValue().SYSTEM_Screen, BorderLayout.CENTER);
-                focusComponents.addAll(entry.getValue().focusComponents);
+                JButton iconButton = new JButton(entry.getValue().SYSTEM_Icon);
+
+                //ADD ACTIONLISTENER SWITCH TO SELECTED APP.
+
+                iconButton.setBackground(Color.BLACK);
+                SYSTEM_Screen.add(iconButton);
+                focusComponents.add(iconButton);
             }
         }
-
-        //center.add(apps.get("weather").SYSTEM_Screen, BorderLayout.CENTER);
-
-        SYSTEM_Screen.add(center, BorderLayout.CENTER);
-        SYSTEM_Screen.add(bottom, BorderLayout.SOUTH);
+        SYSTEM_Screen.add(saveButton);
+        SYSTEM_Screen.add(exitButton);
 
         focusComponents.add(saveButton);
         focusComponents.add(exitButton);
+    }
+
+    @Override
+    public void onBackButton() {
+        SYSTEM_closeScreen();
     }
 }
