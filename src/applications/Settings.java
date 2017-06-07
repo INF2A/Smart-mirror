@@ -2,6 +2,7 @@ package applications;
 
 import com.smartmirror.core.view.AbstractSystemApplication;
 import com.sun.scenario.effect.impl.sw.java.JSWBlend_COLOR_BURNPeer;
+import widgets.SettingsWidget;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -14,43 +15,42 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by basva on 25-5-2017.
+ * System application - Displays all system applications and settings to change
  */
 public class Settings extends AbstractSystemApplication{
 
-    //
-//    /**
-//     * Will be called only once.
-//     * Call will be made when the application starts
-//     *
+    /**
+     * Will only run ones when application is started
+     * Define application startup settings here
+     *
+     * SYSTEM_Screen functions as base JPanel for the application
+     */
     @Override
     public void setup() {
-        SYSTEM_Widget = new Widget();
+        SYSTEM_Widget = new SettingsWidget(); // Instantiate corresponding widget
 
         SYSTEM_Screen.setBackground(Color.BLACK);
-        setWidget();
     }
 
+    /**
+     * Will be called every time settings applications opens
+     */
     @Override
     public void init() {
         SYSTEM_Screen.removeAll();
         focusComponents.removeAll(focusComponents);
         focusComponents.add(SYSTEM_Screen);
         INTERNAL_requestSystemApplications();
-        getPanel(systemApplications);
+        getSettingsPanel(systemApplications);
     }
 
-    private void setWidget()
-    {
-        SYSTEM_Widget.setPreferredSize(new Dimension(25,25));
-        ClassLoader classLoader = getClass().getClassLoader();
-        ImageIcon image = new ImageIcon(classLoader.getResource("img/settings.png"));
-        JLabel img = new JLabel(image);
-        SYSTEM_Widget.add(img);
-        SYSTEM_Widget_Location = location.TOP;
-    }
-
-    private void getPanel(Map<String, AbstractSystemApplication> apps)
+    /**
+     * Define components settings panel
+     * Shows all system applications
+     *
+     * @param apps
+     */
+    private void getSettingsPanel(Map<String, AbstractSystemApplication> apps)
     {
         JPanel bottom = new JPanel();
         bottom.setLayout(new FlowLayout());

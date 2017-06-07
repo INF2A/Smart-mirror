@@ -1,46 +1,42 @@
 package applications;
 
 import com.smartmirror.core.view.AbstractSystemApplication;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import system.input.json.JsonParser;
-
-import javax.swing.*;
-import java.awt.*;
+import widgets.ClockWidget;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
- * Created by basva on 31-5-2017.
+ * System application - used for displaying time
  */
 public class Clock extends AbstractSystemApplication {
+    private ScheduledExecutorService scheduledExecutorService; // Used as timer
 
-    public JSONObject jsonTime;
-
+    /**
+     * Will only run ones when application is started
+     * Define application startup settings here
+     *
+     * SYSTEM_Screen functions as base JPanel for the application
+     */
     public void setup()
     {
-        SYSTEM_Widget = new Widget();
+        setSYSTEM_Icon("img/clock-icon.png");   // Set application icon - will be displayed in settings
 
-        setSYSTEM_Widget();
-        setSYSTEM_Icon("img/clock-icon.png");
+        SYSTEM_Widget = new ClockWidget();  // Instantiate corresponding widget
+
+        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor(); // Instantiate Executor Service
+        scheduledExecutorService.scheduleAtFixedRate(new Runnable() { // Define runnable
+            @Override
+            public void run() {
+                // Define stuff to update
+                SYSTEM_Widget.init();
+            }
+        }, 0,1, TimeUnit.SECONDS); // Set timer
     }
 
     @Override
     public void init() {
 
-    }
-
-    public void setSYSTEM_Widget()
-    {
-        getJSON();
-
-        SYSTEM_Widget_Dimension = new Dimension(50,50);
-        SYSTEM_Widget.add(new JLabel(jsonTime.get("hour").toString() +":"+ jsonTime.get("minute").toString() +":"+ jsonTime.get("second").toString())).setForeground(Color.WHITE);
-        SYSTEM_Widget_Location = location.CENTER;
-    }
-
-    public void getJSON()
-    {
-        //Comment setSYSTEM_Widget() in setup method if not running api.
-        jsonTime = (JSONObject)JsonParser.parseURL("http://localhost:8090/time").get("dateTime");
     }
 
     @Override

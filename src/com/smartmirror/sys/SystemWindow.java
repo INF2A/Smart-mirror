@@ -3,6 +3,8 @@ package com.smartmirror.sys;
 import applications.Widget;
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.core.view.AbstractSystemWindow;
+import widgets.ClockWidget;
+import widgets.DefaultWidget;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,16 +19,12 @@ public class SystemWindow extends AbstractSystemWindow {
 
     private JPanel top;
     private JPanel center;
+    private JPanel centerLeft;
+    private JPanel centerRight;
     private JPanel bottom;
-    //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
 
     public SystemWindow()
     {
-        // = new JLabel("System window - view widgets and open apps from here");
-        //enter.add(label);
-        //SYSTEM_Screen.setPreferredSize(new Dimension(screenSize));
-
         SYSTEM_Screen.setBackground(Color.BLACK);
 
         SYSTEM_Screen.setLayout(new BorderLayout());
@@ -36,52 +34,53 @@ public class SystemWindow extends AbstractSystemWindow {
 
         center = new JPanel();
         center.setBackground(Color.BLACK);
-        center.setLayout(new GridBagLayout());
-
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-
-
         SYSTEM_Screen.add(center, BorderLayout.CENTER);
+
+        centerLeft = new JPanel();
+        centerLeft.setBackground(Color.BLACK);
+        centerLeft.setLayout(new BoxLayout(centerLeft, BoxLayout.Y_AXIS));
+        SYSTEM_Screen.add(centerLeft, BorderLayout.LINE_START);
+
+        centerRight = new JPanel();
+        centerRight.setBackground(Color.BLACK);
+        centerRight.setLayout(new BoxLayout(centerRight, BoxLayout.Y_AXIS));
+        SYSTEM_Screen.add(centerRight, BorderLayout.LINE_END);
 
         bottom = new JPanel();
         bottom.setBackground(Color.BLACK);
         SYSTEM_Screen.add(bottom, BorderLayout.SOUTH);
     }
 
-    public void addApplicationToWindow(String appName, AbstractApplication app, Dimension dimension){
+    public void addApplicationToWindow(String appName, AbstractApplication app){
         apps.put(appName, app);
-        //app.SYSTEM_Widget = new Widget();
+
         if(app.SYSTEM_Widget == null)
         {
-            app.SYSTEM_Widget = new Widget();
+            app.SYSTEM_Widget = new DefaultWidget();
         }
 
         app.SYSTEM_Widget.setName(appName);
-        app.SYSTEM_Widget.setPreferredSize(dimension);
 
-//        JPanel t = new JPanel();
-//        t.setOpaque(false);
-//        t.setName(appName);
-//        t.setPreferredSize(app.SYSTEM_Widget.getPreferredSize());
-//        t.setBackground(Color.GREEN);
-//        t.add(app.SYSTEM_Widget);
         focusComponents.add(app.SYSTEM_Widget);
-        if(app.SYSTEM_Widget_Location == AbstractApplication.location.TOP)
+
+        switch (app.SYSTEM_Widget.location)
         {
-            top.add(app.SYSTEM_Widget);
-        }
-        else if (app.SYSTEM_Widget_Location == AbstractApplication.location.CENTER)
-        {
-            center.add(app.SYSTEM_Widget);
-        }
-        else if (app.SYSTEM_Widget_Location == AbstractApplication.location.BOTTOM)
-        {
-            bottom.add(app.SYSTEM_Widget);
-        }
-        else
-        {
-            center.add(app.SYSTEM_Widget);
+            case TOP:
+                top.add(app.SYSTEM_Widget);
+                break;
+            case BOTTOM:
+                bottom.add(app.SYSTEM_Widget);
+                break;
+            case CENTER_LEFT:
+                centerLeft.add(app.SYSTEM_Widget);
+                break;
+            case CENTER_RIGHT:
+                centerRight.add(app.SYSTEM_Widget);
+                break;
+            case CENTER:
+                default:
+                center.add(app.SYSTEM_Widget);
+                break;
         }
     }
 

@@ -233,13 +233,15 @@ public class Main{
             entry.getValue().INTERNAL_addExitActionListener(e -> changeToSystemWindow());
             entry.getValue().INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
             entry.getValue().INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
-            systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue(), entry.getValue().SYSTEM_Widget_Dimension);
+            systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue());
         }
 
         AbstractUserApplication test = new WindowPluginTest();
         test.setup();
+        //TEMP SETTING
+        //test.SYSTEM_Widget_Location = AbstractApplication.location.CENTER;
         userApps.put("test", test);
-        systemWindow.addApplicationToWindow("test", test, new Dimension(100,100));
+        systemWindow.addApplicationToWindow("test", test);
         test.INTERNAL_addDestroyActionListener(e -> destroyApplication());
         test.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
         test.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
