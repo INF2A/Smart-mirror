@@ -2,7 +2,8 @@ package com.smartmirror.sys;
 
 import applications.Widget;
 import com.smartmirror.core.view.AbstractApplication;
-import com.smartmirror.core.view.AbstractSystemWindow;
+import com.smartmirror.sys.view.*;
+import com.smartmirror.sys.view.FocusManager;
 import widgets.ClockWidget;
 import widgets.DefaultWidget;
 
@@ -25,6 +26,8 @@ public class SystemWindow extends AbstractSystemWindow {
 
     public SystemWindow()
     {
+        focusManager = new FocusManager();
+
         SYSTEM_Screen.setBackground(Color.BLACK);
 
         SYSTEM_Screen.setLayout(new BorderLayout());
@@ -61,7 +64,7 @@ public class SystemWindow extends AbstractSystemWindow {
 
         app.SYSTEM_Widget.setName(appName);
 
-        focusComponents.add(app.SYSTEM_Widget);
+        focusManager.addComponent(app.SYSTEM_Widget);
 
         switch (app.SYSTEM_Widget.location)
         {

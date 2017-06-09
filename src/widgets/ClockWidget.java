@@ -16,12 +16,14 @@ public class ClockWidget extends AbstractWidget{
 
     public ClockWidget()
     {
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
         location = Location.CENTER_RIGHT;
-        dimension = new Dimension(100, 100);
 
         clock = new JLabel();
         clock.setForeground(Color.WHITE);
-        clock.setFont(new Font("Dialog", Font.PLAIN, 40));
+        clock.setFont(new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution()));
+        System.out.println(Toolkit.getDefaultToolkit().getScreenResolution() + " -- " + Toolkit.getDefaultToolkit().getScreenSize());
         add(clock);
     }
 
@@ -34,7 +36,6 @@ public class ClockWidget extends AbstractWidget{
 
     public void getJSON()
     {
-        //Comment setSYSTEM_Widget() in setup method if not running api.
-        json = (JSONObject) JsonParser.parseURL("http://localhost:8090/time/Europe/Amsterdam").get("dateTime");
+        json = (JSONObject) JsonParser.parseURL("http://localhost:8090/time/Asia/Seoul").get("dateTime");
     }
 }

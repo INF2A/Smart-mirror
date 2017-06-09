@@ -1,9 +1,6 @@
 package com.smartmirror.sys;
 
-import applications.Settings;
-import applications.Weather;
-import applications.Wifi;
-import applications.WindowPluginTest;
+import applications.*;
 
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.sys.view.AbstractSystemApplication;
@@ -197,20 +194,21 @@ public class MainSystem {
     private void loadSystemApplications() {
         applications = new HashMap<>();
 
-        AbstractSystemApplication weather = new Weather();
-        setupApplication(weather);
-        systemApps.put("weather", weather);
-        applications.put("weather", weather);
+        AbstractSystemApplication clock = new Clock();
+        setupApplication(clock);
+        applications.put("clock", clock);
 
         AbstractSystemApplication wifi = new Wifi();
         setupApplication(wifi);
-        systemApps.put("wifi", wifi);
         applications.put("wifi", wifi);
+
+        AbstractSystemApplication weather = new Weather();
+        setupApplication(weather);
+        applications.put("weather", weather);
 
         AbstractSystemApplication settings = new Settings();
         settings.setSystemController(sc);
         setupApplication(settings);
-        systemApps.put("settings", settings);
         applications.put("settings", settings);
 
         for(Map.Entry<String, AbstractApplication> entry : applications.entrySet()) {

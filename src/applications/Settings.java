@@ -1,17 +1,9 @@
 package applications;
 
-import com.smartmirror.core.view.AbstractSystemApplication;
-import com.sun.scenario.effect.impl.sw.java.JSWBlend_COLOR_BURNPeer;
+import com.smartmirror.sys.view.AbstractSystemApplication;
 import widgets.SettingsWidget;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -30,6 +22,8 @@ public class Settings extends AbstractSystemApplication{
         SYSTEM_Widget = new SettingsWidget(); // Instantiate corresponding widget
 
         SYSTEM_Screen.setBackground(Color.BLACK);
+
+        getSettingsPanel(systemApplications);
     }
 
     /**
@@ -37,11 +31,11 @@ public class Settings extends AbstractSystemApplication{
      */
     @Override
     public void init() {
-        SYSTEM_Screen.removeAll();
-        focusComponents.removeAll(focusComponents);
-        focusComponents.add(SYSTEM_Screen);
-        INTERNAL_requestSystemApplications();
-        getSettingsPanel(systemApplications);
+//        SYSTEM_Screen.removeAll();
+//        focusComponents.removeAll(focusComponents);
+//        focusComponents.add(SYSTEM_Screen);
+//        INTERNAL_requestSystemApplications();
+
     }
 
     /**
@@ -72,14 +66,14 @@ public class Settings extends AbstractSystemApplication{
 
                 iconButton.setBackground(Color.BLACK);
                 SYSTEM_Screen.add(iconButton);
-                focusComponents.add(iconButton);
+                focusManager.addComponent(iconButton);
             }
         }
         SYSTEM_Screen.add(saveButton);
         SYSTEM_Screen.add(exitButton);
 
-        focusComponents.add(saveButton);
-        focusComponents.add(exitButton);
+        focusManager.addComponent(saveButton);
+        focusManager.addComponent(exitButton);
     }
 
     @Override

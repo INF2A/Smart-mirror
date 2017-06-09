@@ -1,6 +1,6 @@
 package applications;
 
-import com.smartmirror.core.view.AbstractSystemApplication;
+import com.smartmirror.sys.view.AbstractSystemApplication;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,8 +40,8 @@ public class Weather extends AbstractSystemApplication{
         SYSTEM_Screen.add(weatherLocationField);
         SYSTEM_Screen.add(exitButton);
 
-        focusComponents.add(weatherLocationField);
-        focusComponents.add(exitButton);
+        focusManager.addComponent(weatherLocationField);
+        focusManager.addComponent(exitButton);
 
         setSYSTEM_Icon("img/weather-icon.png");
 

@@ -1,6 +1,6 @@
 package applications;
 
-import com.smartmirror.core.view.AbstractSystemApplication;
+import com.smartmirror.sys.view.AbstractSystemApplication;
 import widgets.ClockWidget;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * System application - used for displaying time
  */
-public class Clock extends AbstractSystemApplication {
+public class Clock extends AbstractSystemApplication{
     private ScheduledExecutorService scheduledExecutorService; // Used as timer
 
     /**

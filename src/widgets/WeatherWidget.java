@@ -29,13 +29,22 @@ public class WeatherWidget extends AbstractWidget {
 
     public WeatherWidget()
     {
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
         location = location.CENTER_RIGHT;
-        dimension = new Dimension(300, 300);
 
         city_name.setForeground(Color.WHITE);
+        city_name.setFont(new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution() / 2));
+
         country.setForeground(Color.WHITE);
+        country.setFont(new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution() / 2));
+
         main.setForeground(Color.WHITE);
+        main.setFont(new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution() / 3));
+
         description.setForeground(Color.WHITE);
+
+
         temp.setForeground(Color.WHITE);
         minTemp.setForeground(Color.WHITE);
         maxTemp.setForeground(Color.WHITE);
@@ -57,8 +66,6 @@ public class WeatherWidget extends AbstractWidget {
     public void init() {
         getJSON();
         JSONObject weather = getCurrentWeather();
-
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         city_name.setText(weather.get("city_name").toString());
         country.setText(weather.get("country").toString());
@@ -91,8 +98,7 @@ public class WeatherWidget extends AbstractWidget {
      */
     public void getJSON()
     {
-        //Comment setSYSTEM_Widget() in setup method if not running api.
-        json = JsonParser.parseURL("http://localhost:8090/1/weather/amsterdam/metric");
+        json = JsonParser.parseURL("http://localhost:8090/1/weather/emmen/metric");
     }
 
     /**

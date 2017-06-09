@@ -201,7 +201,7 @@ public class FocusManager implements IFocusManager {
     }
 
     private void update() {
-        componentList.get(_current).setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        componentList.get(_current).setBorder(BorderFactory.createLineBorder(Color.WHITE));
         componentList.get(_previous).setBorder(null);
         componentList.get(_previous).updateUI();
         System.out.println( componentList.get(_current).toString());
