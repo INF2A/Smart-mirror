@@ -1,4 +1,4 @@
-package applications;
+package com.smartmirror.sys.applications;
 
 import com.smartmirror.sys.view.AbstractSystemApplication;
 
@@ -7,7 +7,7 @@ import java.awt.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import widgets.WeatherWidget;
+import com.smartmirror.sys.applications.widgets.WeatherWidget;
 
 /**
  * System application - used for displaying current and forecast weather

@@ -1,6 +1,6 @@
 package com.smartmirror.sys;
 
-import applications.*;
+import com.smartmirror.sys.applications.*;
 
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.sys.view.AbstractSystemApplication;
@@ -19,7 +19,6 @@ import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Set;
 
 
 /**

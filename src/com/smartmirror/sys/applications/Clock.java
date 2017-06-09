@@ -1,7 +1,7 @@
-package applications;
+package com.smartmirror.sys.applications;
 
 import com.smartmirror.sys.view.AbstractSystemApplication;
-import widgets.ClockWidget;
+import com.smartmirror.sys.applications.widgets.ClockWidget;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;

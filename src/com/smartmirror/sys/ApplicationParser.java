@@ -24,7 +24,7 @@ import java.util.jar.JarFile;
  */
 public class ApplicationParser {
 
-    final File folder = new File("applications");
+    final File folder = new File("com/smartmirror/sys/applications");
     private Map<String, File> systemApplicationJars = new HashMap<>();
     private Map<String, File> userApplicationJars = new HashMap<>();
 
