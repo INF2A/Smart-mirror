@@ -63,6 +63,25 @@ public class FocusManager implements IFocusManager {
     }
 
     /**
+     * Removes a component from the Focus Manager
+     * @param component the component to remove
+     */
+    @Override
+    public void removeComponent(JComponent component) {
+        componentList.remove(component);
+    }
+
+    /**
+     * Removes all components known by the focus manager
+     * from the given list
+     * @param components The components to remove
+     */
+    @Override
+    public void removeComponents(List<JComponent> components) {
+        componentList.removeAll(components);
+    }
+
+    /**
      * Gives back the number of components known by the Focus Manager
      * @return integer value of how many components are known
      */

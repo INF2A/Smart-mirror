@@ -1,5 +1,7 @@
 package com.smartmirror.sys;
 
+import com.smartmirror.sys.view.window.ProfileSelectionWindow;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

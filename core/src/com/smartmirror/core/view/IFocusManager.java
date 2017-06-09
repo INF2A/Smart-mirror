@@ -48,6 +48,19 @@ public interface IFocusManager {
     void replaceComponent(JComponent replace, JComponent with);
 
     /**
+     * Removes a component from the Focus Manager
+      * @param component the component to remove
+     */
+    void removeComponent(JComponent component);
+
+    /**
+     * Removes all components known by the focus manager
+     * from the given list
+     * @param components The components to remove
+     */
+    void removeComponents(List<JComponent> components);
+
+    /**
      * Gives back the number of components known by the Focus Manager
      * @return integer value of how many components are known
      */
