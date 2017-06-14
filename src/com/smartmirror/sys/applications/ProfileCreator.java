@@ -1,4 +1,4 @@
-package applications;
+package com.smartmirror.sys.applications;
 
 import com.smartmirror.sys.DB;
 import com.smartmirror.sys.view.AbstractSystemApplication;

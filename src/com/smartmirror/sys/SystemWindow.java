@@ -1,6 +1,5 @@
 package com.smartmirror.sys;
 
-import com.smartmirror.sys.applications.Widget;
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.sys.view.*;
 import com.smartmirror.sys.view.FocusManager;

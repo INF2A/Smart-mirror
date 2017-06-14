@@ -1,16 +1,13 @@
 package com.smartmirror.sys.view.window;
 
-import applications.ProfileCreator;
-import applications.Wifi;
+import com.smartmirror.sys.applications.ProfileCreator;
 import com.smartmirror.core.view.AbstractWindow;
-import com.smartmirror.sys.DB;
 import com.smartmirror.sys.MainSystemController;
-import com.smartmirror.sys.view.*;
+import com.smartmirror.sys.applications.Wifi;
 import com.smartmirror.sys.view.FocusManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**

@@ -1,16 +1,13 @@
 package com.smartmirror.sys;
 
-import applications.*;
-
 import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.sys.applications.*;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.core.view.AbstractUserApplication;
-import com.smartmirror.core.view.AbstractWindow;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
 import com.smartmirror.sys.view.FocusManager;
 import com.smartmirror.sys.view.window.BootWindow;
 import com.smartmirror.sys.view.window.FirstBootWindow;
-import com.smartmirror.sys.view.window.ProfileSelectionWindow;
 import com.smartmirror.sys.view.window.WindowManager;
 
 import javax.swing.*;

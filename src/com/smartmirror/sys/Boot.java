@@ -1,16 +1,7 @@
 package com.smartmirror.sys;
 
-import applications.ProfileCreator;
-import com.smartmirror.core.view.AbstractApplication;
-import com.smartmirror.core.view.AbstractWindow;
-import com.smartmirror.sys.view.window.BootWindow;
-import com.smartmirror.sys.view.window.FirstBootWindow;
-import com.smartmirror.sys.view.window.ProfileSelectionWindow;
-import com.smartmirror.sys.view.window.WindowManager;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 /**
  * Created by Erwin on 5/31/2017.
