@@ -52,8 +52,8 @@ public abstract class AbstractWindow extends AbstractInputHandler {
         }
     }
 
-    @Deprecated
-    protected void INTERNAL_init()
+
+    public void INTERNAL_init()
     {
 //        for (int i = 1; i < focusComponents.size(); i++) {
 //            focusComponents.get(i).addFocusListener(this);

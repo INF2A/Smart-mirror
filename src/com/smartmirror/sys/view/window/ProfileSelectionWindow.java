@@ -54,7 +54,7 @@ public class ProfileSelectionWindow extends AbstractWindow {
             JButton t = new JButton(profile.getName());
             t.setAlignmentX(Component.CENTER_ALIGNMENT);
             SYSTEM_Screen.add(t);
-            focusComponents.add(t);
+            focusManager.addComponent(t);
         }
     }
 }

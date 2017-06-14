@@ -1,9 +1,14 @@
 package com.smartmirror.sys;
 
+import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.core.view.AbstractWindow;
+import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.sys.view.window.WindowManager;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Erwin on 5/31/2017.
@@ -14,12 +19,16 @@ import java.util.List;
  * It abstracts from all that is the system and defines simple methods.
  */
 public class MainSystemController {
-    public boolean TESTING = true;
 
     private MainSystem system;  // The main system
 
+
     public MainSystemController(MainSystem system) {
         this.system = system;
+    }
+
+    public WindowManager getWindowManager() {
+        return system.windowManager;
     }
 
     /**
@@ -61,6 +70,16 @@ public class MainSystemController {
     public void startApplication(String name)
     {
         system.startApplication(name);
+    }
+
+
+    /**
+     * Will start the application with the given name.
+     * @param name The name of the application to start
+     */
+    public AbstractApplication getApplication(String name)
+    {
+        return system.getApplications().get(name);
     }
 
 }

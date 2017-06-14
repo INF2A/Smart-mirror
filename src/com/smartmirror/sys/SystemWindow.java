@@ -1,15 +1,12 @@
 package com.smartmirror.sys;
 
-import applications.Widget;
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.sys.view.*;
 import com.smartmirror.sys.view.FocusManager;
-import widgets.ClockWidget;
-import widgets.DefaultWidget;
+import com.smartmirror.sys.applications.widgets.DefaultWidget;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 /**
  * Created by Erwin on 5/15/2017.

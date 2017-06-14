@@ -21,6 +21,13 @@ public class InputHandler extends AbstractInputHandler {
     AbstractWindow window;  // The window to propagate input generated events to
     KeyboardController kbc;
 
+    public InputHandler(){}
+
+    public InputHandler(KeyboardController kbc) {
+        this.kbc = kbc;
+    }
+
+
     public void attachKeyboardController(KeyboardController kbc)
     {
         this.kbc = kbc;

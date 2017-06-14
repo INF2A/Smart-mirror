@@ -47,6 +47,56 @@ public class FocusManager implements IFocusManager {
     }
 
     /**
+     * Adds the list of components which can be focused on by the system
+     * @param components to add
+     */
+    @Override
+    public void addComponents(List<JComponent> components) {
+        componentList.addAll(components);
+    }
+
+    /**
+     * Inserts a component before the given component.
+     * Makes the focus manager focus on the inserted component before
+     * the given component
+     * @param component The component to add
+     * @param before The component to add the new component before
+     */
+    @Override
+    public void insertBefore(JComponent component, JComponent before){
+        int pos = componentList.indexOf(before);
+        if(pos != -1) componentList.add(componentList.indexOf(before), component);
+    }
+
+    /**
+     * Inserts a component after the given component.
+     * Makes the focus manager focus on the inserted component after
+     * the given component
+     * @param component The component to add
+     * @param after The component to add the new component after
+     */
+    @Override
+    public void insertAfter(JComponent component, JComponent after){
+        int pos = componentList.indexOf(after);
+        if(pos != -1) {
+            // check if it is the last component of the list
+            if(pos == componentList.size() -1) componentList.add(component);
+            else componentList.add(pos + 1, component);
+        }
+    }
+
+    /**
+     * Sets the first focusable component
+     * This does not override the first component. Instead
+     * all components will move up 1 spot.
+     * @param component the component to set as first
+     */
+    @Override
+    public void insertFirst(JComponent component){
+        componentList.add(0, component);
+    }
+
+    /**
      * Replaces a component with a new component
      * @param replace the component to replace
      * @param with the component that takes the place
@@ -60,6 +110,25 @@ public class FocusManager implements IFocusManager {
                 componentList.add(pos, with);
             }
         }
+    }
+
+    /**
+     * Removes a component from the Focus Manager
+     * @param component the component to remove
+     */
+    @Override
+    public void removeComponent(JComponent component) {
+        componentList.remove(component);
+    }
+
+    /**
+     * Removes all components known by the focus manager
+     * from the given list
+     * @param components The components to remove
+     */
+    @Override
+    public void removeComponents(List<JComponent> components) {
+        componentList.removeAll(components);
     }
 
     /**
@@ -147,9 +216,6 @@ public class FocusManager implements IFocusManager {
     /**
      * Tells the focus manager to make the current highlighted
      * component the selected component
-     *
-     * Note - Focused components get the focus by requesting it.
-     * Example: Current().requestFocus()
      */
     @Override
     public void Select() {
@@ -169,12 +235,8 @@ public class FocusManager implements IFocusManager {
 
     /**
      * Tells the focus manager to return the selected component
-     * A selected component has the Focus which is requested,
-     * not be mistaken by the highlighted border.
      *
-     * Note - Focused components get the focus by requesting it.
-     * Example: Current().requestFocus()
-     * @return
+     * @return the selected object
      */
     @Override
     public Object Selected() {
@@ -187,11 +249,13 @@ public class FocusManager implements IFocusManager {
      */
     @Override
     public void Reset() {
-        componentList.get(_current).setBorder(null);
-        componentList.get(_current).updateUI();
         _selected = 0;
         _current = 0;
         _previous = 0;
+        for(JComponent c : componentList) {
+            c.setBorder(null);
+            c.updateUI();
+        }
     }
 
 
@@ -201,7 +265,7 @@ public class FocusManager implements IFocusManager {
     }
 
     private void update() {
-        componentList.get(_current).setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        componentList.get(_current).setBorder(BorderFactory.createLineBorder(Color.WHITE, 4));
         componentList.get(_previous).setBorder(null);
         componentList.get(_previous).updateUI();
         System.out.println( componentList.get(_current).toString());
