@@ -1,6 +1,6 @@
 package com.smartmirror.sys;
 
-import com.smartmirror.sys.applications.*;
+import applications.*;
 
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.sys.view.AbstractSystemApplication;
@@ -8,76 +8,24 @@ import com.smartmirror.core.view.AbstractUserApplication;
 import com.smartmirror.core.view.AbstractWindow;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
 import com.smartmirror.sys.view.FocusManager;
+import com.smartmirror.sys.view.window.BootWindow;
+import com.smartmirror.sys.view.window.FirstBootWindow;
+import com.smartmirror.sys.view.window.ProfileSelectionWindow;
 import com.smartmirror.sys.view.window.WindowManager;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JComponent;
-import javax.swing.KeyStroke;
-import javax.swing.AbstractAction;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 
 
 /**
  * Created by Erwin on 5/15/2017.
  */
 public class MainSystem {
-
-    final MainSystemController sc = new MainSystemController(this);
-
-    SystemWindow systemWindow;
-
-    final KeyboardController kbc = new KeyboardController();
-    final InputHandler inputHandler = new InputHandler();
-    //   final GpioListener gpio = new GpioListener(inputHandler);
-
-    @Deprecated
-    Map<String, AbstractApplication> userApps;
-
-    @Deprecated
-    Map<String, AbstractSystemApplication> systemApps;
-
     ApplicationParser appParser;
 
-    public MainSystem() {
 
-        buildGui();
-
-        kbc.setKeyBoardDimensions(frame.getWidth(), frame.getHeight());
-        inputHandler.attachKeyboardController(kbc);
-
-        systemWindow = new SystemWindow();
-
-        systemWindow.INTERNAL_addWindowChangeListener(e -> {
-            String name = getApplicationName(systemWindow.selectedApp);
-            startApplication(name);
-        });
-
-       // appParser = new ApplicationParser();
-        userApps = new HashMap<>();
-        systemApps = new HashMap<>();
-       // systemApps = appParser.getSystemApplications();
-
-        loadPlugins();
-
-        startSystemWindow();
-        test_AttachButtonSimulator();
-    }
-
-    private void buildGui() {
-        frame = new JFrame();
-        frame.setLayout(new BorderLayout());
-        //frame.setUndecorated(true);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        container = new JPanel();
-        container.setLayout(new BorderLayout());
-        //  container.setSize(screenSize);
-        frame.add(container, BorderLayout.CENTER);
-        frame.setVisible(true);
-    }
 
     /// TEMPORARY
     // simulates the remote buttons
@@ -89,125 +37,75 @@ public class MainSystem {
         //  Object buttonPressed = new Object();
         //  Object buttonReleased = new Object();
 
-        container.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), rightKey);
-        container.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), leftKey);
-        container.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ESCAPE"), backKey);
-        container.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ENTER"), menuKey);
+        windowManager.getWindowHolder().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), rightKey);
+        windowManager.getWindowHolder().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), leftKey);
+        windowManager.getWindowHolder().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ESCAPE"), backKey);
+        windowManager.getWindowHolder().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("ENTER"), menuKey);
         //  container.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("pressed"), buttonPressed);
         //  container.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("released"), buttonReleased);
 
-        container.getActionMap().put(rightKey, new AbstractAction() {
+        windowManager.getWindowHolder().getActionMap().put(rightKey, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 inputHandler.onRightButton();
-                java.lang.System.out.println("right -> ");
+                System.out.println("right -> ");
             }
         });
-        container.getActionMap().put(leftKey, new AbstractAction() {
+        windowManager.getWindowHolder().getActionMap().put(leftKey, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 inputHandler.onLeftButton();
-                java.lang.System.out.println("left <- ");
+                System.out.println("left <- ");
             }
         });
-        container.getActionMap().put(backKey, new AbstractAction() {
+        windowManager.getWindowHolder().getActionMap().put(backKey, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 inputHandler.onBackButton();
-                java.lang.System.out.println("Back");
+                System.out.println("Back");
             }
         });
-        container.getActionMap().put(menuKey, new AbstractAction() {
+        windowManager.getWindowHolder().getActionMap().put(menuKey, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 inputHandler.onMenuButton();
-                java.lang.System.out.println("Menu");
+                System.out.println("Menu");
             }
         });
     }
 
-    @Deprecated // use startApplication(string name)
-    private void setCurrentWindow(AbstractApplication window)
-    {
-        java.lang.System.out.println(
-                Thread.currentThread().getName() + " - setCurrentW - Alive: " +
-                        Thread.currentThread().isAlive());
-        currentWindow = window;
-        inputHandler.attachWindow(window);
 
-        container.removeAll();
-        container.add(window.INTERNAL_getScreen(), BorderLayout.CENTER);
-      //  window.INTERNAL_init();
-        window.init();
-        update();
-
-    }
-
-    private void startSystemWindow() {
+    public void startSystemWindow() {
         java.lang.System.out.println(
                 Thread.currentThread().getName() + " - startSiyW - Alive: " +
                         Thread.currentThread().isAlive());
-        currentWindow = systemWindow;
-        container.add(systemWindow.INTERNAL_getScreen(), BorderLayout.CENTER);
-        inputHandler.attachWindow(systemWindow);
-        update();
-
+        windowManager.setWindow("system");
+        inputHandler.attachWindow(windowManager.getCurrentWindow());
     }
 
     private void changeToSystemWindow()
     {
-        java.lang.System.out.println(
-                Thread.currentThread().getName() + " - Change2SysW - Alive: " +
-                        Thread.currentThread().isAlive());
-        container.remove(currentWindow.INTERNAL_getScreen());
         startSystemWindow();
     }
 
-    @Deprecated
-    private void destroyApplication() {
-       Class<? extends AbstractWindow> c = currentWindow.getClass();
-
-        String name = getApplicationName((AbstractApplication)currentWindow);
-
-        try {
-            AbstractApplication t = (AbstractApplication) c.newInstance();
-            t.INTERNAL_addDestroyActionListener(e -> destroyApplication());
-            t.INTERNAL_addExitActionListener(e -> changeToSystemWindow());
-            t.INTERNAL_addKeyBoardRequestActionListener(e -> openKeyboard());
-            t.INTERNAL_addKeyboardCloseHandleActionListener(e -> closeKeyboard());
-            applications.put(name, t);
-            systemWindow.apps.put(name, t);
-
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(
-                Thread.currentThread().getName() + " - Destroy app - Alive: " +
-                        Thread.currentThread().isAlive());
-        changeToSystemWindow();
-    }
-
     // testing purposes - use this to load an app
-    private void loadSystemApplications() {
+    public void loadSystemApplications() {
         applications = new HashMap<>();
 
-        AbstractSystemApplication clock = new Clock();
-        setupApplication(clock);
-        applications.put("clock", clock);
-
-        AbstractSystemApplication wifi = new Wifi();
-        setupApplication(wifi);
-        applications.put("wifi", wifi);
+        AbstractSystemApplication profileCreator = new ProfileCreator();
+        setupApplication(profileCreator);
+        applications.put("profileCreator", profileCreator);
 
         AbstractSystemApplication weather = new Weather();
         setupApplication(weather);
         applications.put("weather", weather);
 
+        AbstractSystemApplication wifi = new Wifi();
+        setupApplication(wifi);
+        applications.put("wifi", wifi);
+
         AbstractSystemApplication settings = new Settings();
-        settings.setSystemController(sc);
+        settings.setSystemController(systemController);
         setupApplication(settings);
         applications.put("settings", settings);
 
@@ -231,23 +129,101 @@ public class MainSystem {
 
 
    /////////////////////////////////////////////
+    final MainSystemController systemController = new MainSystemController(this);
 
-    // A frame to hold our system
-    private JFrame frame;
+    public final KeyboardController kbc = new KeyboardController();
+    public final InputHandler inputHandler = new InputHandler(kbc);
 
-    // The container that is held by the frame
-    private JPanel container;
-
-
-    public final WindowManager windowManager = new WindowManager();
-
+    public volatile WindowManager windowManager;
+    //   final KeyInput keyInput = new KeyInput(inputHandler);
+    //   final GpioListener gpio = new GpioListener(inputHandler);
 
 
-    // The window that is currently showing in the container.
-    private AbstractWindow currentWindow;
+    SystemWindow systemWindow;
+
 
     // Holds all applications, system and user
     private Map<String, AbstractApplication> applications;
+
+    public MainSystem(JPanel windowHolder) {
+        // create a new window manager for display
+        windowManager = new WindowManager(windowHolder);
+
+        // testing controls
+        test_AttachButtonSimulator();
+
+        // setup the loading window
+        windowManager.setWindow(new BootWindow());
+
+        // load all system requirements
+        new Thread(() -> setup()).start();
+    }
+
+    /**
+     * Loads all that is necessary for the system
+     */
+    private void setup() {
+//        setupApplications();
+//        handleSystemStart();
+        systemWindow = new SystemWindow();
+        systemWindow.INTERNAL_addWindowChangeListener(e -> {
+            String name = getApplicationName(systemWindow.selectedApp);
+            startApplication(name);
+        });
+        windowManager.addWindow("system", systemWindow);
+
+        // load system applications here
+        loadPlugins();
+
+        for (Map.Entry<String, AbstractApplication> app : applications.entrySet()) {
+            windowManager.addWindow(app.getKey(), app.getValue());
+        }
+
+        // simulate loading... and give 5 seconds to find access points for wifi
+        SwingUtilities.invokeLater(() -> applications.get("wifi").init());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Check it's the first system start
+        if(isFirstBoot()) {
+            startFirstBoot();
+        } else {
+            startSystem();
+        }
+    }
+
+    /**
+     * Starts the system normally
+     */
+    private void startSystem() {
+        SwingUtilities.invokeLater(() -> startSystemWindow());
+    }
+
+    /**
+     * Responsible for opening the first boot screen
+     * After the first boot, the system wil its normal start
+     */
+    private void startFirstBoot() {
+        SwingUtilities.invokeLater(() -> {
+            windowManager.addWindow("firstBoot", new FirstBootWindow(systemController));
+            windowManager.setWindow("firstBoot");
+            inputHandler.attachWindow(windowManager.getCurrentWindow());
+            ((FirstBootWindow)windowManager.getWindow("firstBoot")).start();
+            new Thread(() -> {
+                while(!((FirstBootWindow)windowManager.getWindow("firstBoot")).isFinished) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                startSystem();
+            }).start();
+        });
+    }
 
 
     /**
@@ -316,37 +292,16 @@ public class MainSystem {
             setupApplication(app);
 
             // show the application
-            setWindow(app);
+            windowManager.setWindow(app);
+
+            // set controls to pass though the new window
+            inputHandler.attachWindow(app);
 
             // initialize the application
             app.init();
         }
     }
 
-    /**
-     * This will set the displaying window of the system.
-     * The current display window will be removed and the
-     * given window will be shown.
-     *
-     * Input will be passed to the given window.
-     *
-     * Our container uses a BorderLayout and the given
-     * window will be added to BorderLayout.Center
-     *
-     * @param window The AbstractWindow to display
-     */
-    public void setWindow(AbstractWindow window) {
-        // remove the current window
-        container.remove(currentWindow.INTERNAL_getScreen());
-        // set the new window
-        container.add(window.INTERNAL_getScreen());
-        // set controls to pass though the new window
-        inputHandler.attachWindow(window);
-        // store the new window as the current window
-        currentWindow = window;
-        // update display
-        update();
-    }
 
     /**
      * Searches through the list of current applications
@@ -409,8 +364,9 @@ public class MainSystem {
      * Once added, it will update our display to actually show the Keyboard.
      */
     private void openKeyboard() {
-        container.add(inputHandler.kbc.getKeyboardview(), BorderLayout.SOUTH);
-        update();
+        kbc.setKeyBoardDimensions(windowManager.getWindowHolder().getWidth(), windowManager.getWindowHolder().getHeight());
+        windowManager.getWindowHolder().add(kbc.getKeyboardview(), BorderLayout.SOUTH);
+        windowManager.update();
     }
 
     /**
@@ -423,21 +379,42 @@ public class MainSystem {
      * to full screen. The keyboard took 1/3 of the screen.
      */
     private void closeKeyboard() {
-        container.remove(inputHandler.kbc.getKeyboardview());
-        update();
+        windowManager.getWindowHolder().remove(kbc.getKeyboardview());
+        windowManager.update();
     }
 
+
     /**
-     * Updates the display with the latest visual changes.
-     * Makes a call to the system container to update itself.
-     * This will draw any new window, or changes to the current
-     * window, to the display
+     * Calls a script to check if the file "FirstBoot" is present
+     * on the system. If the file is present it means that
+     * this is the first boot.
+     * The script returns either true or false;
+     *
+     * @return boolean to check if this is the first boot
      */
-    private void update()
-    {
-        // repaints all children of the panel
-        container.revalidate();
-        // repaint the panel
-        container.repaint();
+    private boolean isFirstBoot() {
+
+        // testing purposes
+        if(true) return true;
+
+        // Create an empty array to store the commands to run on the system
+        java.util.List<String> commands = new ArrayList<>();
+
+        // This calls the script we want to run
+        commands.add("/mnt/mmcblk0p2/smartmirror/tce/scripts/FirstBootCheck.sh");
+
+        // Runs our commands and gives the output back to us
+        java.util.List<String> output = Shell.getInstance().runCommand(commands, false);
+
+        // Check if the file is present or not
+        if(output.get(0).equals("false")) {
+            java.lang.System.out.println("did not find, no first boot");
+            return false;
+        } else {
+            java.lang.System.out.println("we found the firstBoot file, should delete now and run first boot stuff");
+            Shell.getInstance().runCommand(Arrays.asList("rm", "/mnt/mmcblk0p2/tce/smartmirror/system/firstboot"), false);
+        }
+
+        return true;
     }
 }

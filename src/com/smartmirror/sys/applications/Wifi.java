@@ -15,22 +15,15 @@ import java.util.List;
  */
 public class Wifi extends AbstractSystemApplication {
 
-    private List<JComponent> wifiButtons = new ArrayList<>();
-    private JPanel wifiButtonsHolder = new JPanel();
-    private volatile Map<AP, ArrayList<String>> aps;
+    public List<JComponent> wifiButtons = new ArrayList<>();
+    public JPanel wifiButtonsHolder = new JPanel();
 
-    private AccessPoint currentAP;
-
-    /**
-     * Holds the data to which the system maps scanned access points
-     */
-    private enum AP {
-        NR, MAC, ESSID, QUALITY, CHANNEL, ENC, TYPE;
-        public static final AP[] VALUES = values();
-    }
+    private volatile boolean scanning = false;
 
     @Override
     public void setup() {
+        SYSTEM_Screen.setBackground(Color.BLACK);
+        wifiButtonsHolder.setBackground(Color.BLACK);
         wifiButtonsHolder.setLayout(new BoxLayout(wifiButtonsHolder, BoxLayout.PAGE_AXIS));
 
         JButton exit = new JButton("exit");
@@ -41,29 +34,27 @@ public class Wifi extends AbstractSystemApplication {
             init();
         });
         SYSTEM_Screen.add(scanWifi);
-        SYSTEM_Screen.add(wifiButtonsHolder);
 
         SYSTEM_Screen.add(exit);
 
+        focusManager.addComponent(scanWifi);
         focusManager.addComponent(exit);
     }
 
     @Override
     public void init() {
+        SYSTEM_Screen.add(wifiButtonsHolder);
         wifiButtonsHolder.removeAll();
         focusManager.removeComponents(wifiButtons);
         update();
         start();
-
     }
 
     private synchronized void start() {
-        new Thread(() -> scanForAccessPoints() ).start();
-    }
-
-
-    private synchronized Map<AP, ArrayList<String>> getAPs() {
-        return aps;
+        if(!scanning) {
+            scanning = true;
+            new Thread(() -> scanForAccessPoints()).start();
+        }
     }
 
 
@@ -77,29 +68,32 @@ public class Wifi extends AbstractSystemApplication {
      * For every access point it finds it will pass the method adAPButton() over to
      * the EDT with the newly created AccessPoint as parameter
      */
-    private void scanForAccessPoints() {
+    public synchronized void scanForAccessPoints() {
 //        Thread.currentThread().setName("new thread");
 //        Set<Thread> threadSet = Thread.getAllStackTraces().keySet();
 //        System.out.println(threadSet.toString());
 
         // Run the script to scan for AP's
         List<String> commands = new ArrayList<>();
-        commands.add("/home/tc/listAP.sh");
+        commands.add("/mnt/mmcblk0p2/tce/smartmirror/scripts/listAP.sh");
+
         List<String> output = Shell.getInstance().runCommand(commands, false);
 
         // Simulate found access points
         System.out.println("NR | MAC | ESSID | QUALITY | CHANNEL | ENC | TYPE");
-        output.add("0|23e242|Secure!|35|1|on|WEP");
-        output.add("1|2ahha2|wesert|50|2|off|none");
-        output.add("3|2aadwdha2|eesteet|80|2|off|none");
-        output.add("4|2aadwdha2|eesteet|3|2|off|none");
-
+        if(output.size() == 0) {
+            output.add("0|2aadwdha2 |TEST-eesteet   |70/70  |2|off  |none");
+            output.add("1|2ahha2    |TEST-wesert    |50/70  |2|off  |none");
+            output.add("2|2ahha2    |TEST-ee        |50/70  |2|off  |none");
+            output.add("3|23e242    |TEST-Secure!   |35/70  |1|on   |WEP");
+            output.add("4|2aadwdha2 |TEST-eesteet   |3/70   |2|off  |none");
+        }
         // Output is given per line in the form of:
         //  "NR | MAC | ESSID | QUALITY | CHANNEL | ENC | TYPE"
         for (String data : output) {
             // simulate scanning
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -122,6 +116,7 @@ public class Wifi extends AbstractSystemApplication {
                 }
             }.init(ap));
         }
+        scanning = false;
     }
 
 
@@ -177,7 +172,7 @@ public class Wifi extends AbstractSystemApplication {
         System.out.println(ESSID);
         Thread t = new Thread(() -> {
             List<String> commands = new ArrayList<>();
-            commands.add("/home/tc/connectWifi.sh");
+            commands.add("/mnt/mmcblk0p2/tce/smartmirror/scripts/connectWifi.sh");
             commands.add(TYPE);
             commands.add(ESSID);
             commands.add(ww);
@@ -207,6 +202,7 @@ public class Wifi extends AbstractSystemApplication {
         public JLabel WIFI_ICON;
 
         public AccessPoint() {
+            this.setBackground(Color.BLACK);
             this.setAlignmentY(Component.CENTER_ALIGNMENT);
             this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         }
@@ -215,12 +211,13 @@ public class Wifi extends AbstractSystemApplication {
          * returns the wifi code
          */
         private int calculateWifi(String QUALITY) {
-            int q = Integer.parseInt(QUALITY);
-            if(q >= 25 && q < 50) {
+            String[] qu = QUALITY.split("\\/");
+            int q = Integer.parseInt(qu[0]);
+            if(q >= 20 && q < 30) {
                 return 1;
-            } else if(q >= 50 && q < 75) {
+            } else if(q >= 30 && q < 50) {
                 return 2;
-            } else if(q >= 75) {
+            } else if(q >= 50) {
                 return 3;
             } else {
                 return 0;
@@ -257,19 +254,18 @@ public class Wifi extends AbstractSystemApplication {
             System.out.println(data);
             String[] tokens = data.split("\\|");
             if (tokens.length > 0) {
-                NR = tokens[0];
-                MAC = tokens[1];
-                ESSID = tokens[2];
-                QUALITY = tokens[3];
-                CHANNEL = tokens[4];
-                ENC = tokens[5];
-                TYPE = tokens[6];
+                NR = tokens[0].trim();
+                MAC = tokens[1].trim();
+                ESSID = tokens[2].trim();
+                QUALITY = tokens[3].trim();
+                CHANNEL = tokens[4].trim();
+                ENC = tokens[5].trim();
+                TYPE = tokens[6].trim();
             }
 
 
             ImageIcon icon;
-            ClassLoader cl = getClass().getClassLoader();
-            icon = new ImageIcon(cl.getResource(getWifiIcon(QUALITY)));
+            icon = new ImageIcon(getClass().getClassLoader().getResource(getWifiIcon(QUALITY)));
 //                icon.getScaledInstance(50, 50, 0);
             icon.setImage(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
             WIFI_ICON = new JLabel(icon);
@@ -278,6 +274,7 @@ public class Wifi extends AbstractSystemApplication {
             this.add(WIFI_ICON);
 
             JLabel t = new JLabel(ESSID);
+            t.setForeground(Color.WHITE);
             t.setAlignmentY(Component.CENTER_ALIGNMENT);
             this.add(t);
         }
