@@ -3,8 +3,6 @@ package com.smartmirror.sys;
 import com.pi4j.platform.PlatformAlreadyAssignedException;
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.sys.applications.*;
-import com.smartmirror.sys.input.gpio.GpioListener;
-import com.smartmirror.sys.input.key.KeyInput;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.core.view.AbstractUserApplication;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
@@ -12,6 +10,7 @@ import com.smartmirror.sys.view.FocusManager;
 import com.smartmirror.sys.view.window.BootWindow;
 import com.smartmirror.sys.view.window.FirstBootWindow;
 import com.smartmirror.sys.view.window.WindowManager;
+import com.smartmirror.sys.InputHandler;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -148,7 +147,7 @@ public class MainSystem {
 
     public volatile WindowManager windowManager;
     // final KeyInput keyInput = new KeyInput(inputHandler);
-    final GpioListener gpio = new GpioListener(inputHandler);
+//    final GpioListener gpio = new GpioListener(inputHandler);
 
 
     SystemWindow systemWindow;
