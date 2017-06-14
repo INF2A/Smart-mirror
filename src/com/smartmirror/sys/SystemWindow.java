@@ -1,9 +1,9 @@
 package com.smartmirror.sys;
 
 import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.sys.applications.widgets.DefaultWidget;
 import com.smartmirror.sys.view.*;
 import com.smartmirror.sys.view.FocusManager;
-import com.smartmirror.sys.applications.widgets.DefaultWidget;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +16,8 @@ public class SystemWindow extends AbstractSystemWindow {
     private JLabel label;
 
     private JPanel top;
+    private JPanel topRight;
+    private JPanel topLeft;
     private JPanel center;
     private JPanel centerLeft;
     private JPanel centerRight;
@@ -28,9 +30,18 @@ public class SystemWindow extends AbstractSystemWindow {
         SYSTEM_Screen.setBackground(Color.BLACK);
 
         SYSTEM_Screen.setLayout(new BorderLayout());
-        top = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        top = new JPanel(new BorderLayout());
         top.setBackground(Color.BLACK);
         SYSTEM_Screen.add(top, BorderLayout.NORTH);
+
+        topRight = new JPanel(new FlowLayout());
+        topRight.setBackground(Color.BLACK);
+        top.add(topRight, BorderLayout.LINE_END);
+
+        topLeft = new JPanel(new FlowLayout());
+        topLeft.setBackground(Color.BLACK);
+        top.add(topLeft, BorderLayout.LINE_START);
 
         center = new JPanel();
         center.setBackground(Color.BLACK);
@@ -67,6 +78,12 @@ public class SystemWindow extends AbstractSystemWindow {
         {
             case TOP:
                 top.add(app.SYSTEM_Widget);
+                break;
+            case TOP_RIGHT:
+                topRight.add(app.SYSTEM_Widget);
+                break;
+            case TOP_LEFT:
+                topLeft.add(app.SYSTEM_Widget);
                 break;
             case BOTTOM:
                 bottom.add(app.SYSTEM_Widget);

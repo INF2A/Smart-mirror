@@ -1,4 +1,4 @@
-package main.java;
+package com.smartmirror.sys.applications.widgets;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;

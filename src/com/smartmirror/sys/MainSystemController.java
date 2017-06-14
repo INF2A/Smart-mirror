@@ -82,4 +82,7 @@ public class MainSystemController {
         return system.getApplications().get(name);
     }
 
+    public  Map<String, AbstractSystemApplication> getSystemApplications() {
+        return system.getSystemApplications();
+    }
 }

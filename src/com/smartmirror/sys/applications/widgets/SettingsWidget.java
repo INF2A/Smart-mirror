@@ -17,7 +17,7 @@ public class SettingsWidget extends AbstractWidget {
         ImageIcon image = new ImageIcon(classLoader.getResource("img/settings.png"));
         JLabel img = new JLabel(image);
         add(img);
-        location = location.TOP;
+        location = location.TOP_LEFT;
     }
 
     @Override

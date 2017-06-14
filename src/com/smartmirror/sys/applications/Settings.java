@@ -1,9 +1,14 @@
 package com.smartmirror.sys.applications;
 
-import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.sys.applications.widgets.SettingsWidget;
+import com.smartmirror.sys.view.AbstractSystemApplication;
+//import widgets.DefaultWidget;
+//import widgets.SettingsWidget;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -23,7 +28,7 @@ public class Settings extends AbstractSystemApplication{
 
         SYSTEM_Screen.setBackground(Color.BLACK);
 
-        getSettingsPanel(systemApplications);
+        displayApps();
     }
 
     /**
@@ -35,45 +40,24 @@ public class Settings extends AbstractSystemApplication{
 //        focusComponents.removeAll(focusComponents);
 //        focusComponents.add(SYSTEM_Screen);
 //        INTERNAL_requestSystemApplications();
-
     }
 
     /**
      * Define components settings panel
      * Shows all system applications
-     *
-     * @param apps
      */
-    private void getSettingsPanel(Map<String, AbstractSystemApplication> apps)
+    private void displayApps()
     {
-        JPanel bottom = new JPanel();
-        bottom.setLayout(new FlowLayout());
-
-        JButton saveButton = new JButton("Save settings");
-        saveButton.addActionListener(e -> SYSTEM_closeScreen());
-
-        JButton exitButton = new JButton("Exit");
-        exitButton.addActionListener(e -> SYSTEM_closeScreen());
-
-
-        for(Map.Entry<String, AbstractSystemApplication> entry : apps.entrySet())
+        for(Map.Entry<String, AbstractSystemApplication> entry : systemController.getSystemApplications().entrySet())
         {
-            if(!entry.getKey().equals("settings"))
+            if(!(entry.getValue() instanceof Settings))
             {
                 JButton iconButton = new JButton(entry.getValue().SYSTEM_Icon);
-
-                //ADD ACTIONLISTENER SWITCH TO SELECTED APP.
-
-                iconButton.setBackground(Color.BLACK);
                 SYSTEM_Screen.add(iconButton);
                 focusManager.addComponent(iconButton);
+                iconButton.addActionListener(e -> systemController.startApplication(entry.getKey()));
             }
         }
-        SYSTEM_Screen.add(saveButton);
-        SYSTEM_Screen.add(exitButton);
-
-        focusManager.addComponent(saveButton);
-        focusManager.addComponent(exitButton);
     }
 
     @Override
