@@ -1,5 +1,7 @@
 package com.smartmirror.core.input;
 
+import com.sun.glass.events.KeyEvent;
+
 /**
  * Created by Erwin on 5/15/2017.
  *

@@ -41,6 +41,38 @@ public interface IFocusManager {
     void addComponent(JComponent component);
 
     /**
+     * Adds the list of components which can be focused on by the system
+     * @param components to add
+     */
+    void addComponents(List<JComponent> components);
+
+    /**
+     * Inserts a component before the given component.
+     * Makes the focus manager focus on the inserted component before
+     * the given component
+     * @param component The component to add
+     * @param before The component to add the new component before
+     */
+    void insertBefore(JComponent component, JComponent before);
+
+    /**
+     * Inserts a component after the given component.
+     * Makes the focus manager focus on the inserted component after
+     * the given component
+     * @param component The component to add
+     * @param after The component to add the new component after
+     */
+    void insertAfter(JComponent component, JComponent after);
+
+    /**
+     * Sets the first focusable component
+     * This does not override the first component. Instead
+     * all components will move up 1 spot.
+     * @param component the component to set as first
+     */
+    void insertFirst(JComponent component);
+
+    /**
      * Replaces a component with a new component
      * @param replace the component to replace
      * @param with the component that takes the place
@@ -107,19 +139,13 @@ public interface IFocusManager {
      * Tells the focus manager to make the current highlighted
      * component the selected component
      *
-     * Note - Focused components get the focus by requesting it.
-     * Example: Current().requestFocus()
      */
     void Select();
 
     /**
      * Tells the focus manager to return the selected component
-     * A selected component has the Focus which is requested,
-     * not be mistaken by the highlighted border.
      *
-     * Note - Focused components get the focus by requesting it.
-     * Example: Current().requestFocus()
-     * @return
+     * @return the selected object
      */
     Object Selected();
 
