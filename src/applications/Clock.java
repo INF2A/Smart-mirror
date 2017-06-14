@@ -2,6 +2,10 @@ package applications;
 
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import widgets.ClockWidget;
+
+import javax.swing.*;
+import java.util.*;
+import java.util.Timer;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -23,15 +27,6 @@ public class Clock extends AbstractSystemApplication{
         setSYSTEM_Icon("img/clock-icon.png");   // Set application icon - will be displayed in settings
 
         SYSTEM_Widget = new ClockWidget();  // Instantiate corresponding widget
-
-        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor(); // Instantiate Executor Service
-        scheduledExecutorService.scheduleAtFixedRate(new Runnable() { // Define runnable
-            @Override
-            public void run() {
-                // Define stuff to update
-                SYSTEM_Widget.init();
-            }
-        }, 0,1, TimeUnit.SECONDS); // Set timer
     }
 
     @Override

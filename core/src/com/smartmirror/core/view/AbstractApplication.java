@@ -31,7 +31,7 @@ public abstract class AbstractApplication extends AbstractWindow {
     public void INTERNAL_setup() {
         INTERNAL_setupRun = true;
         setup();
-        INTERNAL_init();
+        //INTERNAL_init();
     }
 
     /**
