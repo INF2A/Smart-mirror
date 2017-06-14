@@ -13,5 +13,7 @@
     <orderEntry type="library" name="pi4j-core" level="project" />
     <orderEntry type="module" module-name="core" />
     <orderEntry type="library" name="mariadb-java-client-2.0.2" level="project" />
+    <orderEntry type="library" name="json-simple-1.1.1 (2)" level="project" />
+    <orderEntry type="library" name="jlayer-1.0.1" level="project" />
   </component>
 </module>

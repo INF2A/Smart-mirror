@@ -1,9 +1,9 @@
 package com.smartmirror.sys;
 
 import com.smartmirror.core.view.AbstractApplication;
+import com.smartmirror.sys.applications.widgets.DefaultWidget;
 import com.smartmirror.sys.view.*;
 import com.smartmirror.sys.view.FocusManager;
-import com.smartmirror.sys.applications.widgets.DefaultWidget;
 
 import javax.swing.*;
 import java.awt.*;

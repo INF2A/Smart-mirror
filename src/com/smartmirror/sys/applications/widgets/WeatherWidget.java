@@ -1,4 +1,4 @@
-package widgets;
+package com.smartmirror.sys.applications.widgets;
 
 import com.smartmirror.core.view.AbstractWidget;
 import org.json.simple.JSONObject;
@@ -11,7 +11,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Calendar;
 
 /**
  * System Widget for displaying weather information on screen

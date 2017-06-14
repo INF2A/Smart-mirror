@@ -1,8 +1,9 @@
-package applications;
+package com.smartmirror.sys.applications;
 
+import com.smartmirror.sys.applications.widgets.SettingsWidget;
 import com.smartmirror.sys.view.AbstractSystemApplication;
-import widgets.DefaultWidget;
-import widgets.SettingsWidget;
+//import widgets.DefaultWidget;
+//import widgets.SettingsWidget;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.AdjustmentEvent;

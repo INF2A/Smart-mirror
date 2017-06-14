@@ -1,7 +1,7 @@
-package widgets;
+package com.smartmirror.sys.applications.widgets;
 
 import com.smartmirror.core.view.AbstractWidget;
-import org.json.simple.JSONObject;
+import org.json.simple.*;
 import system.input.json.JsonParser;
 
 import javax.swing.*;

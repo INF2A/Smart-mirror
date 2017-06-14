@@ -87,11 +87,23 @@ public class MainSystem {
 
     // testing purposes - use this to load an app
     public void loadSystemApplications() {
-        applications = new HashMap<>();
+        applications = new LinkedHashMap<>();
 
         AbstractSystemApplication profileCreator = new ProfileCreator();
         setupApplication(profileCreator);
         applications.put("profileCreator", profileCreator);
+
+        AbstractSystemApplication clock = new Clock();
+        setupApplication(clock);
+        applications.put("clock", clock);
+
+        AbstractSystemApplication agenda = new Agenda();
+        setupApplication(agenda);
+        applications.put("agenda", agenda);
+
+        AbstractSystemApplication news = new News();
+        setupApplication(news);
+        applications.put("news", news);
 
         AbstractSystemApplication weather = new Weather();
         setupApplication(weather);
@@ -392,7 +404,7 @@ public class MainSystem {
     private boolean isFirstBoot() {
 
         // testing purposes
-        if(true) return true;
+        if(true) return false;
 
         // Create an empty array to store the commands to run on the system
         java.util.List<String> commands = new ArrayList<>();

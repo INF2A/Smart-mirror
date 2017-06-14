@@ -1,4 +1,4 @@
-package widgets;
+package com.smartmirror.sys.applications.widgets;
 
 import com.smartmirror.core.view.AbstractWidget;
 

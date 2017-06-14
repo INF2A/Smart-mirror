@@ -1,4 +1,4 @@
-package widgets;
+package com.smartmirror.sys.applications.widgets;
 
 import com.smartmirror.core.view.AbstractWidget;
 import org.json.simple.JSONArray;
@@ -7,12 +7,10 @@ import system.input.json.JsonParser;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
 import java.util.*;
 
 /**

@@ -1,27 +1,16 @@
-package widgets;
+package com.smartmirror.sys.applications.widgets;
 
 import com.smartmirror.core.view.AbstractWidget;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import system.input.json.JsonParser;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.Timer;
-import javax.tools.Tool;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
-import java.time.Year;
-import java.util.*;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 /**
  * System Widget for displaying news on screen

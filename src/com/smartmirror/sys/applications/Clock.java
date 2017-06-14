@@ -1,7 +1,8 @@
-package applications;
+package com.smartmirror.sys.applications;
 
+import com.smartmirror.sys.applications.widgets.ClockWidget;
 import com.smartmirror.sys.view.AbstractSystemApplication;
-import widgets.ClockWidget;
+//import widgets.ClockWidget;
 
 import javax.swing.*;
 import java.util.*;
