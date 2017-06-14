@@ -1,7 +1,10 @@
 package com.smartmirror.sys;
 
+import com.pi4j.platform.PlatformAlreadyAssignedException;
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.sys.applications.*;
+import com.smartmirror.sys.input.gpio.GpioListener;
+import com.smartmirror.sys.input.key.KeyInput;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.core.view.AbstractUserApplication;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
@@ -132,8 +135,8 @@ public class MainSystem {
     public final InputHandler inputHandler = new InputHandler(kbc);
 
     public volatile WindowManager windowManager;
-    //   final KeyInput keyInput = new KeyInput(inputHandler);
-    //   final GpioListener gpio = new GpioListener(inputHandler);
+    // final KeyInput keyInput = new KeyInput(inputHandler);
+    final GpioListener gpio = new GpioListener(inputHandler);
 
 
     SystemWindow systemWindow;
@@ -142,7 +145,7 @@ public class MainSystem {
     // Holds all applications, system and user
     private Map<String, AbstractApplication> applications;
 
-    public MainSystem(JPanel windowHolder) {
+    public MainSystem(JPanel windowHolder) throws PlatformAlreadyAssignedException, InterruptedException {
         // create a new window manager for display
         windowManager = new WindowManager(windowHolder);
 

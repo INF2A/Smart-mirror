@@ -1,5 +1,7 @@
 package com.smartmirror.sys;
 
+import com.pi4j.platform.PlatformAlreadyAssignedException;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -26,7 +28,13 @@ public class Boot {
         frame.add(windowHolder, BorderLayout.CENTER);
         frame.setVisible(true);
 
-        new MainSystem(windowHolder);
+        try {
+            new MainSystem(windowHolder);
+        } catch (PlatformAlreadyAssignedException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 }

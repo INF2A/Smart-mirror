@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by Erwin on 5/15/2017.
  */
-class KeyInput {
+public class KeyInput {
 
     // Key handler to pass the events through when a pin changes its state
     IKeyHandler keyHandler;
@@ -22,7 +22,7 @@ class KeyInput {
     final GpioController gpio = GpioFactory.getInstance();
 
 
-    public void KeyInput(IKeyHandler keyHandler) throws InterruptedException, PlatformAlreadyAssignedException {
+    public KeyInput(IKeyHandler keyHandler) throws InterruptedException, PlatformAlreadyAssignedException {
         this.keyHandler = keyHandler;
 
         // by default we will use gpio pin #01; however, if an argument
