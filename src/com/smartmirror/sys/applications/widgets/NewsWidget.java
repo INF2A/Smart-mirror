@@ -22,6 +22,7 @@ public class NewsWidget extends AbstractWidget {
 //    private int[] original_xpos;
 //    private int[] new_xpos;
     private List<Component> components;
+    int x = 200;
 
     public NewsWidget()
     {
@@ -57,6 +58,14 @@ public class NewsWidget extends AbstractWidget {
         timer.start();
     }
 
+
+    @Override
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        g.setColor(Color.WHITE);
+        g.drawString("testafafaefawfawf", x, 5);
+    }
+
     /**
      * Called every update
      * Removes all news items and re-adds updated news items
@@ -64,21 +73,9 @@ public class NewsWidget extends AbstractWidget {
     @Override
     public void init() {
 //        int i = 0;
-
-        Component[] components = NewsWidget.this.getComponents();
-
-        for(Component component : components)
-        {
-            if(component.getLocation().x <= -component.getWidth())
-            {
-                component.setLocation(totalWidth, component.getLocation().y);
-//                new_xpos[i] = totalWidth;
-            }
-
-//            new_xpos[i] = new_xpos[i] - 3;
-            component.setLocation(component.getLocation().x - 3, component.getLocation().y);
-//            i++;
-        }
+        x -= 3;
+        this.repaint();
+    }
 
 //        NewsWidget.this.removeAll();
 //
@@ -138,7 +135,7 @@ public class NewsWidget extends AbstractWidget {
 //            publish.setForeground(Color.WHITE);
 //            itemPanel.add(publish, BorderLayout.SOUTH);
 //        }
-    }
+
 
 
     /**

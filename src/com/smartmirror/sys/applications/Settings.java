@@ -36,6 +36,7 @@ public class Settings extends AbstractSystemApplication{
      */
     @Override
     public void init() {
+        System.out.println("Settings");
 //        SYSTEM_Screen.removeAll();
 //        focusComponents.removeAll(focusComponents);
 //        focusComponents.add(SYSTEM_Screen);
@@ -62,6 +63,8 @@ public class Settings extends AbstractSystemApplication{
 
     @Override
     public void onBackButton() {
+
+        super.onBackButton();
         SYSTEM_closeScreen();
     }
 }

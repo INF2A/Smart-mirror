@@ -33,10 +33,13 @@ public class Clock extends AbstractSystemApplication{
     @Override
     public void init() {
 
+        System.out.println("Clock");
     }
 
     @Override
     public void onBackButton() {
+
+        super.onBackButton();
         SYSTEM_closeScreen();
     }
 }

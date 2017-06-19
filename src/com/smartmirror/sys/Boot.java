@@ -4,6 +4,7 @@ import com.pi4j.platform.PlatformAlreadyAssignedException;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by Erwin on 5/31/2017.
@@ -27,6 +28,11 @@ public class Boot {
 
         frame.add(windowHolder, BorderLayout.CENTER);
         frame.setVisible(true);
+
+        // Hide the mouse cursor,
+//        BufferedImage cursorImg = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+//        Cursor blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursorImg, new Point(0, 0), "blank cursor");
+//        frame.setCursor(blankCursor);
 
         try {
             new MainSystem(windowHolder);

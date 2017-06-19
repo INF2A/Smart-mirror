@@ -30,6 +30,12 @@ public class Agenda extends AbstractSystemApplication {
 
     @Override
     public void init() {
+        System.out.println("Agenda");
+    }
 
+    @Override
+    public void onBackButton() {
+        super.onBackButton();
+        SYSTEM_closeScreen();
     }
 }

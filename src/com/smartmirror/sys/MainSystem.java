@@ -3,6 +3,7 @@ package com.smartmirror.sys;
 import com.pi4j.platform.PlatformAlreadyAssignedException;
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.sys.applications.*;
+import com.smartmirror.sys.input.key.KeyInput;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.core.view.AbstractUserApplication;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
@@ -80,6 +81,19 @@ public class MainSystem {
                         Thread.currentThread().isAlive());
         windowManager.setWindow("system");
         inputHandler.attachWindow(windowManager.getCurrentWindow());
+
+        new Thread(() -> {
+            int i = 0;
+            while (true) {
+                try {
+                    System.out.println("pulse " + i++);
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
     }
 
     private void changeToSystemWindow()
@@ -91,25 +105,25 @@ public class MainSystem {
     public void loadSystemApplications() {
         applications = new LinkedHashMap<>();
 
-        AbstractSystemApplication profileCreator = new ProfileCreator();
-        setupApplication(profileCreator);
-        applications.put("profileCreator", profileCreator);
-
-        AbstractSystemApplication clock = new Clock();
-        setupApplication(clock);
-        applications.put("clock", clock);
-
-        AbstractSystemApplication agenda = new Agenda();
-        setupApplication(agenda);
-        applications.put("agenda", agenda);
-
-        AbstractSystemApplication news = new News();
-        setupApplication(news);
-        applications.put("news", news);
-
-        AbstractSystemApplication weather = new Weather();
-        setupApplication(weather);
-        applications.put("weather", weather);
+//        AbstractSystemApplication profileCreator = new ProfileCreator();
+//        setupApplication(profileCreator);
+//        applications.put("profileCreator", profileCreator);
+//
+//        AbstractSystemApplication clock = new Clock();
+//        setupApplication(clock);
+//        applications.put("clock", clock);
+//
+//        AbstractSystemApplication agenda = new Agenda();
+//        setupApplication(agenda);
+//        applications.put("agenda", agenda);
+//
+//        AbstractSystemApplication news = new News();
+//        setupApplication(news);
+//        applications.put("news", news);
+//
+//        AbstractSystemApplication weather = new Weather();
+//        setupApplication(weather);
+//        applications.put("weather", weather);
 
         AbstractSystemApplication wifi = new Wifi();
         setupApplication(wifi);
@@ -142,26 +156,25 @@ public class MainSystem {
    /////////////////////////////////////////////
     final MainSystemController systemController = new MainSystemController(this);
 
-    public final KeyboardController kbc = new KeyboardController();
-    public final InputHandler inputHandler = new InputHandler(kbc);
+    final public KeyboardController kbc = new KeyboardController();
+    final public InputHandler inputHandler = new InputHandler(kbc);
 
-    public volatile WindowManager windowManager;
-    // final KeyInput keyInput = new KeyInput(inputHandler);
+    public WindowManager windowManager;
+   // final KeyInput keyInput = new KeyInput(inputHandler);
 //    final GpioListener gpio = new GpioListener(inputHandler);
 
 
-    SystemWindow systemWindow;
-
+    private SystemWindow systemWindow;
 
     // Holds all applications, system and user
-    private Map<String, AbstractApplication> applications;
+    volatile Map<String, AbstractApplication> applications;
 
     public MainSystem(JPanel windowHolder) throws PlatformAlreadyAssignedException, InterruptedException {
         // create a new window manager for display
         windowManager = new WindowManager(windowHolder);
 
         // testing controls
-        test_AttachButtonSimulator();
+        //test_AttachButtonSimulator();
 
         // setup the loading window
         windowManager.setWindow(new BootWindow());

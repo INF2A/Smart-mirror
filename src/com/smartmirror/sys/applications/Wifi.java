@@ -43,6 +43,8 @@ public class Wifi extends AbstractSystemApplication {
 
     @Override
     public void init() {
+
+        System.out.println("Wifi");
         SYSTEM_Screen.add(wifiButtonsHolder);
         wifiButtonsHolder.removeAll();
         focusManager.removeComponents(wifiButtons);
@@ -280,5 +282,11 @@ public class Wifi extends AbstractSystemApplication {
         }
     }
 
+    @Override
+    public void onBackButton() {
+
+        super.onBackButton();
+        SYSTEM_closeScreen();
+    }
 
 }

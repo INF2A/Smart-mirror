@@ -47,6 +47,7 @@ public class InputHandler extends AbstractInputHandler {
     {
         if(window.INTERNAL_isKeyboardActive()) kbc.onButtonPressed();
         else window.onButtonPressed();
+        System.out.println("Pressed");
     }
 
     @Override
@@ -54,6 +55,7 @@ public class InputHandler extends AbstractInputHandler {
     {
         if(window.INTERNAL_isKeyboardActive()) kbc.onButtonReleased();
         else window.onButtonReleased();
+        System.out.println("Released");
     }
 
     @Override
@@ -61,6 +63,7 @@ public class InputHandler extends AbstractInputHandler {
     {
         if(window.INTERNAL_isKeyboardActive()) kbc.onLeftButton();
         else window.onLeftButton();
+        System.out.println("Pressed Left");
     }
 
     @Override
@@ -72,6 +75,7 @@ public class InputHandler extends AbstractInputHandler {
 
             window.onRightButton();
         }
+        System.out.println("Pressed Right");
     }
 
     @Override
@@ -79,6 +83,8 @@ public class InputHandler extends AbstractInputHandler {
     {
         if(window.INTERNAL_isKeyboardActive()) window.INTERNAL_closeKeyboard();
         else window.onBackButton();
+
+        System.out.println("Pressed Back");
     }
 
     @Override
@@ -96,6 +102,8 @@ public class InputHandler extends AbstractInputHandler {
             }
         }
         else window.onMenuButton();
+
+        System.out.println("Pressed Menu");
     }
 
 }

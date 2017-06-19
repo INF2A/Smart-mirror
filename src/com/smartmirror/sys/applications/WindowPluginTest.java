@@ -67,6 +67,7 @@ public class WindowPluginTest extends AbstractUserApplication implements Runnabl
      */
     @Override
     public void init() {
+        System.out.println("PluginTest -- sort of game");
         n = 0;
         start();
     }
