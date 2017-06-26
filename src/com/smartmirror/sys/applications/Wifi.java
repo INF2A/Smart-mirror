@@ -1,12 +1,12 @@
 package com.smartmirror.sys.applications;
 
+import com.smartmirror.core.view.IFocusManager;
 import com.smartmirror.sys.Shell;
-import com.smartmirror.sys.view.AbstractSystemApplication;
+import com.smartmirror.sys.view.*;
+import com.smartmirror.sys.view.FocusManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
 
@@ -17,28 +17,39 @@ public class Wifi extends AbstractSystemApplication {
 
     public List<JComponent> wifiButtons = new ArrayList<>();
     public JPanel wifiButtonsHolder = new JPanel();
+    public AccessPoint selectedAP = null;
+
+    private JButton scanWifi;
+    private JPanel wifiInfoScreen;
+    private JLabel connectMsg;
 
     private volatile boolean scanning = false;
+    private volatile boolean isConnecting = false;
 
     @Override
     public void setup() {
+        wifiInfoScreen = new JPanel();
+
         SYSTEM_Screen.setBackground(Color.BLACK);
         wifiButtonsHolder.setBackground(Color.BLACK);
         wifiButtonsHolder.setLayout(new BoxLayout(wifiButtonsHolder, BoxLayout.PAGE_AXIS));
 
-        JButton exit = new JButton("exit");
-        exit.addActionListener(e -> SYSTEM_closeScreen());
+   //     JButton exit = new JButton("exit");
+//        exit.addActionListener(e -> SYSTEM_closeScreen());
 
-        JButton scanWifi = new JButton("Scan");
+        scanWifi = new JButton("Scan");
         scanWifi.addActionListener(e -> {
             init();
         });
         SYSTEM_Screen.add(scanWifi);
 
-        SYSTEM_Screen.add(exit);
+//        SYSTEM_Screen.add(exit);
 
         focusManager.addComponent(scanWifi);
-        focusManager.addComponent(exit);
+        connectMsg = new JLabel("");
+        connectMsg.setForeground(Color.WHITE);
+  //      focusManager.addComponent(exit);
+
     }
 
     @Override
@@ -127,32 +138,9 @@ public class Wifi extends AbstractSystemApplication {
      * @param ap the accesspoint to add
      */
     private void addAccessPoint(AccessPoint ap) {
-
-        JButton b = new JButton(ap.ESSID);
-        b.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(ap.ENC.equals("on")) {
-                    JPasswordField pf = new JPasswordField();
-                    int okCxl = JOptionPane.showConfirmDialog(null, pf, "Enter network Key", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-
-                    if (okCxl == JOptionPane.OK_OPTION) {
-                        String password = new String(pf.getPassword());
-                        // dont change this
-                        connectToSelectedAP(ap.TYPE, ap.ESSID, password, ap.CHANNEL, ap.ENC);
-                        System.out.println("Selected AP: " + ap.ESSID + " ww: " + password + " Type: WPA");
-                    }
-                } else {
-                    System.out.println("Selected AP: " + ap.ESSID + " No encryption");
-                    //dont change this
-                    connectToSelectedAP(ap.TYPE, ap.ESSID, "wpa.1234", ap.CHANNEL, ap.ENC);
-                    }
-                }
-            });
-        wifiButtons.add(b);
-        ap.add(b);
-        focusManager.addComponent(b);
         wifiButtonsHolder.add(ap);
+        wifiButtons.add(ap);
+        focusManager.addComponent(ap);
         update();
     }
 
@@ -181,6 +169,8 @@ public class Wifi extends AbstractSystemApplication {
             commands.add(CHANNEL);
             commands.add(ENC);
             List<String> output = Shell.getInstance().runCommand(commands, true);
+            //output.add("connected");
+            SwingUtilities.invokeLater(() -> connectMsg.setText(output.get(output.size() - 1)) );
         });
         t.start();
     }
@@ -193,6 +183,7 @@ public class Wifi extends AbstractSystemApplication {
      */
     private class AccessPoint extends JPanel {
         public boolean Connected = false;
+
         public String NR;
         public String MAC;
         public String ESSID;
@@ -202,6 +193,12 @@ public class Wifi extends AbstractSystemApplication {
         public String TYPE;
 
         public JLabel WIFI_ICON;
+
+        public JPanel activePanel;
+        JButton connectButton;
+        JTextField passwordField;
+
+        public List<JComponent> focusComponents;
 
         public AccessPoint() {
             this.setBackground(Color.BLACK);
@@ -268,7 +265,6 @@ public class Wifi extends AbstractSystemApplication {
 
             ImageIcon icon;
             icon = new ImageIcon(getClass().getClassLoader().getResource(getWifiIcon(QUALITY)));
-//                icon.getScaledInstance(50, 50, 0);
             icon.setImage(icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
             WIFI_ICON = new JLabel(icon);
             WIFI_ICON.setAlignmentY(Component.CENTER_ALIGNMENT);
@@ -279,14 +275,87 @@ public class Wifi extends AbstractSystemApplication {
             t.setForeground(Color.WHITE);
             t.setAlignmentY(Component.CENTER_ALIGNMENT);
             this.add(t);
+
+            setupPanel();
+
         }
+
+        private void connect() {
+            connectToSelectedAP(TYPE, ESSID, "wpa.1234", CHANNEL, ENC);
+            connectMsg.setText("Connecting...");
+        }
+
+        private void connectPassword(String password) {
+            connectToSelectedAP(TYPE, ESSID, password, CHANNEL, ENC);
+            System.out.println("Selected AP: " + ESSID + " ww: " + password + " Type: WPA");
+            connectMsg.setText("Connecting...");
+        }
+
+        public void setupPanel() {
+            focusComponents = new ArrayList<>();
+            activePanel = new JPanel();
+            activePanel.setLayout(new BorderLayout());
+            connectButton = new JButton("connect");
+
+            activePanel.add(new JLabel(ESSID), BorderLayout.NORTH);
+            if(ENC.equals("on")) {
+                activePanel.add(new JLabel("Encrpytion: " + TYPE), BorderLayout.WEST);
+                passwordField = new JTextField("", 20);
+                activePanel.add(passwordField, BorderLayout.CENTER);
+                focusComponents.add(passwordField);
+                connectButton.addActionListener(e -> connectPassword(passwordField.getText()));
+            } else {
+                connectButton.addActionListener(e -> connect());
+            }
+            activePanel.add(connectButton, BorderLayout.SOUTH);
+            focusComponents.add(connectButton);
+         }
+    }
+
+
+    private void showWifiInfoScreen() {
+        SYSTEM_Screen.remove(wifiButtonsHolder);
+        SYSTEM_Screen.add(selectedAP.activePanel);
+        SYSTEM_Screen.add(connectMsg);
+        SYSTEM_Screen.remove(scanWifi);
+        focusManager.removeComponents(wifiButtons);
+        focusManager.removeComponent(scanWifi);
+        focusManager.addComponents(selectedAP.focusComponents);
+        focusManager.Reset();
+        if(selectedAP.ENC.equals("on")) onMenuButton();
+        update();
+    }
+
+    private void hideWifiInfoScreen()
+    {
+        connectMsg.setText("");
+        SYSTEM_Screen.remove(connectMsg);
+        SYSTEM_Screen.remove(selectedAP.activePanel);
+        focusManager.removeComponents(selectedAP.focusComponents);
+        SYSTEM_Screen.add(scanWifi);
+        focusManager.addComponent(scanWifi);
+        init();
     }
 
     @Override
     public void onBackButton() {
-
         super.onBackButton();
-        SYSTEM_closeScreen();
+        if(selectedAP != null) {
+            hideWifiInfoScreen();
+            selectedAP = null;
+        } else {
+            SYSTEM_closeScreen();
+        }
+    }
+
+    @Override
+    public void onMenuButton() {
+        super.onMenuButton();
+        if(focusManager.Current() instanceof AccessPoint) {
+            System.out.println("clicked on AP");
+            selectedAP = (AccessPoint)focusManager.Current();
+            showWifiInfoScreen();
+        }
     }
 
 }

@@ -81,19 +81,6 @@ public class MainSystem {
                         Thread.currentThread().isAlive());
         windowManager.setWindow("system");
         inputHandler.attachWindow(windowManager.getCurrentWindow());
-
-        new Thread(() -> {
-            int i = 0;
-            while (true) {
-                try {
-                    System.out.println("pulse " + i++);
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }).start();
     }
 
     private void changeToSystemWindow()
@@ -109,21 +96,21 @@ public class MainSystem {
 //        setupApplication(profileCreator);
 //        applications.put("profileCreator", profileCreator);
 //
-//        AbstractSystemApplication clock = new Clock();
-//        setupApplication(clock);
-//        applications.put("clock", clock);
-//
-//        AbstractSystemApplication agenda = new Agenda();
-//        setupApplication(agenda);
-//        applications.put("agenda", agenda);
-//
-//        AbstractSystemApplication news = new News();
-//        setupApplication(news);
-//        applications.put("news", news);
-//
-//        AbstractSystemApplication weather = new Weather();
-//        setupApplication(weather);
-//        applications.put("weather", weather);
+        AbstractSystemApplication clock = new Clock();
+        setupApplication(clock);
+        applications.put("clock", clock);
+
+        AbstractSystemApplication agenda = new Agenda();
+        setupApplication(agenda);
+        applications.put("agenda", agenda);
+
+        AbstractSystemApplication news = new News();
+        setupApplication(news);
+        applications.put("news", news);
+
+        AbstractSystemApplication weather = new Weather();
+        setupApplication(weather);
+        applications.put("weather", weather);
 
         AbstractSystemApplication wifi = new Wifi();
         setupApplication(wifi);
@@ -138,10 +125,10 @@ public class MainSystem {
             systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue());
         }
 
-        AbstractUserApplication test = new WindowPluginTest();
-        //userApps.put("test", test);
-        systemWindow.addApplicationToWindow("test", test);
-        applications.put("test", test);
+//        AbstractUserApplication test = new WindowPluginTest();
+//        //userApps.put("test", test);
+//        systemWindow.addApplicationToWindow("test", test);
+//        applications.put("test", test);
 
 
     }
@@ -160,14 +147,14 @@ public class MainSystem {
     final public InputHandler inputHandler = new InputHandler(kbc);
 
     public WindowManager windowManager;
-   // final KeyInput keyInput = new KeyInput(inputHandler);
+    final KeyInput keyInput = new KeyInput(inputHandler);
 //    final GpioListener gpio = new GpioListener(inputHandler);
 
 
     private SystemWindow systemWindow;
 
     // Holds all applications, system and user
-    volatile Map<String, AbstractApplication> applications;
+    private Map<String, AbstractApplication> applications;
 
     public MainSystem(JPanel windowHolder) throws PlatformAlreadyAssignedException, InterruptedException {
         // create a new window manager for display

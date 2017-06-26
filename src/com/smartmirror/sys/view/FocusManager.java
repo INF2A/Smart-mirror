@@ -30,6 +30,7 @@ import java.util.List;
  * will be necessary to define a custom focus for the input.
  */
 public class FocusManager implements IFocusManager {
+
     List<JComponent> componentList = new ArrayList<>();
     TYPE selectedObjectType = TYPE.EMPTY;
 
@@ -159,6 +160,7 @@ public class FocusManager implements IFocusManager {
         if(componentList.size() > 0) {
             _current = 0;
             _previous = componentList.size() - 1;
+            update();
             return componentList.get(_current);
         }
         return null;
@@ -270,6 +272,7 @@ public class FocusManager implements IFocusManager {
         componentList.get(_previous).updateUI();
         System.out.println( componentList.get(_current).toString());
     }
+
 
 
 }
