@@ -3,7 +3,7 @@ package com.smartmirror.sys.applications.widgets;
 import com.smartmirror.core.view.AbstractWidget;
 import org.json.simple.JSONObject;
 import system.input.json.JsonParser;
-
+import com.smartmirror.sys.Font;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.concurrent.*;
 
 /**
  * System Widget for displaying weather information on screen
@@ -25,6 +26,9 @@ public class WeatherWidget extends AbstractWidget {
     public JLabel icon = new JLabel();
     public JLabel temp = new JLabel();
 
+    public final ExecutorService service = Executors.newFixedThreadPool(1);
+    public Future<JSONObject> task;
+
     public WeatherWidget()
     {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -33,87 +37,121 @@ public class WeatherWidget extends AbstractWidget {
         location = location.CENTER_RIGHT;
 
         city_name.setForeground(Color.WHITE);
-        city_name.setFont(applyFontSize(FontSize.H2));
+        city_name.setFont(Font.applyFontSize(Font.FontSize.H2));
         city_name.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         country.setForeground(Color.WHITE);
-        country.setFont(applyFontSize(FontSize.H2));
+        country.setFont(Font.applyFontSize(Font.FontSize.H2));
         country.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         main.setForeground(Color.WHITE);
-        main.setFont(applyFontSize(FontSize.H3));
+        main.setFont(Font.applyFontSize(Font.FontSize.H3));
         main.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         icon.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         temp.setForeground(Color.WHITE);
-        temp.setFont(applyFontSize(FontSize.H4));
+        temp.setFont(Font.applyFontSize(Font.FontSize.H4));
         temp.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         add(city_name);
         add(main);
         add(icon);
         add(temp);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true)
+                {
+                    update();
+
+                    try
+                    {
+                        Thread.sleep(7200000);
+                    }
+                    catch (InterruptedException e)
+                    {
+                        System.out.println(e);
+                    }
+                }
+
+            }
+        }).start();
+
     }
 
     /**
      * Called every update
      */
     @Override
-    public void init() {
-        JSONObject weather = getCurrentWeather();
+    public void update() {
+        requestJson();
 
-        city_name.setText(weather.get("city_name").toString() + " (" + weather.get("country").toString() + ")");
-        country.setText(weather.get("country").toString());
-        main.setText(weather.get("main").toString());
+        SwingUtilities.invokeLater(() -> {
+            if(json.get("current") != null)
+            {
+                JSONObject current = (JSONObject)json.get("current");
 
-        icon.setIcon(translateIcon(weather.get("icon").toString(), 1.5));
-        icon.setText(null);
+                city_name.setText(current.get("city_name").toString() + " (" + current.get("country").toString() + ")");
+                country.setText(current.get("country").toString());
+                main.setText(current.get("main").toString());
 
-        temp.setText("Temp: " + weather.get("temp").toString());
+                icon.setIcon(translateIcon(current.get("icon").toString(), 1.5));
+                icon.setText(null);
 
-        JPanel forecastPanel = new JPanel();
-        forecastPanel.setLayout(new BoxLayout(forecastPanel, BoxLayout.X_AXIS));
-        forecastPanel.setBackground(Color.BLACK);
-        forecastPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                temp.setText("Temp: " + current.get("temp").toString());
 
-        for(int i = 2; i < 6; i++)
-        {
-            weather = getForeCastWeather(i);
+                JPanel forecastPanel = new JPanel();
+                forecastPanel.setLayout(new BoxLayout(forecastPanel, BoxLayout.X_AXIS));
+                forecastPanel.setBackground(Color.BLACK);
+                forecastPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-            JPanel day = new JPanel();
-            day.setLayout(new BoxLayout(day, BoxLayout.Y_AXIS));
-            day.setBackground(Color.BLACK);
-            day.setBorder(new EmptyBorder(10, 10, 10, 10));
+                JSONObject forecast = (JSONObject)json.get("forecast");
 
-            JLabel d = new JLabel(new ClockWidget().getNameOfDay(i - 1));
-            d.setForeground(Color.WHITE);
-            d.setAlignmentX(Component.CENTER_ALIGNMENT);
-            d.setFont(applyFontSize(FontSize.H5));
-            day.add(d);
+                for(int i = 2; i < 6; i++)
+                {
+                    JSONObject days = (JSONObject)forecast.get("day_" + i);
 
-            JLabel main = new JLabel(weather.get("main").toString());
-            main.setForeground(Color.WHITE);
-            main.setFont(applyFontSize(FontSize.H5));
-            main.setAlignmentX(Component.CENTER_ALIGNMENT);
-            day.add(main);
+                    JPanel day = new JPanel();
+                    day.setLayout(new BoxLayout(day, BoxLayout.Y_AXIS));
+                    day.setBackground(Color.BLACK);
+                    day.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-            JLabel icon = new JLabel();
-            icon.setIcon(translateIcon(weather.get("icon").toString(), .8));
-            icon.setAlignmentX(Component.CENTER_ALIGNMENT);
-            icon.setText(null);
-            day.add(icon);
+                    JLabel d = new JLabel(new ClockWidget().getNameOfDay(i - 1));
+                    d.setForeground(Color.WHITE);
+                    d.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    d.setFont(Font.applyFontSize(Font.FontSize.H5));
+                    day.add(d);
 
-            JLabel temp = new JLabel("Temp: " + weather.get("temp").toString());
-            temp.setAlignmentX(Component.CENTER_ALIGNMENT);
-            temp.setFont(applyFontSize(FontSize.H5));
-            temp.setForeground(Color.WHITE);
-            day.add(temp);
+                    JLabel main = new JLabel(days.get("main").toString());
+                    main.setForeground(Color.WHITE);
+                    main.setFont(Font.applyFontSize(Font.FontSize.H5));
+                    main.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    day.add(main);
 
-            forecastPanel.add(day);
-        }
+                    JLabel icon = new JLabel();
+                    icon.setIcon(translateIcon(days.get("icon").toString(), .8));
+                    icon.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    icon.setText(null);
+                    day.add(icon);
 
-        add(forecastPanel);
+                    JLabel temp = new JLabel("Temp: " + days.get("temp").toString());
+                    temp.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    temp.setFont(Font.applyFontSize(Font.FontSize.H5));
+                    temp.setForeground(Color.WHITE);
+                    day.add(temp);
+
+                    forecastPanel.add(day);
+                }
+
+                add(forecastPanel);
+            }
+//            else
+//            {
+//                main.setText("Connection lost or city not found...");
+//            }
+        });
     }
 
     public ImageIcon translateIcon(String iconUrl, double sizeMultiplier)
@@ -134,19 +172,24 @@ public class WeatherWidget extends AbstractWidget {
         return icon;
     }
 
-    /**
-     * Get current weather from returned getJSON() method
-     *
-     * @return
-     */
-    public JSONObject getCurrentWeather()
+    public JSONObject requestJson()
     {
-        return json = (JSONObject)JsonParser.parseURL("http://localhost:8090/w/weather/emmen/metric").get("current");
-    }
+        task = service.submit(new JsonParser("http://192.168.1.1:8085/weatherapi/weather/amsterdam/metric"));
+//        task = service.submit(new JsonParser("http://localhost:8090/w/weather/emmen/metric"));
 
-    public JSONObject getForeCastWeather(int day)
-    {
-        json = (JSONObject)JsonParser.parseURL("http://localhost:8090/w/weather/emmen/metric").get("forecast");
-        return (JSONObject)json.get("day_" + day);
+
+        try
+        {
+            json = task.get();
+        }
+        catch (InterruptedException ex)
+        {
+            // error
+        }
+        catch (ExecutionException ex)
+        {
+            // error
+        }
+        return json;
     }
 }

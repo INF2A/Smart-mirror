@@ -4,20 +4,20 @@ import com.smartmirror.core.view.AbstractWidget;
 import org.json.simple.JSONObject;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
- * System Widget for displaying settings on screen
+ * Created by basva on 19-6-2017.
  */
-public class SettingsWidget extends AbstractWidget {
+public class WifiWidget extends AbstractWidget {
 
-    public SettingsWidget()
+    public WifiWidget()
     {
+        //location = location.TOP_LEFT;
+
         ClassLoader classLoader = getClass().getClassLoader();
-        ImageIcon image = new ImageIcon(classLoader.getResource("img/settings.png"));
+        ImageIcon image = new ImageIcon(classLoader.getResource("img/wifi-icon.png"));
         JLabel img = new JLabel(image);
         add(img);
-        location = location.TOP_LEFT;
     }
 
     @Override

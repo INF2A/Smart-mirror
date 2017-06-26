@@ -11,12 +11,13 @@ public abstract class AbstractApplication extends AbstractWindow {
 
     public boolean INTERNAL_setupRun = false;
     public AbstractWidget SYSTEM_Widget; // Holds application widget
+    public boolean addWidgetToSystemWindow = false;
     public ImageIcon SYSTEM_Icon; // ImageIcon that holds a icon of the application
-
 
     public AbstractApplication()
     {
         SYSTEM_Screen.setBackground(Color.BLACK);
+
     }
 
     public void setSYSTEM_Icon(String pathFromResources)

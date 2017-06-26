@@ -5,21 +5,40 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ScheduledExecutorService;
+
 import org.json.simple.parser.JSONParser;
 import org.json.simple.*;
 
 /**
  * Created by basva on 24-5-2017.
  */
-public class JsonParser {
-    public static JSONObject parseURL(String apiURL)
+public class JsonParser implements Callable<JSONObject>{
+    public String apiURL;
+
+    public JsonParser(String apiURL)
     {
-        JSONObject jsonObject = null;
-        try
+        this.apiURL = apiURL;
+    }
+
+    @Override
+    public JSONObject call() throws Exception {
+        JSONObject jsonObject = new JSONObject();
+
+        if(testURL(apiURL))
         {
-            URL url = new URL(apiURL);
-            HttpURLConnection request = (HttpURLConnection) url.openConnection();
-            request.connect();
+            HttpURLConnection request;
+            try
+            {
+                URL url = new URL(apiURL);
+                request = (HttpURLConnection) url.openConnection();
+                request.connect();
+            }
+            catch (Exception ex)
+            {
+                return jsonObject;
+            }
 
             JSONParser parser = new JSONParser();
             try
@@ -29,13 +48,37 @@ public class JsonParser {
             }
             catch (org.json.simple.parser.ParseException pe)
             {
-                pe.printStackTrace();
+                return jsonObject;
+            }
+            catch (IOException e)
+            {
+                return jsonObject;
+            }
+        }
+
+        return jsonObject;
+    }
+
+    private static boolean testURL(String apiURL)
+    {
+        boolean succes = false;
+        try
+        {
+            URL url = new URL(apiURL);
+            HttpURLConnection request = (HttpURLConnection) url.openConnection();
+            request.setRequestMethod("HEAD");
+            request.setConnectTimeout(100);
+            int response = request.getResponseCode();
+            if(response == 200)
+            {
+                succes = true;
             }
         }
         catch (IOException e)
         {
-            throw new RuntimeException(e);
+            return false;
         }
-        return jsonObject;
+
+        return succes;
     }
 }

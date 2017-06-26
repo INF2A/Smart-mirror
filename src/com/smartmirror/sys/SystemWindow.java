@@ -7,6 +7,8 @@ import com.smartmirror.sys.view.FocusManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 /**
  * Created by Erwin on 5/15/2017.
@@ -65,39 +67,42 @@ public class SystemWindow extends AbstractSystemWindow {
     public void addApplicationToWindow(String appName, AbstractApplication app){
         apps.put(appName, app);
 
-        if(app.SYSTEM_Widget == null)
-        {
-            app.SYSTEM_Widget = new DefaultWidget();
-        }
-
-        app.SYSTEM_Widget.setName(appName);
-
         focusManager.addComponent(app.SYSTEM_Widget);
 
-        switch (app.SYSTEM_Widget.location)
+        if(app.addWidgetToSystemWindow)
         {
-            case TOP:
-                top.add(app.SYSTEM_Widget);
-                break;
-            case TOP_RIGHT:
-                topRight.add(app.SYSTEM_Widget);
-                break;
-            case TOP_LEFT:
-                topLeft.add(app.SYSTEM_Widget);
-                break;
-            case BOTTOM:
-                bottom.add(app.SYSTEM_Widget);
-                break;
-            case CENTER_LEFT:
-                centerLeft.add(app.SYSTEM_Widget);
-                break;
-            case CENTER_RIGHT:
-                centerRight.add(app.SYSTEM_Widget);
-                break;
-            case CENTER:
+            if(app.SYSTEM_Widget == null)
+            {
+                app.SYSTEM_Widget = new DefaultWidget();
+            }
+
+            app.SYSTEM_Widget.setName(appName);
+
+            switch (app.SYSTEM_Widget.location)
+            {
+                case TOP:
+                    top.add(app.SYSTEM_Widget);
+                    break;
+                case TOP_RIGHT:
+                    topRight.add(app.SYSTEM_Widget);
+                    break;
+                case TOP_LEFT:
+                    topLeft.add(app.SYSTEM_Widget);
+                    break;
+                case BOTTOM:
+                    bottom.add(app.SYSTEM_Widget);
+                    break;
+                case CENTER_LEFT:
+                    centerLeft.add(app.SYSTEM_Widget);
+                    break;
+                case CENTER_RIGHT:
+                    centerRight.add(app.SYSTEM_Widget);
+                    break;
+                case CENTER:
                 default:
-                center.add(app.SYSTEM_Widget);
-                break;
+                    center.add(app.SYSTEM_Widget);
+                    break;
+            }
         }
     }
 

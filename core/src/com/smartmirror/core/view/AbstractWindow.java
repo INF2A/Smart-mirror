@@ -162,6 +162,9 @@ public abstract class AbstractWindow extends AbstractInputHandler {
             case BUTTON:
                 ((JButton)focusManager.Selected()).doClick();
                 break;
+            case RADIOBUTTON:
+                ((JRadioButton)focusManager.Selected()).setSelected(!((JRadioButton)focusManager.Selected()).isSelected());
+                break;
             default:
                 break;
         }
