@@ -7,18 +7,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54c7177-0dca-4e45-8744-befd86f17815" name="Default" comment="Merge with master">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Monitor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Radio.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/MonitorWidget.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WifiWidget.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/SystemWindow.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/com/smartmirror/sys/SystemWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SlimPiV2/system/input/json/JsonParser.class" afterPath="$PROJECT_DIR$/out/production/SlimPiV2/system/input/json/JsonParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractApplication.class" afterPath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractApplication.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractWindow.class" afterPath="$PROJECT_DIR$/out/production/core/com/smartmirror/core/view/AbstractWindow.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SlimPiV2.iml" afterPath="$PROJECT_DIR$/SlimPiV2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/core.iml" afterPath="$PROJECT_DIR$/core/core.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java" afterPath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWidget.java" afterPath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWidget.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java" afterPath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/IFocusManager.java" afterPath="$PROJECT_DIR$/core/src/com/smartmirror/core/view/IFocusManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/Boot.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/Boot.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/MainSystem.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/MainSystem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/MainSystemController.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/MainSystemController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Agenda.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Agenda.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Clock.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Clock.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/News.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/News.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Settings.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Settings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Weather.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Weather.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Wifi.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Wifi.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AgendaWidget.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AgendaWidget.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AudioClient.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AudioClient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/ClockWidget.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/ClockWidget.java" />
@@ -26,6 +37,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/NewsWidget.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/NewsWidget.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/SettingsWidget.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/SettingsWidget.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WeatherWidget.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WeatherWidget.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/smartmirror/sys/view/FocusManager.java" afterPath="$PROJECT_DIR$/src/com/smartmirror/sys/view/FocusManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/system/input/json/JsonParser.java" afterPath="$PROJECT_DIR$/src/system/input/json/JsonParser.java" />
     </list>
     <ignored path="SlimPiV2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,35 +68,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainSystem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/MainSystem.java">
+      <file leaf-file-name="MonitorWidget.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/MonitorWidget.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="103" column="51" lean-forward="false" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
-              <folding>
-                <element signature="method#test_AttachButtonSimulator#0;class#MainSystem#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="38" column="43" lean-forward="false" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Clock.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Clock.java">
+      <file leaf-file-name="Monitor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Monitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="News.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/News.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="41" />
+            <state relative-caret-position="472">
+              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,19 +91,12 @@
       <file leaf-file-name="AbstractWidget.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWidget.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-476">
-              <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Agenda.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Agenda.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="326">
+              <caret line="88" column="11" lean-forward="true" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
+              <folding>
+                <element signature="e#2636#2637#0" expanded="true" />
+                <element signature="e#2660#2661#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,56 +104,49 @@
       <file leaf-file-name="AgendaWidget.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AgendaWidget.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1156">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="553">
+              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SystemWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java">
+      <file leaf-file-name="ClockWidget.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/ClockWidget.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="69" column="43" lean-forward="false" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
+            <state relative-caret-position="80">
+              <caret line="90" column="62" lean-forward="true" selection-start-line="90" selection-start-column="62" selection-end-line="90" selection-end-column="62" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Weather.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Weather.java">
+      <file leaf-file-name="NewsWidget.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/NewsWidget.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+            <state relative-caret-position="346">
+              <caret line="235" column="87" lean-forward="false" selection-start-line="235" selection-start-column="46" selection-end-line="235" selection-end-column="87" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Settings.java">
+      <file leaf-file-name="WeatherWidget.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WeatherWidget.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1497431150829" expanded="false" signature="1935:1946" ph=" { " />
-                <marker date="1497431150829" expanded="false" signature="1967:1973" ph=" }" />
-              </folding>
+            <state relative-caret-position="148">
+              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainSystemController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/MainSystemController.java">
+      <file leaf-file-name="AbstractSystemApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/AbstractSystemApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
-              <folding>
-                <element signature="e#2563#2564#0" expanded="true" />
-                <element signature="e#2616#2617#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="139">
+              <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -172,10 +157,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Singleton" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>panels</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -193,31 +183,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/system/src/com/smartmirror/input/view/AbstractWindow.java" />
-        <option value="$PROJECT_DIR$/system/src/view/AbstractWindow.java" />
-        <option value="$PROJECT_DIR$/system/src/com/smartmirror/view/AbstractWindow.java" />
-        <option value="$PROJECT_DIR$/system/src/com/smartmirror/view/AbstractSystemWindow.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/input/Keyboard/KeyboardController.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/system/input/Keyboard/KeyboardController.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/core/input/Keyboard/KeyboardController.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/input/Keyboard/KeyboardController.java" />
-        <option value="$PROJECT_DIR$/simulator/com.smartmirror.simulator/InputHandler.java" />
-        <option value="$PROJECT_DIR$/simulator/src/com.smartmirror.simulator/InputHandler.java" />
-        <option value="$PROJECT_DIR$/simulator/src/com.smartmirror.simulator/Simulator.java" />
-        <option value="$PROJECT_DIR$/src/application/WindowPluginTest.java" />
-        <option value="$PROJECT_DIR$/src/application/Weather.java" />
-        <option value="$PROJECT_DIR$/src/application/Settings.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/ApplicationLoader.java" />
         <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractUserApplication.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/ApplicationParser.java" />
         <option value="$PROJECT_DIR$/src/applications/Weather.java" />
         <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemWindow.java" />
-        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java" />
         <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractSystemApplication.java" />
         <option value="$PROJECT_DIR$/src/applications/Settings.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/Main.java" />
         <option value="$PROJECT_DIR$/src/applications/WindowPluginTest.java" />
-        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/view/window/ProfileSelectionWindow.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/view/window/FadeWindow.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/view/action/FadeAction.java" />
@@ -227,23 +200,40 @@
         <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/input/AbstractInputHandler.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/view/window/WindowManager.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/InputHandler.java" />
-        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/IFocusManager.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/view/FocusManager.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/view/window/FirstBootWindow.java" />
         <option value="$PROJECT_DIR$/src/applications/ProfileCreator.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/DB.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/Shell.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/Boot.java" />
         <option value="$PROJECT_DIR$/src/applications/Wifi.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WeatherWidget.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/ClockWidget.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Weather.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/MainSystemController.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/Boot.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/Radio.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/CheckConnection.java" />
+        <option value="$PROJECT_DIR$/src/system/input/json/JsonParser.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Wifi.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/view/FocusManager.java" />
+        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java" />
+        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/IFocusManager.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/SettingsWidget.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/DefaultWidget.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WifiWidget.java" />
+        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Agenda.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/MainSystem.java" />
-        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Settings.java" />
         <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Clock.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/News.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Radio.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Weather.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Settings.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AudioClient.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/MainSystem.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AgendaWidget.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/ClockWidget.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/MonitorWidget.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/NewsWidget.java" />
+        <option value="$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWidget.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WeatherWidget.java" />
+        <option value="$PROJECT_DIR$/src/com/smartmirror/sys/applications/Monitor.java" />
       </list>
     </option>
   </component>
@@ -252,13 +242,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -331,6 +314,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="sys" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -353,7 +372,163 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="window" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="input" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speech" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="input" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="motion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="input" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="keyboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="input" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="key" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="input" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gpio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -419,30 +594,77 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlimPiV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="input" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mariadb-java-client-2.0.2.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Dropbox/INF2A/inleveren p4/Documentatieproduct/Class diagram" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\resources" />
-      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror" />
-      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\src" />
-      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\resources\icon" />
-      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\applications" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="system.view" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="src" />
@@ -460,8 +682,12 @@
       <recent name="application" />
       <recent name="plugin" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="system.view" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\resources" />
+      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror" />
+      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\src" />
+      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\resources\icon" />
+      <recent name="C:\Users\Erwin\Desktop\School\Periode 4\PRO\GIT\Smart-mirror\applications" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -774,6 +1000,7 @@
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
       <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -894,6 +1121,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -953,6 +1186,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b54c7177-0dca-4e45-8744-befd86f17815" name="Default" comment="" />
@@ -962,11 +1198,27 @@
       <updated>1495440216637</updated>
       <workItem from="1495440225219" duration="3450000" />
       <workItem from="1497429766934" duration="1384000" />
+      <workItem from="1497597294983" duration="2189000" />
+      <workItem from="1497599535149" duration="10940000" />
+      <workItem from="1497623648586" duration="8742000" />
+      <workItem from="1497780317112" duration="17191000" />
+      <workItem from="1497943038694" duration="4135000" />
+      <workItem from="1497947507210" duration="12054000" />
+      <workItem from="1497969273130" duration="6739000" />
+      <workItem from="1498003296301" duration="2395000" />
+      <workItem from="1498030165218" duration="6563000" />
+      <workItem from="1498037175018" duration="7255000" />
+      <workItem from="1498090741738" duration="3028000" />
+      <workItem from="1498112277761" duration="20887000" />
+      <workItem from="1498217788423" duration="3078000" />
+      <workItem from="1498416915941" duration="854000" />
+      <workItem from="1498418742901" duration="1466000" />
+      <workItem from="1498472312265" duration="4395000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4834000" />
+    <option name="totallyTimeSpent" value="130245000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -984,32 +1236,32 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.46412215" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243607" sideWeight="0.46412215" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3089701" sideWeight="0.5564886" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30820996" sideWeight="0.44351146" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23687753" sideWeight="0.44351146" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3371522" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24550128" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32133675" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.68986386" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39165545" sideWeight="0.68986386" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5057283" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1047,11 +1299,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Code merging" />
     <MESSAGE value="Added applicationLoader" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added applicationLoader" />
+    <MESSAGE value="Master up-to-date" />
+    <option name="LAST_COMMIT_MESSAGE" value="Master up-to-date" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="46" />
+      <option name="time" value="189" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1060,360 +1313,862 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/Map.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/swing/ImageIcon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="216" column="0" lean-forward="false" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json-simple-1.1.1.jar!/org/json/simple/parser/JSONParser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/img/monitor-icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/Boot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/json-simple-1.1.1.jar!/org/json/simple/JSONObject.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/CheckConnection.java" />
+    <entry file="file://$PROJECT_DIR$/src/system/input/json/JsonParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="69" column="40" lean-forward="false" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="652" column="0" lean-forward="false" selection-start-line="652" selection-start-column="0" selection-end-line="652" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/concurrent/atomic/AtomicBoolean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="49" column="13" lean-forward="false" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/ProfileCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-304">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/AbstractSystemWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
+        <state relative-caret-position="119">
           <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/input/gpio/GpioListener.java">
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Wifi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="108" column="17" lean-forward="false" selection-start-line="90" selection-start-column="18" selection-end-line="108" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/javafx-src.zip!/com/sun/glass/events/KeyEvent.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/input/IKeyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="30" lean-forward="false" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/input/key/KeyInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-137">
-          <caret line="95" column="25" lean-forward="false" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/input/keyboard/KeyboardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/input/keyboard/Keyboardview.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/input/keyboard/Keyboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="84" column="17" lean-forward="false" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="86" column="12" lean-forward="false" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/input/AbstractInputHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/AbstractSystemApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/applications/Widget.java" />
-    <entry file="file://$PROJECT_DIR$/src/UnitTest/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/applications/Settings.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/InputHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/javax/swing/AbstractButton.java" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/List.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/window/BootWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/window/WindowManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="96" column="30" lean-forward="false" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+        <state relative-caret-position="553">
+          <caret line="298" column="5" lean-forward="false" selection-start-line="298" selection-start-column="5" selection-end-line="298" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/IFocusManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="154" column="9" lean-forward="false" selection-start-line="154" selection-start-column="9" selection-end-line="154" selection-end-column="9" />
+        <state relative-caret-position="179">
+          <caret line="33" column="20" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/FocusManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/InputHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3893">
-          <caret line="256" column="25" lean-forward="false" selection-start-line="256" selection-start-column="25" selection-end-line="256" selection-end-column="25" />
-          <folding>
-            <element signature="e#1616#1617#0" expanded="false" />
-            <element signature="e#1664#1665#0" expanded="false" />
-            <element signature="e#3090#3091#0" expanded="false" />
-            <element signature="e#3137#3138#0" expanded="false" />
-            <element signature="e#4090#4091#0" expanded="false" />
-            <element signature="e#4141#4142#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/window/ProfileSelectionWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/window/FirstBootWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="91" column="17" lean-forward="false" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="31" column="41" lean-forward="false" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
-          <folding>
-            <element signature="e#3085#3086#0" expanded="true" />
-            <element signature="e#3121#3122#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/applications/ProfileCreator.java" />
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/sql/Connection.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/DB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/Boot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="31" column="1" lean-forward="false" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/applications/Wifi.java" />
-    <entry file="file://$PROJECT_DIR$/src/UnitTest/Gui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="77" column="46" lean-forward="false" selection-start-line="77" selection-start-column="46" selection-end-line="78" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/Shell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="58" selection-end-line="26" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulator/src/com.smartmirror.simulator/InputHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="89" column="35" lean-forward="false" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/ClockWidget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-535">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/DefaultWidget.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/NewsWidget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="425">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/SettingsWidget.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="425">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WeatherWidget.java">
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WifiWidget.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1734">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="442">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/ClockWidget.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="21" column="46" lean-forward="false" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AudioClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="69" column="43" lean-forward="false" selection-start-line="69" selection-start-column="43" selection-end-line="69" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Weather.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="47" column="35" lean-forward="false" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/MainSystemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
-          <folding>
-            <element signature="e#2563#2564#0" expanded="true" />
-            <element signature="e#2616#2617#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWidget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="136">
+          <caret line="13" column="50" lean-forward="false" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Agenda.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="114">
+          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AgendaWidget.java">
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Clock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1156">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="213">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/SystemWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Weather.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="41" column="39" lean-forward="false" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="57" column="22" lean-forward="true" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/net/DualStackPlainSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Radio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="12" column="39" lean-forward="false" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jlayer-1.0.1.jar!/javazoom/jl/player/advanced/AdvancedPlayer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jlayer-1.0.1.jar!/javazoom/jl/decoder/Header.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jlayer-1.0.1.jar!/javazoom/jl/decoder/Bitstream.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AudioClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/MainSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="103" column="51" lean-forward="false" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
+        <state relative-caret-position="1292">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="2" selection-end-line="106" selection-end-column="43" />
           <folding>
-            <element signature="method#test_AttachButtonSimulator#0;class#MainSystem#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1940#2160#0" expanded="false" />
+            <element signature="e#2159#2160#0" expanded="false" />
+            <element signature="e#2231#2449#0" expanded="false" />
+            <element signature="e#2448#2449#0" expanded="false" />
+            <element signature="e#2520#2734#0" expanded="false" />
+            <element signature="e#2733#2734#0" expanded="false" />
+            <element signature="e#2805#3019#0" expanded="false" />
+            <element signature="e#3018#3019#0" expanded="false" />
+            <element signature="e#3406#3407#0" expanded="false" />
+            <element signature="e#3441#3442#0" expanded="false" />
+            <element signature="e#5334#5335#0" expanded="false" />
+            <element signature="e#5374#5375#0" expanded="false" />
+            <element signature="e#7568#7569#0" expanded="false" />
+            <element signature="e#7637#7638#0" expanded="false" />
+            <element signature="e#8796#8797#0" expanded="false" />
+            <element signature="e#8831#8832#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/News.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="41" />
+        <state relative-caret-position="731">
+          <caret line="51" column="29" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/D:/Gebruikers/basva/OneDrive/STENDEN/Leerjaar2/Periode 4/PROJECT/SlimPiV2/core/src/com/smartmirror/core/view">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/core/src/com/smartmirror/core/view</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="537.0" y="344.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.smartmirror.core.input.AbstractInputHandler">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.smartmirror.core.input.AbstractInputHandler</OriginalElement>
+          <nodes>
+            <node x="287.0" y="0.0">com.smartmirror.core.input.IMotionHandler</node>
+            <node x="128.0" y="80.0">com.smartmirror.core.input.AbstractInputHandler</node>
+            <node x="0.0" y="0.0">com.smartmirror.core.input.ISpeechHandler</node>
+            <node x="153.0" y="0.0">com.smartmirror.core.input.IKeyHandler</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="com.smartmirror.core.input.AbstractInputHandler" target="com.smartmirror.core.input.IKeyHandler">
+              <point x="0.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.core.input.AbstractInputHandler" target="com.smartmirror.core.input.ISpeechHandler">
+              <point x="-54.66666666666666" y="-15.0" />
+              <point x="155.33333333333334" y="55.0" />
+              <point x="66.5" y="55.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.core.input.AbstractInputHandler" target="com.smartmirror.core.input.IMotionHandler">
+              <point x="54.666666666666686" y="-15.0" />
+              <point x="264.6666666666667" y="55.0" />
+              <point x="354.0" y="55.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-86.0" y="-49.0" />
+          <SelectedNodes>
+            <node>com.smartmirror.core.input.AbstractInputHandler</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.smartmirror.sys.applications.widgets.AgendaWidget">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.smartmirror.sys.applications.widgets.AgendaWidget</OriginalElement>
+          <nodes>
+            <node x="498.00000000000006" y="575.0">com.smartmirror.core.input.IMotionHandler</node>
+            <node x="717.0" y="500.0">com.smartmirror.sys.applications.widgets.WeatherWidget</node>
+            <node x="267.00000000000006" y="500.0">com.smartmirror.sys.applications.widgets.AgendaWidget</node>
+            <node x="449.00000000000006" y="160.0">javax.swing.TransferHandler.HasGetTransferHandler</node>
+            <node x="636.0" y="815.0">com.smartmirror.core.view.AbstractApplication</node>
+            <node x="1097.4875000000002" y="895.0">java.lang.Runnable</node>
+            <node x="684.75" y="0.0">java.awt.image.ImageObserver</node>
+            <node x="1071.4875000000002" y="815.0">java.lang.FunctionalInterface</node>
+            <node x="394.0" y="895.0">com.smartmirror.sys.view.AbstractSystemApplication</node>
+            <node x="416.00000000000006" y="500.0">com.smartmirror.sys.applications.widgets.SettingsWidget</node>
+            <node x="652.0" y="575.0">com.smartmirror.core.input.ISpeechHandler</node>
+            <node x="644.5" y="735.0">com.smartmirror.core.view.AbstractWindow</node>
+            <node x="642.0" y="160.0">java.awt.Container</node>
+            <node x="805.0" y="575.0">com.smartmirror.core.input.IKeyHandler</node>
+            <node x="638.25" y="240.0">javax.swing.JComponent</node>
+            <node x="129.0" y="500.0">com.smartmirror.sys.applications.widgets.ClockWidget</node>
+            <node x="631.5" y="655.0">com.smartmirror.core.input.AbstractInputHandler</node>
+            <node x="242.00000000000006" y="995.0">com.smartmirror.sys.applications.Monitor</node>
+            <node x="566.0" y="500.0">com.smartmirror.sys.applications.widgets.MonitorWidget</node>
+            <node x="0.0" y="995.0">com.smartmirror.sys.applications.News</node>
+            <node x="869.0" y="500.0">com.smartmirror.sys.applications.widgets.AudioClient</node>
+            <node x="531.75" y="0.0">java.awt.MenuContainer</node>
+            <node x="455.00000000000006" y="995.0">com.smartmirror.sys.applications.Wifi</node>
+            <node x="513.25" y="240.0">javax.accessibility.Accessible</node>
+            <node x="899.4875000000001" y="895.0">com.smartmirror.core.view.AbstractUserApplication</node>
+            <node x="636.0" y="80.0">java.awt.Component</node>
+            <node x="99.0" y="995.0">com.smartmirror.sys.applications.ProfileCreator</node>
+            <node x="834.75" y="0.0">java.io.Serializable</node>
+            <node x="992.9875000000001" y="995.0">com.smartmirror.sys.applications.WindowPluginTest</node>
+            <node x="1139.0" y="500.0">com.smartmirror.sys.applications.widgets.DefaultWidget</node>
+            <node x="565.5" y="400.0">com.smartmirror.core.view.AbstractWidget</node>
+            <node x="660.0" y="995.0">com.smartmirror.sys.applications.Settings</node>
+            <node x="1002.0" y="500.0">com.smartmirror.sys.applications.widgets.NewsWidget</node>
+            <node x="872.0" y="995.0">com.smartmirror.sys.applications.Agenda</node>
+            <node x="546.0" y="995.0">com.smartmirror.sys.applications.Weather</node>
+            <node x="772.0" y="995.0">com.smartmirror.sys.applications.Radio</node>
+            <node x="590.0" y="320.0">javax.swing.JPanel</node>
+            <node x="355.00000000000006" y="995.0">com.smartmirror.sys.applications.Clock</node>
+            <node x="0.0" y="500.0">com.smartmirror.sys.applications.widgets.WifiWidget</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="javax.swing.JPanel" target="javax.swing.JComponent">
+              <point x="20.75" y="-15.0" />
+              <point x="652.25" y="295.0" />
+              <point x="697.25" y="295.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.core.input.AbstractInputHandler" target="com.smartmirror.core.input.IKeyHandler">
+              <point x="54.66666666666663" y="-15.0" />
+              <point x="768.1666666666667" y="630.0" />
+              <point x="862.0" y="630.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.Monitor" target="com.smartmirror.sys.view.AbstractSystemApplication">
+              <point x="0.0" y="-15.0" />
+              <point x="288.50000000000006" y="965.0" />
+              <point x="447.61111111111114" y="965.0" />
+              <point x="-42.88888888888886" y="15.0" />
+            </edge>
+            <edge source="javax.swing.JComponent" target="java.awt.Container">
+              <point x="0.0" y="-15.0" />
+              <point x="697.25" y="215.0" />
+              <point x="693.0" y="215.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.core.view.AbstractUserApplication" target="com.smartmirror.core.view.AbstractApplication">
+              <point x="1.1368683772161603E-13" y="-15.0" />
+              <point x="988.4875000000002" y="870.0" />
+              <point x="752.25" y="870.0" />
+              <point x="38.75" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.core.view.AbstractWidget" target="javax.swing.JPanel">
+              <point x="0.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.Wifi" target="com.smartmirror.sys.view.AbstractSystemApplication">
+              <point x="-5.6843418860808015E-14" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="javax.swing.JPanel" target="javax.accessibility.Accessible">
+              <point x="-20.75" y="-15.0" />
+              <point x="610.75" y="295.0" />
+              <point x="565.75" y="295.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.awt.Component" target="java.awt.image.ImageObserver">
+              <point x="0.0" y="-15.0" />
+              <point x="693.0" y="50.0" />
+              <point x="749.75" y="50.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.WindowPluginTest" target="com.smartmirror.core.view.AbstractUserApplication">
+              <point x="-37.5" y="-15.0" />
+              <point x="1030.4875000000002" y="975.0" />
+              <point x="988.4875000000001" y="975.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.widgets.WifiWidget" target="com.smartmirror.core.view.AbstractWidget">
+              <point x="0.0" y="-15.0" />
+              <point x="54.5" y="450.0" />
+              <point x="572.8333333333335" y="450.0" />
+              <point x="-58.66666666666663" y="15.0" />
+            </edge>
+            <edge source="java.lang.Runnable" target="java.lang.FunctionalInterface">
+              <point x="0.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.core.input.AbstractInputHandler" target="com.smartmirror.core.input.ISpeechHandler">
+              <point x="0.0" y="-15.0" />
+              <point x="713.5" y="630.0" />
+              <point x="718.5" y="630.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.widgets.AudioClient" target="com.smartmirror.core.view.AbstractWidget">
+              <point x="0.0" y="-15.0" />
+              <point x="925.5" y="470.0" />
+              <point x="660.8333333333333" y="470.0" />
+              <point x="29.333333333333258" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.Weather" target="com.smartmirror.sys.view.AbstractSystemApplication">
+              <point x="0.0" y="-15.0" />
+              <point x="593.0" y="975.0" />
+              <point x="511.94444444444446" y="975.0" />
+              <point x="21.444444444444457" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.ProfileCreator" target="com.smartmirror.sys.view.AbstractSystemApplication">
+              <point x="0.0" y="-15.0" />
+              <point x="160.5" y="955.0" />
+              <point x="426.1666666666667" y="955.0" />
+              <point x="-64.33333333333331" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.core.input.AbstractInputHandler" target="com.smartmirror.core.input.IMotionHandler">
+              <point x="-54.66666666666663" y="-15.0" />
+              <point x="658.8333333333335" y="630.0" />
+              <point x="565.0" y="630.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.widgets.MonitorWidget" target="com.smartmirror.core.view.AbstractWidget">
+              <point x="0.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.WindowPluginTest" target="java.lang.Runnable">
+              <point x="37.5" y="-15.0" />
+              <point x="1105.4875000000002" y="975.0" />
+              <point x="1147.4875000000002" y="975.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="javax.swing.JComponent" target="javax.swing.TransferHandler.HasGetTransferHandler">
+              <point x="-39.33333333333337" y="-15.0" />
+              <point x="657.9166666666667" y="215.0" />
+              <point x="535.5" y="215.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.core.view.AbstractWindow" target="com.smartmirror.core.input.AbstractInputHandler">
+              <point x="0.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.widgets.WeatherWidget" target="com.smartmirror.core.view.AbstractWidget">
+              <point x="0.0" y="-15.0" />
+              <point x="783.0" y="480.0" />
+              <point x="646.1666666666667" y="480.0" />
+              <point x="14.666666666666629" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.widgets.ClockWidget" target="com.smartmirror.core.view.AbstractWidget">
+              <point x="0.0" y="-15.0" />
+              <point x="188.0" y="460.0" />
+              <point x="587.5" y="460.0" />
+              <point x="-44.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.Radio" target="com.smartmirror.sys.view.AbstractSystemApplication">
+              <point x="0.0" y="-15.0" />
+              <point x="812.0" y="955.0" />
+              <point x="554.8333333333333" y="955.0" />
+              <point x="64.33333333333331" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.widgets.SettingsWidget" target="com.smartmirror.core.view.AbstractWidget">
+              <point x="-5.6843418860808015E-14" y="-15.0" />
+              <point x="481.0" y="480.0" />
+              <point x="616.8333333333335" y="480.0" />
+              <point x="-14.666666666666629" y="15.0" />
+            </edge>
+            <edge source="java.awt.Component" target="java.awt.MenuContainer">
+              <point x="-38.0" y="-15.0" />
+              <point x="655.0" y="60.0" />
+              <point x="598.25" y="60.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="java.awt.Component" target="java.io.Serializable">
+              <point x="38.0" y="-15.0" />
+              <point x="731.0" y="60.0" />
+              <point x="861.75" y="60.0" />
+              <point x="-27.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.Agenda" target="com.smartmirror.sys.view.AbstractSystemApplication">
+              <point x="0.0" y="-15.0" />
+              <point x="917.5" y="945.0" />
+              <point x="576.2777777777778" y="945.0" />
+              <point x="85.77777777777777" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.view.AbstractSystemApplication" target="com.smartmirror.core.view.AbstractApplication">
+              <point x="-5.6843418860808015E-14" y="-15.0" />
+              <point x="490.49999999999994" y="870.0" />
+              <point x="674.75" y="870.0" />
+              <point x="-38.75" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.Settings" target="com.smartmirror.sys.view.AbstractSystemApplication">
+              <point x="0.0" y="-15.0" />
+              <point x="706.0" y="965.0" />
+              <point x="533.3888888888889" y="965.0" />
+              <point x="42.88888888888886" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.widgets.NewsWidget" target="com.smartmirror.core.view.AbstractWidget">
+              <point x="0.0" y="-15.0" />
+              <point x="1060.5" y="460.0" />
+              <point x="675.5" y="460.0" />
+              <point x="44.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.News" target="com.smartmirror.sys.view.AbstractSystemApplication">
+              <point x="0.0" y="-15.0" />
+              <point x="39.5" y="945.0" />
+              <point x="404.72222222222223" y="945.0" />
+              <point x="-85.77777777777777" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.core.view.AbstractApplication" target="com.smartmirror.core.view.AbstractWindow">
+              <point x="0.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.widgets.AgendaWidget" target="com.smartmirror.core.view.AbstractWidget">
+              <point x="0.0" y="-15.0" />
+              <point x="331.50000000000006" y="470.0" />
+              <point x="602.1666666666667" y="470.0" />
+              <point x="-29.33333333333337" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.widgets.DefaultWidget" target="com.smartmirror.core.view.AbstractWidget">
+              <point x="0.0" y="-15.0" />
+              <point x="1202.0" y="450.0" />
+              <point x="690.1666666666667" y="450.0" />
+              <point x="58.66666666666663" y="15.0" />
+            </edge>
+            <edge source="java.awt.Container" target="java.awt.Component">
+              <point x="0.0" y="-15.0" />
+              <point x="0.0" y="15.0" />
+            </edge>
+            <edge source="com.smartmirror.sys.applications.Clock" target="com.smartmirror.sys.view.AbstractSystemApplication">
+              <point x="0.0" y="-15.0" />
+              <point x="395.00000000000006" y="975.0" />
+              <point x="469.05555555555554" y="975.0" />
+              <point x="-21.444444444444457" y="15.0" />
+            </edge>
+            <edge source="javax.swing.JComponent" target="java.io.Serializable">
+              <point x="39.33333333333337" y="-15.0" />
+              <point x="736.5833333333335" y="215.0" />
+              <point x="915.75" y="215.0" />
+              <point x="27.0" y="15.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.6583732057416268" x="182.0" y="375.0" />
+          <SelectedNodes>
+            <node>com.smartmirror.sys.applications.widgets.AgendaWidget</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.smartmirror.sys.input.key.KeyInput">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.smartmirror.sys.input.key.KeyInput</OriginalElement>
+          <nodes>
+            <node x="" y="">com.smartmirror.sys.input.gpio.GpioListener</node>
+            <node x="" y="">com.smartmirror.sys.input.key.KeyInput</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="58.0" y="53.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.smartmirror.sys.input.keyboard.Keyboard">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.smartmirror.sys.input.keyboard.Keyboard</OriginalElement>
+          <nodes>
+            <node x="" y="">com.smartmirror.core.input.IMotionHandler</node>
+            <node x="" y="">javax.swing.JComponent</node>
+            <node x="" y="">com.smartmirror.core.input.AbstractInputHandler</node>
+            <node x="" y="">com.smartmirror.sys.input.keyboard.Keyboard</node>
+            <node x="" y="">com.smartmirror.sys.input.keyboard.KeyboardController</node>
+            <node x="" y="">javax.swing.TransferHandler.HasGetTransferHandler</node>
+            <node x="" y="">java.awt.MenuContainer</node>
+            <node x="" y="">javax.accessibility.Accessible</node>
+            <node x="" y="">java.awt.Component</node>
+            <node x="" y="">java.awt.image.ImageObserver</node>
+            <node x="" y="">java.io.Serializable</node>
+            <node x="" y="">com.smartmirror.sys.input.keyboard.Keyboardview</node>
+            <node x="" y="">com.smartmirror.core.input.ISpeechHandler</node>
+            <node x="" y="">java.awt.Container</node>
+            <node x="" y="">com.smartmirror.core.input.IKeyHandler</node>
+            <node x="" y="">javax.swing.JPanel</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="284.0" y="273.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/system.input.json.JsonParser">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>system.input.json.JsonParser</OriginalElement>
+          <nodes>
+            <node x="" y="">java.lang.FunctionalInterface</node>
+            <node x="" y="">system.input.json.JsonParser</node>
+            <node x="" y="">java.util.concurrent.Callable</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="76.0" y="95.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.smartmirror.sys.ApplicationParser">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.smartmirror.sys.ApplicationParser</OriginalElement>
+          <nodes>
+            <node x="" y="">com.smartmirror.core.input.IMotionHandler</node>
+            <node x="" y="">com.smartmirror.sys.view.AbstractSystemWindow</node>
+            <node x="" y="">com.smartmirror.sys.MainSystemController</node>
+            <node x="" y="">com.smartmirror.sys.Shell</node>
+            <node x="" y="">com.smartmirror.core.input.AbstractInputHandler</node>
+            <node x="" y="">com.smartmirror.sys.InputHandler</node>
+            <node x="" y="">com.smartmirror.sys.MainSystem</node>
+            <node x="" y="">com.smartmirror.sys.Boot</node>
+            <node x="" y="">com.smartmirror.sys.SystemWindow</node>
+            <node x="" y="">com.smartmirror.sys.DB</node>
+            <node x="" y="">com.smartmirror.sys.ApplicationParser</node>
+            <node x="" y="">com.smartmirror.core.input.ISpeechHandler</node>
+            <node x="" y="">com.smartmirror.core.view.AbstractWindow</node>
+            <node x="" y="">com.smartmirror.core.input.IKeyHandler</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="258.0" y="250.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.smartmirror.core.view.AbstractApplication">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.smartmirror.core.view.AbstractApplication</OriginalElement>
+          <nodes>
+            <node x="" y="">com.smartmirror.core.input.IMotionHandler</node>
+            <node x="" y="">javax.swing.JComponent</node>
+            <node x="" y="">com.smartmirror.core.input.AbstractInputHandler</node>
+            <node x="" y="">com.smartmirror.core.view.IFocusManager</node>
+            <node x="" y="">javax.swing.TransferHandler.HasGetTransferHandler</node>
+            <node x="" y="">java.awt.MenuContainer</node>
+            <node x="" y="">javax.accessibility.Accessible</node>
+            <node x="" y="">com.smartmirror.core.view.AbstractApplication</node>
+            <node x="" y="">com.smartmirror.core.view.AbstractUserApplication</node>
+            <node x="" y="">java.awt.Component</node>
+            <node x="" y="">java.awt.image.ImageObserver</node>
+            <node x="" y="">java.io.Serializable</node>
+            <node x="" y="">com.smartmirror.core.view.AbstractWidget</node>
+            <node x="" y="">com.smartmirror.core.input.ISpeechHandler</node>
+            <node x="" y="">com.smartmirror.core.view.AbstractWindow</node>
+            <node x="" y="">java.awt.Container</node>
+            <node x="" y="">com.smartmirror.core.input.IKeyHandler</node>
+            <node x="" y="">javax.swing.JPanel</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.8142011834319527" x="299.0" y="413.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.smartmirror.sys.applications.News">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.smartmirror.sys.applications.News</OriginalElement>
+          <nodes>
+            <node x="" y="">com.smartmirror.sys.applications.widgets.AgendaWidget</node>
+            <node x="" y="">com.smartmirror.sys.view.FocusManager</node>
+            <node x="" y="">com.smartmirror.sys.MainSystem</node>
+            <node x="" y="">com.smartmirror.sys.view.window.WindowManager</node>
+            <node x="" y="">com.smartmirror.sys.SystemWindow</node>
+            <node x="" y="">system.input.json.JsonParser</node>
+            <node x="" y="">com.smartmirror.sys.view.AbstractSystemApplication</node>
+            <node x="" y="">com.smartmirror.sys.view.window.ProfileSelectionWindow</node>
+            <node x="" y="">com.smartmirror.core.input.IKeyHandler</node>
+            <node x="" y="">com.smartmirror.core.input.AbstractInputHandler</node>
+            <node x="" y="">com.smartmirror.sys.applications.Monitor</node>
+            <node x="" y="">com.smartmirror.sys.applications.widgets.MonitorWidget</node>
+            <node x="" y="">com.smartmirror.sys.applications.News</node>
+            <node x="" y="">com.smartmirror.sys.applications.widgets.AudioClient</node>
+            <node x="" y="">com.smartmirror.core.view.IFocusManager</node>
+            <node x="" y="">com.smartmirror.sys.input.motion.MotionInput</node>
+            <node x="" y="">com.smartmirror.sys.applications.widgets.DefaultWidget</node>
+            <node x="" y="">com.smartmirror.core.view.AbstractWidget</node>
+            <node x="" y="">com.smartmirror.sys.applications.Settings</node>
+            <node x="" y="">com.smartmirror.sys.DB</node>
+            <node x="" y="">com.smartmirror.sys.applications.Clock</node>
+            <node x="" y="">com.smartmirror.core.input.IMotionHandler</node>
+            <node x="" y="">com.smartmirror.sys.view.AbstractSystemWindow</node>
+            <node x="" y="">com.smartmirror.sys.applications.widgets.WeatherWidget</node>
+            <node x="" y="">com.smartmirror.core.view.AbstractApplication</node>
+            <node x="" y="">com.smartmirror.sys.InputHandler</node>
+            <node x="" y="">com.smartmirror.sys.view.window.FirstBootWindow</node>
+            <node x="" y="">com.smartmirror.sys.ApplicationParser</node>
+            <node x="" y="">com.smartmirror.sys.applications.widgets.SettingsWidget</node>
+            <node x="" y="">com.smartmirror.core.input.ISpeechHandler</node>
+            <node x="" y="">com.smartmirror.core.view.AbstractWindow</node>
+            <node x="" y="">com.smartmirror.sys.view.window.BootWindow</node>
+            <node x="" y="">com.smartmirror.sys.applications.widgets.ClockWidget</node>
+            <node x="" y="">com.smartmirror.sys.Shell</node>
+            <node x="" y="">com.smartmirror.sys.MainSystemController</node>
+            <node x="" y="">com.smartmirror.sys.input.gpio.GpioListener</node>
+            <node x="" y="">com.smartmirror.sys.input.keyboard.Keyboard</node>
+            <node x="" y="">com.smartmirror.sys.input.key.KeyInput</node>
+            <node x="" y="">com.smartmirror.sys.input.keyboard.KeyboardController</node>
+            <node x="" y="">com.smartmirror.sys.input.speech.SpeechInput</node>
+            <node x="" y="">com.smartmirror.sys.applications.Wifi</node>
+            <node x="" y="">com.smartmirror.core.view.AbstractUserApplication</node>
+            <node x="" y="">com.smartmirror.sys.Boot</node>
+            <node x="" y="">com.smartmirror.sys.input.keyboard.Keyboardview</node>
+            <node x="" y="">com.smartmirror.sys.applications.widgets.NewsWidget</node>
+            <node x="" y="">com.smartmirror.sys.applications.Radio</node>
+            <node x="" y="">com.smartmirror.sys.applications.Weather</node>
+            <node x="" y="">com.smartmirror.sys.applications.Agenda</node>
+            <node x="" y="">com.smartmirror.sys.applications.widgets.WifiWidget</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.5674780915287244" x="3530.0" y="1346.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>Project Files</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/ClockWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="90" column="62" lean-forward="true" selection-start-line="90" selection-start-column="62" selection-end-line="90" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Settings.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state relative-caret-position="655">
+          <caret line="207" column="24" lean-forward="false" selection-start-line="207" selection-start-column="24" selection-end-line="207" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/MonitorWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="38" column="43" lean-forward="false" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/NewsWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="235" column="87" lean-forward="false" selection-start-line="235" selection-start-column="46" selection-end-line="235" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/AgendaWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/smartmirror/core/view/AbstractWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="88" column="11" lean-forward="true" selection-start-line="88" selection-start-column="11" selection-end-line="88" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1497431150829" expanded="false" signature="1935:1946" ph=" { " />
-            <marker date="1497431150829" expanded="false" signature="1967:1973" ph=" }" />
+            <element signature="e#2636#2637#0" expanded="true" />
+            <element signature="e#2660#2661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Clock.java">
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/DB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/FocusManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/view/AbstractSystemApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/widgets/WeatherWidget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/smartmirror/sys/applications/Monitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

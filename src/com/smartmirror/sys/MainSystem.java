@@ -89,21 +89,34 @@ public class MainSystem {
     public void loadSystemApplications() {
         applications = new LinkedHashMap<>();
 
-        AbstractSystemApplication profileCreator = new ProfileCreator();
-        setupApplication(profileCreator);
-        applications.put("profileCreator", profileCreator);
+//        AbstractSystemApplication profileCreator = new ProfileCreator();
+//        setupApplication(profileCreator);
+//        applications.put("profileCreator", profileCreator);
 
-        AbstractSystemApplication clock = new Clock();
-        setupApplication(clock);
-        applications.put("clock", clock);
+        AbstractSystemApplication settings = new Settings();
+        settings.setSystemController(systemController);
+        setupApplication(settings);
+        applications.put("settings", settings);
 
         AbstractSystemApplication agenda = new Agenda();
         setupApplication(agenda);
         applications.put("agenda", agenda);
 
+//        AbstractSystemApplication radio = new Radio();
+//        setupApplication(radio);
+//        applications.put("radio", radio);
+
         AbstractSystemApplication news = new News();
         setupApplication(news);
         applications.put("news", news);
+
+        AbstractSystemApplication monitor = new Monitor();
+        setupApplication(monitor);
+        applications.put("monitor", monitor);
+
+        AbstractSystemApplication clock = new Clock();
+        setupApplication(clock);
+        applications.put("clock", clock);
 
         AbstractSystemApplication weather = new Weather();
         setupApplication(weather);
@@ -113,19 +126,14 @@ public class MainSystem {
         setupApplication(wifi);
         applications.put("wifi", wifi);
 
-        AbstractSystemApplication settings = new Settings();
-        settings.setSystemController(systemController);
-        setupApplication(settings);
-        applications.put("settings", settings);
-
         for(Map.Entry<String, AbstractApplication> entry : applications.entrySet()) {
             systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue());
         }
 
-        AbstractUserApplication test = new WindowPluginTest();
-        //userApps.put("test", test);
-        systemWindow.addApplicationToWindow("test", test);
-        applications.put("test", test);
+//        AbstractUserApplication test = new WindowPluginTest();
+//        //userApps.put("test", test);
+//        systemWindow.addApplicationToWindow("test", test);
+//        applications.put("test", test);
 
 
     }
@@ -284,6 +292,8 @@ public class MainSystem {
         }
         return systemApplications;
     }
+
+
 
     /**
      * Starts an application with the given name

@@ -12,15 +12,20 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.List;
+import java.util.concurrent.*;
 
 /**
  * Created by basva on 9-6-2017.
  */
 public class AgendaWidget extends AbstractWidget {
-    private JSONArray json;
+    private JSONObject json;
+    private JSONArray array;
 
     private ClockWidget clockWidget;
 
+    public final ExecutorService service = Executors.newFixedThreadPool(1);
+    public Future<JSONObject> task;
 
     public AgendaWidget(ClockWidget clockWidget) {
         this.clockWidget = clockWidget;
@@ -29,32 +34,69 @@ public class AgendaWidget extends AbstractWidget {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(new EmptyBorder(10, 10, 10, 10));
+
+//        JLabel trying = new JLabel("Trying to connect to your agenda...");
+//        trying.setFont(applyFontSize(FontSize.H4));
+//        trying.setForeground(Color.WHITE);
+//        trying.setAlignmentX(Component.CENTER_ALIGNMENT);
+//        add(trying);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true)
+                {
+                    update();
+                    try
+                    {
+                        Thread.sleep(300000);
+                    }
+                    catch (InterruptedException e)
+                    {
+                        System.out.println(e);
+                    }
+                }
+
+            }
+        }).start();
     }
 
     @Override
-    public void init() {
-        this.removeAll();
+    public void update() {
 
-        getJSON();
+        requestJson();
 
-        JLabel today = new JLabel("Today");
-        today.setForeground(Color.WHITE);
-        today.setFont(applyFontSize(FontSize.H3));
-        today.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
-        add(today);
+        SwingUtilities.invokeLater(() -> {
+            if(json.get("calendar") != null) {
+                this.removeAll();
+                array = (JSONArray) json.get("calendar");
 
-        IterateEvents(clockWidget.getCalendarInstance());
+                if (clockWidget.getCalendarInstance() != null) {
+                    JLabel today = new JLabel("Today");
+                    today.setForeground(Color.WHITE);
+                    today.setFont(applyFontSize(FontSize.H3));
+                    today.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
+                    today.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    add(today);
 
-        JLabel tomorrow = new JLabel("Tomorrow");
-        tomorrow.setForeground(Color.WHITE);
-        tomorrow.setFont(applyFontSize(FontSize.H3));
-        tomorrow.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
-        add(tomorrow);
+                    IterateEvents(clockWidget.getCalendarInstance());
 
-        Calendar nextDay = clockWidget.getCalendarInstance();
-        nextDay.add(Calendar.DATE, 1);
+                    JLabel tomorrow = new JLabel("Tomorrow");
+                    tomorrow.setForeground(Color.WHITE);
+                    tomorrow.setFont(applyFontSize(FontSize.H3));
+                    tomorrow.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
+                    tomorrow.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    add(tomorrow);
 
-        IterateEvents(nextDay);
+                    Calendar nextDay = clockWidget.getCalendarInstance();
+                    nextDay.add(Calendar.DATE, 1);
+
+                    IterateEvents(nextDay);
+                } else {
+                    IterateEvents(null);
+                }
+            }
+        });
     }
 
     /**
@@ -63,19 +105,42 @@ public class AgendaWidget extends AbstractWidget {
      * JsonParser returns a JSONObject
      *
      */
-    public void getJSON()
+    public JSONObject requestJson()
     {
-        json = (JSONArray)JsonParser.parseURL("http://localhost:8090/c/calendar").get("calendar");
+//        task = service.submit(new JsonParser("http://localhost:8090/c/calendar"));
+
+        task = service.submit(new JsonParser("http://192.168.1.1:8081/calendarapi/calendar"));
+
+        try
+        {
+            json = task.get();
+        }
+        catch (InterruptedException ex)
+        {
+            // error
+        }
+        catch (ExecutionException ex)
+        {
+            // error
+        }
+        return json;
+//        json = JsonParser.parseURL("http://localhost:8090/c//calendar");
     }
 
     private void IterateEvents(Calendar to)
     {
-        Iterator<JSONObject> t = json.iterator();
+        Iterator<JSONObject> t = array.iterator();
         while(t.hasNext())
         {
             JSONObject child = t.next();
-
-            if(getCalendarInstance(child.get("starttime").toString()).equals(to))
+            if(to != null)
+            {
+                if(getCalendarInstance(child.get("starttime").toString()).equals(to))
+                {
+                    displayEvents(child);
+                }
+            }
+            else
             {
                 displayEvents(child);
             }
@@ -111,6 +176,7 @@ public class AgendaWidget extends AbstractWidget {
         JLabel eventLbl = new JLabel(child.get("discription").toString() + "  " + subtractTime(child.get("starttime").toString()) + "-" + subtractTime(child.get("endtime").toString()));
         eventLbl.setForeground(Color.WHITE);
         eventLbl.setFont(applyFontSize(FontSize.H5));
+        eventLbl.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         event.add(eventLbl);
 
@@ -119,6 +185,6 @@ public class AgendaWidget extends AbstractWidget {
 
     public String subtractTime(String timeStamp)
     {
-        return timeStamp.substring(11, 19);
+        return timeStamp.substring(11, 16);
     }
 }

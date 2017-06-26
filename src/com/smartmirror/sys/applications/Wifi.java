@@ -1,6 +1,7 @@
 package com.smartmirror.sys.applications;
 
 import com.smartmirror.sys.Shell;
+import com.smartmirror.sys.applications.widgets.WifiWidget;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 
 import javax.swing.*;
@@ -18,11 +19,23 @@ public class Wifi extends AbstractSystemApplication {
     public List<JComponent> wifiButtons = new ArrayList<>();
     public JPanel wifiButtonsHolder = new JPanel();
 
+    private JLabel title;
+
     private volatile boolean scanning = false;
 
     @Override
     public void setup() {
+        //SYSTEM_Widget = new WifiWidget();
         SYSTEM_Screen.setBackground(Color.BLACK);
+        setSYSTEM_Icon("img/wifi-icon.png");
+        SYSTEM_Screen.setLayout(new BorderLayout());
+
+        title = new JLabel("WiFi");
+        title.setFont(applyFontSize(FontSize.H1));
+        title.setForeground(Color.WHITE);
+
+        SYSTEM_Screen.add(title, BorderLayout.PAGE_START);
+
         wifiButtonsHolder.setBackground(Color.BLACK);
         wifiButtonsHolder.setLayout(new BoxLayout(wifiButtonsHolder, BoxLayout.PAGE_AXIS));
 
@@ -280,5 +293,8 @@ public class Wifi extends AbstractSystemApplication {
         }
     }
 
-
+    @Override
+    public void onBackButton() {
+        SYSTEM_closeScreen();
+    }
 }

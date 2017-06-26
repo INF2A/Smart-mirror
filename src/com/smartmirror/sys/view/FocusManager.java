@@ -2,11 +2,7 @@ package com.smartmirror.sys.view;
 
 import com.smartmirror.core.view.IFocusManager;
 
-import javax.swing.JComponent;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JPanel;
-import javax.swing.BorderFactory;
+import javax.swing.*;
 
 import java.awt.Color;
 
@@ -227,6 +223,8 @@ public class FocusManager implements IFocusManager {
                 selectedObjectType = TYPE.TEXT_INPUT;
             } else if (componentList.get(_selected) instanceof JPanel) {
                 selectedObjectType = TYPE.PANEL;
+            } else  if (componentList.get(_selected) instanceof JRadioButton) {
+                selectedObjectType = TYPE.RADIOBUTTON;
             } else {
                 selectedObjectType = TYPE.EMPTY;
             }

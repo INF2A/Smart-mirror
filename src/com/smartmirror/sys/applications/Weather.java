@@ -4,6 +4,7 @@ import com.smartmirror.sys.applications.widgets.WeatherWidget;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -13,7 +14,20 @@ import java.util.concurrent.TimeUnit;
  * System application - used for displaying current and forecast weather
  */
 public class Weather extends AbstractSystemApplication{
-    private ScheduledExecutorService scheduledExecutorService; // Used as timer
+    private JLabel title;
+    private JLabel icon;
+
+    private JLabel locationLbl;
+    private JLabel exampleLocation;
+    private JTextField location;
+
+    private JLabel unitsLbl;
+    private ButtonGroup radioButtonGroup;
+    private JRadioButton metric;
+    private JRadioButton imperial;
+
+    private JButton exit;
+    private JButton save;
 
     /**
      * Will only run ones when application is started
@@ -23,38 +37,91 @@ public class Weather extends AbstractSystemApplication{
      */
     @Override
     public void setup() {
-        SYSTEM_Screen.setBackground(Color.black);
-
-        JLabel weatherLbl = new JLabel("Weather options");
-
-        JLabel weatherLocationLbl = new JLabel("Weather location");
-
-        JTextField weatherLocationField = new JTextField();
-        weatherLocationField.setPreferredSize(new Dimension(100, 20));
-
-        JButton exitButton = new JButton("Exit");
-        exitButton.addActionListener(e -> SYSTEM_closeScreen());
-
-        SYSTEM_Screen.add(weatherLbl);
-        SYSTEM_Screen.add(weatherLocationLbl);
-        SYSTEM_Screen.add(weatherLocationField);
-        SYSTEM_Screen.add(exitButton);
-
-        focusManager.addComponent(weatherLocationField);
-        focusManager.addComponent(exitButton);
-
         setSYSTEM_Icon("img/weather-icon.png");
-
         SYSTEM_Widget = new WeatherWidget(); // Instantiate corresponding widget
+        addWidgetToSystemWindow = true;
 
-        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-        scheduledExecutorService.scheduleAtFixedRate(new Runnable() { // Define new Runnable
-            @Override
-            public void run() {
-                // Define stuff to update
-                SYSTEM_Widget.init();
-            }
-        }, 0,1, TimeUnit.HOURS); // set timer
+        SYSTEM_Screen.setBackground(Color.black);
+        SYSTEM_Screen.setLayout(new BorderLayout());
+
+        title = new JLabel("Weather");
+        title.setFont(applyFontSize(FontSize.H1));
+        title.setForeground(Color.WHITE);
+        icon = new JLabel(SYSTEM_Icon);
+        icon.setAlignmentX(Component.CENTER_ALIGNMENT);
+        locationLbl = new JLabel("Set location");
+        locationLbl.setAlignmentX(Component.CENTER_ALIGNMENT);
+        locationLbl.setFont(applyFontSize(FontSize.H2));
+        locationLbl.setForeground(Color.WHITE);
+        exampleLocation = new JLabel("Example: Amsterdam");
+        exampleLocation.setAlignmentX(Component.CENTER_ALIGNMENT);
+        exampleLocation.setFont(applyFontSize(FontSize.H5));
+        exampleLocation.setForeground(Color.WHITE);
+        location = new JTextField(45);
+        location.setAlignmentX(Component.CENTER_ALIGNMENT);
+        location.setMaximumSize(new Dimension(location.getPreferredSize().width, location.getPreferredSize().height));
+
+        metric = new JRadioButton("Celcius");
+        metric.setSelected(true);
+        metric.setBackground(Color.BLACK);
+        metric.setForeground(Color.WHITE);
+        metric.setFont(applyFontSize(FontSize.H4));
+        metric.setAlignmentX(Component.CENTER_ALIGNMENT);
+        metric.setActionCommand("metric");
+
+        imperial = new JRadioButton("Fahrenheit");
+        imperial.setActionCommand("imperial");
+        imperial.setBackground(Color.BLACK);
+        imperial.setForeground(Color.WHITE);
+        imperial.setAlignmentX(Component.CENTER_ALIGNMENT);
+        imperial.setFont(applyFontSize(FontSize.H4));
+
+        radioButtonGroup = new ButtonGroup();
+        radioButtonGroup.add(metric);
+        radioButtonGroup.add(imperial);
+
+        unitsLbl = new JLabel("Set units");
+        unitsLbl.setAlignmentX(Component.CENTER_ALIGNMENT);
+        unitsLbl.setFont(applyFontSize(FontSize.H2));
+        unitsLbl.setForeground(Color.WHITE);
+
+        save = new JButton("Save");
+        exit = new JButton("Exit");
+
+        exit.addActionListener(e -> {
+            SYSTEM_closeScreen();
+        });
+
+        SYSTEM_Screen.add(title, BorderLayout.PAGE_START);
+
+        JPanel container = new JPanel();
+        container.setBackground(Color.BLACK);
+        container.setForeground(Color.WHITE);
+        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+
+        container.add(icon);
+        container.add(locationLbl);
+        container.add(exampleLocation);
+        container.add(location);
+        container.add(unitsLbl);
+        container.add(metric);
+        container.add(imperial);
+
+        SYSTEM_Screen.add(container, BorderLayout.CENTER);
+
+        JPanel buttonContainer = new JPanel(new FlowLayout());
+        buttonContainer.setBackground(Color.BLACK);
+
+        buttonContainer.add(save);
+        buttonContainer.add(exit);
+
+        SYSTEM_Screen.add(buttonContainer, BorderLayout.PAGE_END);
+
+        focusManager.addComponent(location);
+        focusManager.addComponent(metric);
+        focusManager.addComponent(imperial);
+        focusManager.addComponent(save);
+        focusManager.addComponent(exit);
     }
 
     @Override

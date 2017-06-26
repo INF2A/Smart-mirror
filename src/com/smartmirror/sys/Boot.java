@@ -16,7 +16,7 @@ public class Boot {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         JFrame frame = new JFrame();
         frame.setSize(screenSize);
-        //frame.setUndecorated(true);
+        frame.setUndecorated(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         frame.setLayout(new BorderLayout());

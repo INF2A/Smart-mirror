@@ -31,6 +31,7 @@ public interface IFocusManager {
         EMPTY,
         TEXT_INPUT,
         BUTTON,
+        RADIOBUTTON,
         PANEL;
     }
 

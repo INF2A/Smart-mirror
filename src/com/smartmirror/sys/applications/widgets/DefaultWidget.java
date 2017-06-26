@@ -1,6 +1,7 @@
 package com.smartmirror.sys.applications.widgets;
 
 import com.smartmirror.core.view.AbstractWidget;
+import org.json.simple.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +21,12 @@ public class DefaultWidget extends AbstractWidget {
     }
 
     @Override
-    public void init() {
+    public void update() {
 
+    }
+
+    @Override
+    public JSONObject requestJson() {
+        return null;
     }
 }

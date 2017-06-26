@@ -16,6 +16,8 @@ import java.util.Map;
  */
 public class Settings extends AbstractSystemApplication{
 
+    private JLabel title;
+    private JPanel container;
     /**
      * Will only run ones when application is started
      * Define application startup settings here
@@ -24,9 +26,25 @@ public class Settings extends AbstractSystemApplication{
      */
     @Override
     public void setup() {
+        setSYSTEM_Icon("img/settings.png");
+
         SYSTEM_Widget = new SettingsWidget(); // Instantiate corresponding widget
+        addWidgetToSystemWindow = true;
 
         SYSTEM_Screen.setBackground(Color.BLACK);
+
+        SYSTEM_Screen.setLayout(new BorderLayout());
+
+        title = new JLabel("Settings");
+        title.setFont(applyFontSize(FontSize.H1));
+        title.setForeground(Color.WHITE);
+
+        SYSTEM_Screen.add(title, BorderLayout.PAGE_START);
+
+        container = new JPanel(new FlowLayout());
+        container.setBackground(Color.BLACK);
+
+        SYSTEM_Screen.add(container, BorderLayout.CENTER);
 
         displayApps();
     }
@@ -36,10 +54,8 @@ public class Settings extends AbstractSystemApplication{
      */
     @Override
     public void init() {
-//        SYSTEM_Screen.removeAll();
-//        focusComponents.removeAll(focusComponents);
-//        focusComponents.add(SYSTEM_Screen);
-//        INTERNAL_requestSystemApplications();
+        container.removeAll();
+        displayApps();
     }
 
     /**
@@ -53,7 +69,9 @@ public class Settings extends AbstractSystemApplication{
             if(!(entry.getValue() instanceof Settings))
             {
                 JButton iconButton = new JButton(entry.getValue().SYSTEM_Icon);
-                SYSTEM_Screen.add(iconButton);
+                iconButton.setBackground(Color.BLACK);
+                //iconButton.setBorderPainted(false);
+                container.add(iconButton);
                 focusManager.addComponent(iconButton);
                 iconButton.addActionListener(e -> systemController.startApplication(entry.getKey()));
             }
