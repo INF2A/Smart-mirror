@@ -54,9 +54,4 @@ public class News extends AbstractSystemApplication {
         super.onBackButton();
         SYSTEM_closeScreen();
     }
-
-    @Override
-    public void onBackButton() {
-        SYSTEM_closeScreen();
-    }
 }

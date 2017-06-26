@@ -96,30 +96,34 @@ public class MainSystem {
 //        setupApplication(profileCreator);
 //        applications.put("profileCreator", profileCreator);
 //
-        AbstractSystemApplication clock = new Clock();
-        setupApplication(clock);
-        applications.put("clock", clock);
+        AbstractSystemApplication settings = new Settings();
+        settings.setSystemController(systemController);
+        setupApplication(settings);
+        applications.put("settings", settings);
+
+        AbstractSystemApplication monitor = new Monitor();
+        setupApplication(monitor);
+        applications.put("monitor", monitor);
 
         AbstractSystemApplication agenda = new Agenda();
         setupApplication(agenda);
         applications.put("agenda", agenda);
 
-        AbstractSystemApplication news = new News();
-        setupApplication(news);
-        applications.put("news", news);
+        AbstractSystemApplication clock = new Clock();
+        setupApplication(clock);
+        applications.put("clock", clock);
 
         AbstractSystemApplication weather = new Weather();
         setupApplication(weather);
         applications.put("weather", weather);
 
+        AbstractSystemApplication news = new News();
+        setupApplication(news);
+        applications.put("news", news);
+
         AbstractSystemApplication wifi = new Wifi();
         setupApplication(wifi);
         applications.put("wifi", wifi);
-
-        AbstractSystemApplication settings = new Settings();
-        settings.setSystemController(systemController);
-        setupApplication(settings);
-        applications.put("settings", settings);
 
         for(Map.Entry<String, AbstractApplication> entry : applications.entrySet()) {
             systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue());
@@ -147,7 +151,7 @@ public class MainSystem {
     final public InputHandler inputHandler = new InputHandler(kbc);
 
     public WindowManager windowManager;
-    final KeyInput keyInput = new KeyInput(inputHandler);
+//    final KeyInput keyInput = new KeyInput(inputHandler);
 //    final GpioListener gpio = new GpioListener(inputHandler);
 
 
@@ -161,7 +165,7 @@ public class MainSystem {
         windowManager = new WindowManager(windowHolder);
 
         // testing controls
-        //test_AttachButtonSimulator();
+        test_AttachButtonSimulator();
 
         // setup the loading window
         windowManager.setWindow(new BootWindow());

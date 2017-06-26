@@ -54,8 +54,4 @@ public class Agenda extends AbstractSystemApplication {
         SYSTEM_closeScreen();
     }
 
-    @Override
-    public void onBackButton() {
-        SYSTEM_closeScreen();
-    }
 }
