@@ -3,7 +3,7 @@ package com.smartmirror.sys.applications.widgets;
 import com.smartmirror.core.view.AbstractWidget;
 import org.json.simple.JSONObject;
 import system.input.json.JsonParser;
-
+import com.smartmirror.sys.Font;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -37,21 +37,21 @@ public class WeatherWidget extends AbstractWidget {
         location = location.CENTER_RIGHT;
 
         city_name.setForeground(Color.WHITE);
-        city_name.setFont(applyFontSize(FontSize.H2));
+        city_name.setFont(Font.applyFontSize(Font.FontSize.H2));
         city_name.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         country.setForeground(Color.WHITE);
-        country.setFont(applyFontSize(FontSize.H2));
+        country.setFont(Font.applyFontSize(Font.FontSize.H2));
         country.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         main.setForeground(Color.WHITE);
-        main.setFont(applyFontSize(FontSize.H3));
+        main.setFont(Font.applyFontSize(Font.FontSize.H3));
         main.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         icon.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         temp.setForeground(Color.WHITE);
-        temp.setFont(applyFontSize(FontSize.H4));
+        temp.setFont(Font.applyFontSize(Font.FontSize.H4));
         temp.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         add(city_name);
@@ -121,12 +121,12 @@ public class WeatherWidget extends AbstractWidget {
                     JLabel d = new JLabel(new ClockWidget().getNameOfDay(i - 1));
                     d.setForeground(Color.WHITE);
                     d.setAlignmentX(Component.CENTER_ALIGNMENT);
-                    d.setFont(applyFontSize(FontSize.H5));
+                    d.setFont(Font.applyFontSize(Font.FontSize.H5));
                     day.add(d);
 
                     JLabel main = new JLabel(days.get("main").toString());
                     main.setForeground(Color.WHITE);
-                    main.setFont(applyFontSize(FontSize.H5));
+                    main.setFont(Font.applyFontSize(Font.FontSize.H5));
                     main.setAlignmentX(Component.CENTER_ALIGNMENT);
                     day.add(main);
 
@@ -138,7 +138,7 @@ public class WeatherWidget extends AbstractWidget {
 
                     JLabel temp = new JLabel("Temp: " + days.get("temp").toString());
                     temp.setAlignmentX(Component.CENTER_ALIGNMENT);
-                    temp.setFont(applyFontSize(FontSize.H5));
+                    temp.setFont(Font.applyFontSize(Font.FontSize.H5));
                     temp.setForeground(Color.WHITE);
                     day.add(temp);
 

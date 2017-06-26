@@ -3,7 +3,7 @@ package com.smartmirror.sys.applications.widgets;
 import com.smartmirror.core.view.AbstractWidget;
 import org.json.simple.*;
 import system.input.json.JsonParser;
-
+import com.smartmirror.sys.Font;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -71,13 +71,13 @@ public class ClockWidget extends AbstractWidget{
         SwingUtilities.invokeLater(() -> {
             if (json.get("dateTime") != null) {
                 json = (JSONObject) json.get("dateTime");
-                clock.setFont(applyFontSize(FontSize.H1));
+                clock.setFont(Font.applyFontSize(Font.FontSize.H1));
                 clock.setText(json.get("hour") + ":" + json.get("minute") + ":" + json.get("second"));
 
-                date.setFont(applyFontSize(FontSize.H2));
+                date.setFont(Font.applyFontSize(Font.FontSize.H2));
                 date.setText(json.get("day_of_month") + "-" + json.get("month") + "-" + json.get("year"));
             } else {
-                clock.setFont(applyFontSize(FontSize.H5));
+                clock.setFont(Font.applyFontSize(Font.FontSize.H5));
                 clock.setText("Connection lost");
 
                 date.setText("");

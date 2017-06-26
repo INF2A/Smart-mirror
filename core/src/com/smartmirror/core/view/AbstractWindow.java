@@ -44,48 +44,6 @@ public abstract class AbstractWindow extends AbstractInputHandler {
 
     public JPanel SYSTEM_Screen = new JPanel();  // The container that holds the application'
 
-    public enum FontSize
-    {
-        H1,
-        H2,
-        H3,
-        H4,
-        H5,
-        H6,
-        H7
-    }
-
-    public Font applyFontSize(FontSize fontSize)
-    {
-        Font font = null;
-
-        switch (fontSize)
-        {
-            case H1:
-                font = new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution());
-                break;
-            case H2:
-                font = new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution() / 2);
-                break;
-            case H3:
-                font = new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution() / 3);
-                break;
-            case H4:
-                font = new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution() / 4);
-                break;
-            case H5:
-                font = new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution() / 5);
-                break;
-            case H6:
-                font = new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution() / 6);
-                break;
-            case H7:
-                font = new Font("Dialog", Font.PLAIN, Toolkit.getDefaultToolkit().getScreenResolution() / 7);
-                break;
-        }
-
-        return font;
-    }
 
     public void setFocusManager(IFocusManager fm) {
         if(focusManager == null) {

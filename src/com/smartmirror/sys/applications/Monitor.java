@@ -5,7 +5,7 @@ import com.smartmirror.sys.view.AbstractSystemApplication;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import system.input.json.JsonParser;
-
+import com.smartmirror.sys.Font;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -53,7 +53,7 @@ public class Monitor extends AbstractSystemApplication {
         SYSTEM_Screen.setBackground(Color.BLACK);
 
         title = new JLabel("Monitor");
-        title.setFont(applyFontSize(FontSize.H1));
+        title.setFont(Font.applyFontSize(Font.FontSize.H1));
         title.setForeground(Color.WHITE);
 
         icon = new JLabel(SYSTEM_Icon);
@@ -147,12 +147,12 @@ public class Monitor extends AbstractSystemApplication {
                     panel.setBackground(Color.BLACK);
 
                     JLabel name = new JLabel(city.toUpperCase());
-                    name.setFont(applyFontSize(FontSize.H3));
+                    name.setFont(Font.applyFontSize(Font.FontSize.H3));
                     name.setAlignmentX(Component.CENTER_ALIGNMENT);
                     panel.add(name);
 
                     JLabel online = new JLabel("ONLINE");
-                    online.setFont(applyFontSize(FontSize.H4));
+                    online.setFont(Font.applyFontSize(Font.FontSize.H4));
                     online.setForeground(Color.WHITE);
                     online.setAlignmentX(Component.CENTER_ALIGNMENT);
                     panel.add(online);
@@ -163,7 +163,7 @@ public class Monitor extends AbstractSystemApplication {
                         JLabel api = new JLabel(arr.get(i).toString());
                         api.setAlignmentX(Component.CENTER_ALIGNMENT);
                         api.setForeground(Color.WHITE);
-                        api.setFont(applyFontSize(FontSize.H6));
+                        api.setFont(Font.applyFontSize(Font.FontSize.H6));
                         panel.add(api);
                     }
 

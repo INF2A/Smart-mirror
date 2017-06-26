@@ -2,7 +2,7 @@ package com.smartmirror.sys.applications;
 
 import com.smartmirror.sys.applications.widgets.WeatherWidget;
 import com.smartmirror.sys.view.AbstractSystemApplication;
-
+import com.smartmirror.sys.Font;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -45,17 +45,17 @@ public class Weather extends AbstractSystemApplication{
         SYSTEM_Screen.setLayout(new BorderLayout());
 
         title = new JLabel("Weather");
-        title.setFont(applyFontSize(FontSize.H1));
+        title.setFont(Font.applyFontSize(Font.FontSize.H1));
         title.setForeground(Color.WHITE);
         icon = new JLabel(SYSTEM_Icon);
         icon.setAlignmentX(Component.CENTER_ALIGNMENT);
         locationLbl = new JLabel("Set location");
         locationLbl.setAlignmentX(Component.CENTER_ALIGNMENT);
-        locationLbl.setFont(applyFontSize(FontSize.H2));
+        locationLbl.setFont(Font.applyFontSize(Font.FontSize.H2));
         locationLbl.setForeground(Color.WHITE);
         exampleLocation = new JLabel("Example: Amsterdam");
         exampleLocation.setAlignmentX(Component.CENTER_ALIGNMENT);
-        exampleLocation.setFont(applyFontSize(FontSize.H5));
+        exampleLocation.setFont(Font.applyFontSize(Font.FontSize.H5));
         exampleLocation.setForeground(Color.WHITE);
         location = new JTextField(45);
         location.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -65,7 +65,7 @@ public class Weather extends AbstractSystemApplication{
         metric.setSelected(true);
         metric.setBackground(Color.BLACK);
         metric.setForeground(Color.WHITE);
-        metric.setFont(applyFontSize(FontSize.H4));
+        metric.setFont(Font.applyFontSize(Font.FontSize.H4));
         metric.setAlignmentX(Component.CENTER_ALIGNMENT);
         metric.setActionCommand("metric");
 
@@ -74,7 +74,7 @@ public class Weather extends AbstractSystemApplication{
         imperial.setBackground(Color.BLACK);
         imperial.setForeground(Color.WHITE);
         imperial.setAlignmentX(Component.CENTER_ALIGNMENT);
-        imperial.setFont(applyFontSize(FontSize.H4));
+        imperial.setFont(Font.applyFontSize(Font.FontSize.H4));
 
         radioButtonGroup = new ButtonGroup();
         radioButtonGroup.add(metric);
@@ -82,7 +82,7 @@ public class Weather extends AbstractSystemApplication{
 
         unitsLbl = new JLabel("Set units");
         unitsLbl.setAlignmentX(Component.CENTER_ALIGNMENT);
-        unitsLbl.setFont(applyFontSize(FontSize.H2));
+        unitsLbl.setFont(Font.applyFontSize(Font.FontSize.H2));
         unitsLbl.setForeground(Color.WHITE);
 
         save = new JButton("Save");

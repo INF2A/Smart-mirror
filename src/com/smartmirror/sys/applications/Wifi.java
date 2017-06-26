@@ -3,7 +3,7 @@ package com.smartmirror.sys.applications;
 import com.smartmirror.sys.Shell;
 import com.smartmirror.sys.applications.widgets.WifiWidget;
 import com.smartmirror.sys.view.AbstractSystemApplication;
-
+import com.smartmirror.sys.Font;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -31,7 +31,7 @@ public class Wifi extends AbstractSystemApplication {
         SYSTEM_Screen.setLayout(new BorderLayout());
 
         title = new JLabel("WiFi");
-        title.setFont(applyFontSize(FontSize.H1));
+        title.setFont(Font.applyFontSize(Font.FontSize.H1));
         title.setForeground(Color.WHITE);
 
         SYSTEM_Screen.add(title, BorderLayout.PAGE_START);

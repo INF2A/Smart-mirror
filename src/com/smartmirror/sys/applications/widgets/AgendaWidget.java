@@ -1,6 +1,8 @@
 package com.smartmirror.sys.applications.widgets;
 
 import com.smartmirror.core.view.AbstractWidget;
+import com.smartmirror.sys.Font;
+import com.smartmirror.sys.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import system.input.json.JsonParser;
@@ -35,12 +37,6 @@ public class AgendaWidget extends AbstractWidget {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(new EmptyBorder(10, 10, 10, 10));
 
-//        JLabel trying = new JLabel("Trying to connect to your agenda...");
-//        trying.setFont(applyFontSize(FontSize.H4));
-//        trying.setForeground(Color.WHITE);
-//        trying.setAlignmentX(Component.CENTER_ALIGNMENT);
-//        add(trying);
-
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -74,7 +70,7 @@ public class AgendaWidget extends AbstractWidget {
                 if (clockWidget.getCalendarInstance() != null) {
                     JLabel today = new JLabel("Today");
                     today.setForeground(Color.WHITE);
-                    today.setFont(applyFontSize(FontSize.H3));
+                    today.setFont(Font.applyFontSize(Font.FontSize.H3));
                     today.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
                     today.setAlignmentX(Component.CENTER_ALIGNMENT);
                     add(today);
@@ -83,7 +79,7 @@ public class AgendaWidget extends AbstractWidget {
 
                     JLabel tomorrow = new JLabel("Tomorrow");
                     tomorrow.setForeground(Color.WHITE);
-                    tomorrow.setFont(applyFontSize(FontSize.H3));
+                    tomorrow.setFont(Font.applyFontSize(Font.FontSize.H3));
                     tomorrow.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
                     tomorrow.setAlignmentX(Component.CENTER_ALIGNMENT);
                     add(tomorrow);
@@ -129,21 +125,32 @@ public class AgendaWidget extends AbstractWidget {
 
     private void IterateEvents(Calendar to)
     {
-        Iterator<JSONObject> t = array.iterator();
-        while(t.hasNext())
+        if(array.size() == 0)
         {
-            JSONObject child = t.next();
-            if(to != null)
+            Iterator<JSONObject> t = array.iterator();
+            while(t.hasNext())
             {
-                if(getCalendarInstance(child.get("starttime").toString()).equals(to))
+                JSONObject child = t.next();
+                if(to != null)
+                {
+                    if(getCalendarInstance(child.get("starttime").toString()).equals(to))
+                    {
+                        displayEvents(child);
+                    }
+                }
+                else
                 {
                     displayEvents(child);
                 }
             }
-            else
-            {
-                displayEvents(child);
-            }
+        }
+        else
+        {
+            JLabel noEvents = new JLabel("No events to display..");
+            noEvents.setForeground(Color.WHITE);
+            noEvents.setAlignmentX(Component.CENTER_ALIGNMENT);
+            noEvents.setFont(Font.applyFontSize(Font.FontSize.H4));
+            add(noEvents);
         }
     }
 
@@ -175,7 +182,7 @@ public class AgendaWidget extends AbstractWidget {
 
         JLabel eventLbl = new JLabel(child.get("discription").toString() + "  " + subtractTime(child.get("starttime").toString()) + "-" + subtractTime(child.get("endtime").toString()));
         eventLbl.setForeground(Color.WHITE);
-        eventLbl.setFont(applyFontSize(FontSize.H5));
+        eventLbl.setFont(Font.applyFontSize(Font.FontSize.H5));
         eventLbl.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         event.add(eventLbl);

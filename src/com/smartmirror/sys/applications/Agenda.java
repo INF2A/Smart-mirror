@@ -3,7 +3,7 @@ package com.smartmirror.sys.applications;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.sys.applications.widgets.AgendaWidget;
 import com.smartmirror.sys.applications.widgets.ClockWidget;
-
+import com.smartmirror.sys.Font;
 import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.Executors;
@@ -27,7 +27,7 @@ public class Agenda extends AbstractSystemApplication {
         SYSTEM_Screen.setLayout(new BorderLayout());
 
         title = new JLabel("Agenda");
-        title.setFont(applyFontSize(FontSize.H1));
+        title.setFont(Font.applyFontSize(Font.FontSize.H1));
         title.setForeground(Color.WHITE);
 
         icon = new JLabel(SYSTEM_Icon);

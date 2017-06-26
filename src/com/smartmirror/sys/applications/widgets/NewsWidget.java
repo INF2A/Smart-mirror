@@ -5,7 +5,7 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import system.input.json.JsonParser;
-
+import com.smartmirror.sys.Font;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.Timer;
@@ -96,7 +96,7 @@ public class NewsWidget extends AbstractWidget {
 
                     int xPos = x + (i * ((Toolkit.getDefaultToolkit().getScreenSize().width / 100) * 60));
 
-                    g.setFont(applyFontSize(FontSize.H3));
+                    g.setFont(Font.applyFontSize(Font.FontSize.H3));
 
                     List<String> substrTitles = splitString(titles.get(i), 50);
 
@@ -104,12 +104,12 @@ public class NewsWidget extends AbstractWidget {
                         g.drawString(substrTitles.get(t),xPos , 30 + (t * 30));
                     }
 
-                    g.setFont(applyFontSize(FontSize.H6));
+                    g.setFont(Font.applyFontSize(Font.FontSize.H6));
                     g.drawString(publishes.get(i), xPos, (substrTitles.size() * 30) + 20);
 
                     List<String> subtrDescription = splitString(descriptions.get(i), 40);
 
-                    g.setFont(applyFontSize(FontSize.H4));
+                    g.setFont(Font.applyFontSize(Font.FontSize.H4));
 
                     for (int j = 0; j < subtrDescription.size(); j++) {
                         if (80 + (j + 1) * 30 > this.getHeight()) {

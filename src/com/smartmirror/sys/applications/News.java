@@ -2,7 +2,7 @@ package com.smartmirror.sys.applications;
 
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.sys.applications.widgets.NewsWidget;
-
+import com.smartmirror.sys.Font;
 import javax.swing.*;
 import java.awt.*;
 import java.util.concurrent.Executors;
@@ -26,7 +26,7 @@ public class News extends AbstractSystemApplication {
         SYSTEM_Screen.setLayout(new BorderLayout());
 
         title = new JLabel("News");
-        title.setFont(applyFontSize(FontSize.H1));
+        title.setFont(Font.applyFontSize(Font.FontSize.H1));
         title.setForeground(Color.WHITE);
 
         icon = new JLabel(SYSTEM_Icon);

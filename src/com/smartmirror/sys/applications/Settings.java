@@ -10,6 +10,7 @@ import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import java.util.Date;
 import java.util.Map;
+import com.smartmirror.sys.Font;
 
 /**
  * System application - Displays all system applications and settings to change
@@ -36,7 +37,7 @@ public class Settings extends AbstractSystemApplication{
         SYSTEM_Screen.setLayout(new BorderLayout());
 
         title = new JLabel("Settings");
-        title.setFont(applyFontSize(FontSize.H1));
+        title.setFont(Font.applyFontSize(Font.FontSize.H1));
         title.setForeground(Color.WHITE);
 
         SYSTEM_Screen.add(title, BorderLayout.PAGE_START);
