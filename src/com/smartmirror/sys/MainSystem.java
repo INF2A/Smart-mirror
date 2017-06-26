@@ -3,6 +3,7 @@ package com.smartmirror.sys;
 import com.pi4j.platform.PlatformAlreadyAssignedException;
 import com.smartmirror.core.view.AbstractApplication;
 import com.smartmirror.sys.applications.*;
+import com.smartmirror.sys.input.key.KeyInput;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.core.view.AbstractUserApplication;
 import com.smartmirror.sys.input.keyboard.KeyboardController;
@@ -91,10 +92,10 @@ public class MainSystem {
     public void loadSystemApplications() {
         applications = new LinkedHashMap<>();
 
-        AbstractSystemApplication profileCreator = new ProfileCreator();
-        setupApplication(profileCreator);
-        applications.put("profileCreator", profileCreator);
-
+//        AbstractSystemApplication profileCreator = new ProfileCreator();
+//        setupApplication(profileCreator);
+//        applications.put("profileCreator", profileCreator);
+//
         AbstractSystemApplication clock = new Clock();
         setupApplication(clock);
         applications.put("clock", clock);
@@ -124,10 +125,10 @@ public class MainSystem {
             systemWindow.addApplicationToWindow(entry.getKey(), entry.getValue());
         }
 
-        AbstractUserApplication test = new WindowPluginTest();
-        //userApps.put("test", test);
-        systemWindow.addApplicationToWindow("test", test);
-        applications.put("test", test);
+//        AbstractUserApplication test = new WindowPluginTest();
+//        //userApps.put("test", test);
+//        systemWindow.addApplicationToWindow("test", test);
+//        applications.put("test", test);
 
 
     }
@@ -142,16 +143,15 @@ public class MainSystem {
    /////////////////////////////////////////////
     final MainSystemController systemController = new MainSystemController(this);
 
-    public final KeyboardController kbc = new KeyboardController();
-    public final InputHandler inputHandler = new InputHandler(kbc);
+    final public KeyboardController kbc = new KeyboardController();
+    final public InputHandler inputHandler = new InputHandler(kbc);
 
-    public volatile WindowManager windowManager;
-    // final KeyInput keyInput = new KeyInput(inputHandler);
+    public WindowManager windowManager;
+    final KeyInput keyInput = new KeyInput(inputHandler);
 //    final GpioListener gpio = new GpioListener(inputHandler);
 
 
-    SystemWindow systemWindow;
-
+    private SystemWindow systemWindow;
 
     // Holds all applications, system and user
     private Map<String, AbstractApplication> applications;
@@ -161,7 +161,7 @@ public class MainSystem {
         windowManager = new WindowManager(windowHolder);
 
         // testing controls
-        test_AttachButtonSimulator();
+        //test_AttachButtonSimulator();
 
         // setup the loading window
         windowManager.setWindow(new BootWindow());

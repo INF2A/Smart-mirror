@@ -60,11 +60,14 @@ public class Weather extends AbstractSystemApplication{
     @Override
     public void init() {
 
+        System.out.println("Weather");
     }
 
 
     @Override
     public void onBackButton() {
+
+        super.onBackButton();
         SYSTEM_closeScreen();
     }
 }

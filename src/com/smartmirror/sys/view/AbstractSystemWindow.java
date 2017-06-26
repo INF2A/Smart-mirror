@@ -14,10 +14,11 @@ import java.util.Map;
  * Created by Erwin on 5/22/2017.
  */
 public abstract class AbstractSystemWindow extends AbstractWindow {
-    public Map<String, AbstractApplication> apps = new HashMap<>();
-    public AbstractApplication selectedApp;
+    volatile public Map<String, AbstractApplication> apps = new HashMap<>();
+    volatile public AbstractApplication selectedApp;
 
-    private JButton INTERNAL_WindowChangeHandle = new JButton();
+    final private JButton INTERNAL_WindowChangeHandle = new JButton();
+
     public void INTERNAL_addWindowChangeListener(ActionListener al)
     {
         INTERNAL_WindowChangeHandle.addActionListener(al);

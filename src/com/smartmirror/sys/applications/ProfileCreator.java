@@ -44,6 +44,8 @@ public class ProfileCreator extends AbstractSystemApplication {
 
     @Override
     public void init() {
+
+        System.out.println("ProfileCreator");
         reset();
     }
 
@@ -75,6 +77,12 @@ public class ProfileCreator extends AbstractSystemApplication {
 
     private void checkExistingAccount() {
 
+    }
+
+    @Override
+    public void onBackButton() {
+        super.onBackButton();
+        SYSTEM_closeScreen();
     }
 
 }

@@ -38,9 +38,9 @@ public abstract class AbstractWindow extends AbstractInputHandler {
     public Object INTERNAL_currentFocusedObject;
 
 
-    boolean INTERNAL_keyboardActive = false;
-    JButton INTERNAL_KeyboardRequestHandle = new JButton(); // The handle used by the system for opening the keyboard
-    JButton INTERNAL_KeyboardCloseHandle = new JButton();   // The handle used by the system for closing the keyboard
+    volatile boolean INTERNAL_keyboardActive = false;
+    final JButton INTERNAL_KeyboardRequestHandle = new JButton(); // The handle used by the system for opening the keyboard
+    final JButton INTERNAL_KeyboardCloseHandle = new JButton();   // The handle used by the system for closing the keyboard
 
     public JPanel SYSTEM_Screen = new JPanel();  // The container that holds the application'
 

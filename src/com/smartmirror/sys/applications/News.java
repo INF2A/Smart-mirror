@@ -22,5 +22,13 @@ public class News extends AbstractSystemApplication {
     @Override
     public void init() {
 
+        System.out.println("News");
+    }
+
+    @Override
+    public void onBackButton() {
+
+        super.onBackButton();
+        SYSTEM_closeScreen();
     }
 }
