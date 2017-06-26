@@ -48,7 +48,6 @@ public abstract class AbstractWindow extends AbstractInputHandler {
     public void setFocusManager(IFocusManager fm) {
         if(focusManager == null) {
             focusManager = fm;
-            focusManager.addComponent(SYSTEM_Screen);
         }
     }
 

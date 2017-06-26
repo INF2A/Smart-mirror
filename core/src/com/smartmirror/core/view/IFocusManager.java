@@ -160,4 +160,5 @@ public interface IFocusManager {
      * @return the TYPE of component
      */
     TYPE getSelectedComponentType();
+
 }
