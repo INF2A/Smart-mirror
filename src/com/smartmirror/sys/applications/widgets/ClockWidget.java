@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
+import java.util.Timer;
 import java.util.concurrent.*;
 
 /**
@@ -27,6 +27,8 @@ public class ClockWidget extends AbstractWidget{
     public final ExecutorService service = Executors.newFixedThreadPool(1);
     public Future<JSONObject> task;
 
+    private String current = "00:00:00";
+
     public ClockWidget()
     {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -37,11 +39,13 @@ public class ClockWidget extends AbstractWidget{
         clock = new JLabel();
         clock.setForeground(Color.WHITE);
         clock.setAlignmentX(Component.CENTER_ALIGNMENT);
+        clock.setFont(Font.applyFontSize(Font.FontSize.H1));
         add(clock);
 
         date = new JLabel();
         date.setForeground(Color.WHITE);
         date.setAlignmentX(Component.CENTER_ALIGNMENT);
+        date.setFont(Font.applyFontSize(Font.FontSize.H2));
         add(date);
 
         new Thread(new Runnable() {
@@ -71,16 +75,15 @@ public class ClockWidget extends AbstractWidget{
         SwingUtilities.invokeLater(() -> {
             if (json.get("dateTime") != null) {
                 json = (JSONObject) json.get("dateTime");
-                clock.setFont(Font.applyFontSize(Font.FontSize.H1));
-                clock.setText(json.get("hour") + ":" + json.get("minute") + ":" + json.get("second"));
 
-                date.setFont(Font.applyFontSize(Font.FontSize.H2));
+                clock.setText(json.get("hour") + ":" + json.get("minute") + ":" + json.get("second"));
+                clock.setForeground(Color.WHITE);
+                current = clock.getText();
+
                 date.setText(json.get("day_of_month") + "-" + json.get("month") + "-" + json.get("year"));
             } else {
-                clock.setFont(Font.applyFontSize(Font.FontSize.H5));
-                clock.setText("Connection lost");
-
-                date.setText("");
+                clock.setText(current);
+                clock.setForeground(Color.RED);
             }
         });
     }

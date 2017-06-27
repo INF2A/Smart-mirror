@@ -1,10 +1,10 @@
 package com.smartmirror.sys.applications;
 
 import com.smartmirror.core.view.IFocusManager;
-import com.smartmirror.sys.Shell;
+import com.smartmirror.sys.*;
 import com.smartmirror.sys.view.*;
 import com.smartmirror.sys.view.FocusManager;
-
+import com.smartmirror.sys.Font;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
@@ -26,9 +26,21 @@ public class Wifi extends AbstractSystemApplication {
     private volatile boolean scanning = false;
     private volatile boolean isConnecting = false;
 
+    private JLabel title;
+    private JLabel icon;
+
     @Override
     public void setup() {
         wifiInfoScreen = new JPanel();
+        setSYSTEM_Icon("img/wifi-icon.png");
+
+        SYSTEM_Screen.setLayout(new BorderLayout());
+
+        title = new JLabel("WiFi");
+        title.setFont(Font.applyFontSize(Font.FontSize.H1));
+        title.setForeground(Color.WHITE);
+
+        SYSTEM_Screen.add(title, BorderLayout.PAGE_START);
 
         SYSTEM_Screen.setBackground(Color.BLACK);
         wifiButtonsHolder.setBackground(Color.BLACK);

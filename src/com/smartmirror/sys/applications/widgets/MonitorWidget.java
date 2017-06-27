@@ -140,7 +140,6 @@ public class MonitorWidget extends AbstractWidget {
 
     public JSONObject requestJson()
     {
-//        task = service.submit(new JsonParser("http://192.168.8.1:8086/monitorapi/monitor"));
         task = service.submit(new JsonParser("http://192.168.1.1:8086/monitorapi/monitor"));
 
         try

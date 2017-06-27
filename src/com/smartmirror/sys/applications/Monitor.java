@@ -180,6 +180,7 @@ public class Monitor extends AbstractSystemApplication {
                 }
             }
         });
+        SYSTEM_Screen.updateUI();
         updateFinished = false;
     }
 
@@ -221,7 +222,6 @@ public class Monitor extends AbstractSystemApplication {
                     entry.setValue(details);
                 }
             }
-            updateFinished = true;
 
             previousConnectionState = currentConnectionState;
             currentConnectionState = true;
@@ -231,5 +231,7 @@ public class Monitor extends AbstractSystemApplication {
             previousConnectionState = currentConnectionState;
             currentConnectionState = false;
         }
+        updateFinished = true;
+
     }
 }

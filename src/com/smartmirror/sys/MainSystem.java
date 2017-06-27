@@ -113,6 +113,11 @@ public class MainSystem {
         setupApplication(clock);
         applications.put("clock", clock);
 
+        AbstractSystemApplication radio = new Radio();
+        settings.setSystemController(systemController);
+        setupApplication(radio);
+        applications.put("radio", radio);
+
         AbstractSystemApplication weather = new Weather();
         setupApplication(weather);
         applications.put("weather", weather);
