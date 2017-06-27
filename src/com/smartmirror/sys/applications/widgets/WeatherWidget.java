@@ -1,6 +1,7 @@
 package com.smartmirror.sys.applications.widgets;
 
 import com.smartmirror.core.view.AbstractWidget;
+import com.smartmirror.sys.DB;
 import org.json.simple.JSONObject;
 import system.input.json.JsonParser;
 import com.smartmirror.sys.Font;
@@ -11,6 +12,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.concurrent.*;
 
 /**
@@ -28,6 +31,8 @@ public class WeatherWidget extends AbstractWidget {
 
     public final ExecutorService service = Executors.newFixedThreadPool(1);
     public Future<JSONObject> task;
+
+    JPanel forecastPanel = new JPanel();
 
     public WeatherWidget()
     {
@@ -102,10 +107,14 @@ public class WeatherWidget extends AbstractWidget {
 
                 temp.setText("Temp: " + current.get("temp").toString());
 
-                JPanel forecastPanel = new JPanel();
+                this.remove(forecastPanel);
+
+                forecastPanel = new JPanel();
                 forecastPanel.setLayout(new BoxLayout(forecastPanel, BoxLayout.X_AXIS));
                 forecastPanel.setBackground(Color.BLACK);
                 forecastPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                this.remove(forecastPanel);
 
                 JSONObject forecast = (JSONObject)json.get("forecast");
 
@@ -118,7 +127,12 @@ public class WeatherWidget extends AbstractWidget {
                     day.setBackground(Color.BLACK);
                     day.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-                    JLabel d = new JLabel(new ClockWidget().getNameOfDay(i - 1));
+                    String dayTxt = " day";
+                    if((i-1) >= 2)
+                    {
+                        dayTxt = " days";
+                    }
+                    JLabel d = new JLabel("+ " + (i - 1) + dayTxt);
                     d.setForeground(Color.WHITE);
                     d.setAlignmentX(Component.CENTER_ALIGNMENT);
                     d.setFont(Font.applyFontSize(Font.FontSize.H5));
@@ -147,10 +161,10 @@ public class WeatherWidget extends AbstractWidget {
 
                 add(forecastPanel);
             }
-//            else
-//            {
-//                main.setText("Connection lost or city not found...");
-//            }
+            else
+            {
+                main.setText("Connection lost or city not found...");
+            }
         });
     }
 
@@ -174,9 +188,32 @@ public class WeatherWidget extends AbstractWidget {
 
     public JSONObject requestJson()
     {
-        task = service.submit(new JsonParser("http://192.168.1.1:8085/weatherapi/weather/amsterdam/metric"));
-//        task = service.submit(new JsonParser("http://localhost:8090/w/weather/emmen/metric"));
+        String location = "amsterdam";
+        String param = "metric";
 
+        DB.getConnection();
+
+        ArrayList<String> fields;
+        ArrayList<String> row;
+
+        try {
+            DB.selectQuery("SELECT * FROM weather WHERE User_ID = " + DB.id);
+            fields = DB.feedback.get(0);
+            row = DB.feedback.get(DB.id);
+
+            location = row.get(fields.indexOf("Location"));
+            String metricId = row.get(3);
+
+            DB.selectQuery("SELECT Name FROM weather_pref WHERE ID = " + metricId);
+
+            param = DB.feedback.get(1).get(0);
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        task = service.submit(new JsonParser("http://192.168.1.1:8085/weatherapi/weather/"+location+"/"+param));
 
         try
         {

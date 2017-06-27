@@ -1,6 +1,7 @@
 package com.smartmirror.sys.applications.widgets;
 
 import com.smartmirror.core.view.AbstractWidget;
+import com.smartmirror.sys.DB;
 import org.json.simple.JSONObject;
 import system.input.json.JsonParser;
 import com.smartmirror.sys.Font;
@@ -9,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,7 +29,9 @@ public class ClockWidget extends AbstractWidget{
     public final ExecutorService service = Executors.newFixedThreadPool(1);
     public Future<JSONObject> task;
 
-    private String current = "00:00:00";
+    public String currentTimeZone;
+
+    public static boolean updated = true;
 
     public ClockWidget()
     {
@@ -78,20 +82,31 @@ public class ClockWidget extends AbstractWidget{
 
                 clock.setText(json.get("hour") + ":" + json.get("minute") + ":" + json.get("second"));
                 clock.setForeground(Color.WHITE);
-                current = clock.getText();
 
                 date.setText(json.get("day_of_month") + "-" + json.get("month") + "-" + json.get("year"));
-            } else {
-                clock.setText(current);
-                clock.setForeground(Color.RED);
             }
         });
     }
 
     public JSONObject requestJson()
     {
-//        task = service.submit(new JsonParser("http://localhost:8090/t/time/Europe/Amsterdam"));
-        task = service.submit(new JsonParser("http://192.168.1.1:8084/timeapi/time/Europe/Amsterdam"));
+        if(updated)
+        {
+            String timezone = "Europe/Amsterdam";
+
+            DB.getConnection();
+            try {
+                DB.selectQuery("SELECT time_zone FROM time_zones WHERE ID IN (SELECT Timezone_ID FROM time WHERE User_ID = " + DB.id + ")");
+                timezone = DB.feedback.get(1).get(0);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            currentTimeZone = timezone;
+        }
+
+
+        task = service.submit(new JsonParser("http://192.168.1.1:8084/timeapi/time/" + currentTimeZone));
 
         try
         {
@@ -105,6 +120,7 @@ public class ClockWidget extends AbstractWidget{
         {
             // error
         }
+        updated = false;
         return json;
     }
 

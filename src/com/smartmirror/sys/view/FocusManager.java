@@ -265,11 +265,15 @@ public class FocusManager implements IFocusManager {
     }
 
     private void update() {
-//        if(componentList.get(_current) instanceof JRadioButton)
-//        {
-//            JRadioButton temp = (JRadioButton)componentList.get(_previous);
-//            ((JRadioButton) componentList.get(_current)).setText(((JRadioButton) componentList.get(_current)).getText() + "<");
-//        }
+        if(componentList.get(_current) instanceof JRadioButton)
+        {
+            componentList.get(_current).setForeground(Color.YELLOW);
+        }
+        if(componentList.get(_previous).getForeground() == Color.YELLOW && componentList.get(_previous) instanceof JRadioButton)
+        {
+            componentList.get(_previous).setForeground(Color.WHITE);
+        }
+
         componentList.get(_current).setBorder(BorderFactory.createLineBorder(Color.WHITE, 4));
         componentList.get(_previous).setBorder(null);
         componentList.get(_previous).updateUI();

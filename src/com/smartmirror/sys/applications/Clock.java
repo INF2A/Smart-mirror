@@ -1,6 +1,7 @@
 package com.smartmirror.sys.applications;
 
 import com.smartmirror.core.view.AbstractWidget;
+import com.smartmirror.sys.DB;
 import com.smartmirror.sys.applications.widgets.ClockWidget;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.sys.Font;
@@ -8,7 +9,9 @@ import com.smartmirror.sys.Font;
 import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.*;
+import java.util.List;
 import java.util.Timer;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -25,6 +28,18 @@ public class Clock extends AbstractSystemApplication{
     private JTextField timezone;
     private JButton save;
     private JButton exit;
+    private JPanel container;
+    private JLabel saveSettings;
+    private JPanel timeZones;
+
+    private JRadioButton amsterdam;
+    private JRadioButton shangai;
+    private JRadioButton santiago;
+    private JRadioButton chicago;
+    private JRadioButton melbourne;
+    private JRadioButton moscow;
+    private List<JRadioButton> radioButtons;
+    private ButtonGroup options;
 
     /**
      * Will only run ones when application is started
@@ -41,22 +56,57 @@ public class Clock extends AbstractSystemApplication{
 
         SYSTEM_Screen.setLayout(new BorderLayout());
 
+        container = new JPanel();
+        container.setBackground(Color.BLACK);
+        container.setForeground(Color.WHITE);
+        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+
         title = new JLabel("Clock");
         title.setFont(Font.applyFontSize(Font.FontSize.H1));
         title.setForeground(Color.WHITE);
+
         icon = new JLabel(SYSTEM_Icon);
         icon.setAlignmentX(Component.CENTER_ALIGNMENT);
+        container.add(icon);
+
         timezoneLabel = new JLabel("Set desired timezone");
         timezoneLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         timezoneLabel.setFont(Font.applyFontSize(Font.FontSize.H2));
         timezoneLabel.setForeground(Color.WHITE);
-        exampleTimezone = new JLabel("Europe/Amsterdam");
-        exampleTimezone.setAlignmentX(Component.CENTER_ALIGNMENT);
-        exampleTimezone.setFont(Font.applyFontSize(Font.FontSize.H3));
-        exampleTimezone.setForeground(Color.WHITE);
-        timezone = new JTextField(45);
-        timezone.setAlignmentX(Component.CENTER_ALIGNMENT);
-        timezone.setMaximumSize(new Dimension(timezone.getPreferredSize().width, timezone.getPreferredSize().height));
+        container.add(timezoneLabel);
+
+        options = new ButtonGroup();
+
+        radioButtons = new ArrayList<>();
+        amsterdam = new JRadioButton("Europe/Amsterdam");
+        amsterdam.setActionCommand("425");
+        santiago = new JRadioButton("America/Santiago");
+        santiago.setActionCommand("196");
+        shangai = new JRadioButton("Asia/Shanghai");
+        shangai.setActionCommand("309");
+        moscow = new JRadioButton("Europe/Moscow");
+        moscow.setActionCommand("458");
+        melbourne = new JRadioButton("Australia/Melbourne");
+        melbourne.setActionCommand("356");
+        chicago = new JRadioButton("America/Chicago");
+        chicago.setActionCommand("94");
+
+        radioButtons.add(amsterdam);
+        radioButtons.add(santiago);
+        radioButtons.add(shangai);
+        radioButtons.add(moscow);
+        radioButtons.add(melbourne);
+        radioButtons.add(chicago);
+
+        for (JRadioButton radioButton : radioButtons) {
+            radioButton.setBackground(Color.BLACK);
+            radioButton.setForeground(Color.WHITE);
+            radioButton.setFont(Font.applyFontSize(Font.FontSize.H3));
+            radioButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+            options.add(radioButton);
+            container.add(radioButton);
+            focusManager.addComponent(radioButton);
+        }
 
         save = new JButton("Save");
         exit = new JButton("Exit");
@@ -65,17 +115,11 @@ public class Clock extends AbstractSystemApplication{
             SYSTEM_closeScreen();
         });
 
+        save.addActionListener(e -> {
+            saveSettings();
+        });
+
         SYSTEM_Screen.add(title, BorderLayout.PAGE_START);
-
-        JPanel container = new JPanel();
-        container.setBackground(Color.BLACK);
-        container.setForeground(Color.WHITE);
-        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-
-        container.add(icon);
-        container.add(timezoneLabel);
-        container.add(exampleTimezone);
-        container.add(timezone);
 
         SYSTEM_Screen.add(container, BorderLayout.CENTER);
 
@@ -87,9 +131,27 @@ public class Clock extends AbstractSystemApplication{
 
         SYSTEM_Screen.add(buttonContainer, BorderLayout.PAGE_END);
 
-        focusManager.addComponent(timezone);
         focusManager.addComponent(save);
         focusManager.addComponent(exit);
+    }
+
+    private void saveSettings() {
+        DB.getConnection();
+
+        try {
+            DB.query("UPDATE time SET Timezone_ID = " + options.getSelection().getActionCommand() + " WHERE User_ID = " + DB.id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        saveSettings = new JLabel("Clock settings saved.");
+        saveSettings.setForeground(Color.WHITE);
+        saveSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
+        saveSettings.setFont(Font.applyFontSize(Font.FontSize.H5));
+
+        container.add(saveSettings);
+
+        ClockWidget.updated = true;
     }
 
     @Override

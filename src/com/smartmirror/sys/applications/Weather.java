@@ -1,11 +1,13 @@
 package com.smartmirror.sys.applications;
 
+import com.smartmirror.sys.DB;
 import com.smartmirror.sys.applications.widgets.WeatherWidget;
 import com.smartmirror.sys.view.AbstractSystemApplication;
 import com.smartmirror.sys.Font;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +30,10 @@ public class Weather extends AbstractSystemApplication{
 
     private JButton exit;
     private JButton save;
+
+    JPanel container;
+
+    JLabel saveSettings;
 
     /**
      * Will only run ones when application is started
@@ -89,12 +95,17 @@ public class Weather extends AbstractSystemApplication{
         exit = new JButton("Exit");
 
         exit.addActionListener(e -> {
+            container.remove(saveSettings);
+            SYSTEM_Screen.updateUI();
             SYSTEM_closeScreen();
         });
 
-        SYSTEM_Screen.add(title, BorderLayout.PAGE_START);
+        save.addActionListener(e -> {
+            saveSettings();
+        });
 
-        JPanel container = new JPanel();
+        SYSTEM_Screen.add(title, BorderLayout.PAGE_START);
+        container = new JPanel();
         container.setBackground(Color.BLACK);
         container.setForeground(Color.WHITE);
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
@@ -130,9 +141,43 @@ public class Weather extends AbstractSystemApplication{
         System.out.println("Weather");
     }
 
+    private void saveSettings()
+    {
+        int param = 1;
+
+        if(imperial.isSelected())
+        {
+            param = 2;
+        }
+
+        try {
+            DB.query("UPDATE weather SET location = '" + location.getText() + "', Weather_pref_ID = " + param + " WHERE User_ID = " + DB.id);
+            System.out.println("Saved weather settings");
+            SYSTEM_Widget.update();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        saveSettings = new JLabel("Weather settings saved.");
+        saveSettings.setForeground(Color.WHITE);
+        saveSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
+        saveSettings.setFont(Font.applyFontSize(Font.FontSize.H5));
+
+        container.add(saveSettings);
+    }
+
 
     @Override
     public void onBackButton() {
+        if(container != null)
+        {
+            if(saveSettings != null)
+            {
+                container.remove(saveSettings);
+            }
+        }
+
+        SYSTEM_Screen.updateUI();
 
         super.onBackButton();
         SYSTEM_closeScreen();

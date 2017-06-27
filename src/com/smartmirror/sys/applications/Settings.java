@@ -56,6 +56,7 @@ public class Settings extends AbstractSystemApplication{
     @Override
     public void init() {
         container.removeAll();
+        focusManager.removeComponents(focusManager.getComponentList());
         displayApps();
     }
 

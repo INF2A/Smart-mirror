@@ -7,9 +7,11 @@ import java.util.ArrayList;
  * Created by Erwin on 6/12/2017.
  */
 public class DB {
-    static int id;// static user id
+    public static int id;// static user id
     static String pw = "slimme spiegel";
     static String username = "Slimme Spiegel";
+
+    static boolean busy = false;
 
 
     public static ArrayList<ArrayList<String>> feedback = new ArrayList<ArrayList<String>>();
@@ -21,7 +23,7 @@ public class DB {
     public static Connection getConnection() {
         try {
             if(connection == null || connection.isClosed()) {
-                connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/cluster_slimme_spiegel?user=root&password=qwer");
+                connection = DriverManager.getConnection("jdbc:mariadb://192.168.2.153/cluster_slimme_spiegel?user=ss2&password=pass");
                 id = 1;
                 return connection;
             }
@@ -63,11 +65,13 @@ public class DB {
   }
 
     public static void selectQuery(String query) throws SQLException {
+        DB.getConnection();
         Statement stmt = connection.createStatement();
         stmt.execute(query);
         ResultSet rs = stmt.getResultSet();
         ResultSetMetaData rsm = rs.getMetaData();
         feed = new ArrayList<>();
+        feedback = new ArrayList<>();
         for (int y = 1; y < rsm.getColumnCount(); y++) {
             feed.add(rsm.getColumnName(y));
         }
@@ -81,13 +85,13 @@ public class DB {
             feedback.add(feed);
         }
         stmt.close();
-        connection.close();
+//        connection.close();
     }
 
     public static void query(String query) throws SQLException {
         getConnection();
         Statement stmt = connection.createStatement();
         stmt.execute(query);
-        connection.close();
+//        connection.close();
     }
 }
