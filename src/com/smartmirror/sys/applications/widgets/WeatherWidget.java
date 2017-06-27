@@ -73,7 +73,7 @@ public class WeatherWidget extends AbstractWidget {
 
                     try
                     {
-                        Thread.sleep(7200000);
+                        Thread.sleep(30000);
                     }
                     catch (InterruptedException e)
                     {
